@@ -734,3 +734,93 @@
 - 16:59:48.953 DEBUG: Quit CEF message loop
 - 16:59:48.078 INFO: Ended application
 - 16:59:48.078 INFO: --------------------------------------------------------
+- 22:08:05.016 INFO: --------------------------------------------------------
+- 22:08:05.016 INFO: Starting application
+- 22:08:05.016 INFO: PHP Desktop version: 130.1
+- 22:08:05.016 INFO: Chromium version: CEF 130.1.15+g34b05bb+chromium-130.0.6723.92
+- 22:08:05.016 INFO: Logging to: E:\BCULMS\debug.log
+- 22:08:05.016 INFO: Log level = DEBUG4
+- 22:08:05.016 INFO: Starting Mongoose 3.9c web server
+- 22:08:05.016 INFO: WWW directory: E:\BCULMS\www\public
+- 22:08:05.016 INFO: Index files: index.html,index.php
+- 22:08:05.016 INFO: CGI interpreter: E:\BCULMS\php\php-cgi.exe
+- 22:08:05.016 INFO: CGI pattern: **.php$
+- 22:08:05.016 INFO: Hide files patterns: 
+- 22:08:05.016 INFO: CGI environment variables set: TMP=C:\Users\darkp\AppData\Local\Temp\,TEMP=C:\Users\darkp\AppData\Local\Temp\,TMPDIR=C:\Users\darkp\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=130.1
+- 22:08:05.016 INFO: Web server url: http://127.0.0.1:51002/
+- 22:08:05.016 INFO: remote_debugging_port = 50432
+- 22:08:05.016 INFO: Sandbox is disabled
+- 22:08:05.016 DEBUG: Command line string for the browser process: "E:\BCULMS\BCULMS.exe" --no-sandbox --lang=en-US --log-file="E:\BCULMS\debug.log" --remote-debugging-port=50432 --disable-gpu
+[6760:2780:0202/220805.715:WARNING:chrome_main_delegate.cc(747)] This is Chrome version 130.0.6723.92 (not a warning)
+- 22:08:05.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2184,i,13190483928241447781,9856998183885689028,262144 --variations-seed-version --enable-logging=handle --log-file=2292 --mojo-platform-channel-handle=2260 /prefetch:3
+- 22:08:05.000 DEBUG: Command line string for the gpu-process process: "E:\BCULMS\BCULMS.exe" --type=gpu-process --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --gpu-preferences=UAAAAAAAAADgAAAEAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --use-gl=angle --use-angle=swiftshader-webgl --field-trial-handle=2112,i,13190483928241447781,9856998183885689028,262144 --variations-seed-version --enable-logging=handle --log-file=2016 --mojo-platform-channel-handle=2100 /prefetch:2
+[6760:2780:0202/220805.848:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+- 22:08:05.172 DEBUG: App context initialized
+- 22:08:05.172 INFO: Create main window
+- 22:08:05.172 DEBUG: Window max width/height = 1840/984
+- 22:08:05.172 DEBUG: Browser window not found, hwnd = 4259886
+- 22:08:05.172 DEBUG: Event WM_GETMINMAXINFO: could not fetch browser window
+- 22:08:05.172 DEBUG: Create main browser
+- 22:08:05.172 INFO: Runtime style: alloy
+- 22:08:05.172 DEBUG: Store browser window, hwnd = 4259886
+- 22:08:05.187 INFO: Main window was created, hwnd=4259886
+- 22:08:05.219 DEBUG: Browser was created
+- 22:08:05.219 DEBUG: Set browser for window
+- 22:08:05.234 DEBUG: OnLoadingStateChange: loading=1, url=
+[6760:2780:0202/220805.959:WARNING:extension_service.cc(2028)] Found external version of extension ngpampappnmepgilojfohadhhmbhlaekthat is older than current version. Current version is: 6.42.59. New version is: 6.42.50. Keeping current version.
+- 22:08:05.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=50432 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1770022164810948 --launch-time-ticks=19121120784 --field-trial-handle=3556,i,13190483928241447781,9856998183885689028,262144 --variations-seed-version --enable-logging=handle --log-file=3624 --mojo-platform-channel-handle=3608 /prefetch:1
+- 22:08:06.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2340,i,13190483928241447781,9856998183885689028,262144 --variations-seed-version --enable-logging=handle --log-file=2236 --mojo-platform-channel-handle=2376 /prefetch:8
+- 22:08:06.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=50432 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1770022164810948 --launch-time-ticks=19121116715 --field-trial-handle=3544,i,13190483928241447781,9856998183885689028,262144 --variations-seed-version --enable-logging=handle --log-file=3568 --mojo-platform-channel-handle=3564 /prefetch:1
+- 22:08:06.015 DEBUG: V8 browser was created
+[14636:8820:0202/220806.248:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+- 22:08:06.578 DEBUG: V8 context created, in context: 1
+- 22:08:06.875 INFO: GET 200 /css/bootstrap.css
+- 22:08:06.875 INFO: GET 200 /css/app.css
+- 22:08:06.875 INFO: GET 200 /icons/bootstrap-icons.css
+- 22:08:06.875 INFO: GET 200 /favicon.ico
+- 22:08:06.875 INFO: GET 200 /
+- 22:08:06.875 INFO: GET 200 /js/bootstrap.bundle.js
+- 22:08:06.891 INFO: JS Console: [Info] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:51002/_boost/browser-logs(http://127.0.0.1:51002/:17)
+- 22:08:06.891 INFO: GET 200 /js/app.js
+- 22:08:06.906 INFO: GET 200 /icons/fonts/bootstrap-icons.woff2?e34853135f9e39acf64315236852cd5a
+- 22:08:06.906 INFO: GET 200 /fonts/Montserrat-VariableFont_wght.ttf
+- 22:08:06.953 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:51002/
+- 22:08:09.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4316,i,13190483928241447781,9856998183885689028,262144 --variations-seed-version --enable-logging=handle --log-file=4460 --mojo-platform-channel-handle=4396 /prefetch:8
+- 22:08:09.078 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:51002/
+- 22:08:09.781 DEBUG: V8 browser was created
+- 22:08:09.781 ERROR: StoreJavascriptApi() failed, api already exists
+- 22:08:10.062 DEBUG: V8 context created, in context: 1
+- 22:08:10.359 INFO: GET 200 /books
+- 22:08:10.375 INFO: JS Console: [Info] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:51002/_boost/browser-logs(http://127.0.0.1:51002/books:17)
+- 22:08:10.375 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:51002/books
+- 22:08:10.078 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:51002/books
+- 22:08:10.781 DEBUG: V8 browser was created
+- 22:08:10.781 ERROR: StoreJavascriptApi() failed, api already exists
+- 22:08:11.062 DEBUG: V8 context created, in context: 1
+- 22:08:11.375 INFO: GET 200 /copies
+- 22:08:11.375 INFO: JS Console: [Info] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:51002/_boost/browser-logs(http://127.0.0.1:51002/copies:17)
+- 22:08:11.375 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:51002/copies
+- 22:08:11.578 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:51002/copies
+- 22:08:11.515 DEBUG: V8 context created, in context: 1
+- 22:08:11.812 INFO: JS Console: [Info] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:51002/_boost/browser-logs(http://127.0.0.1:51002/copies:17)
+- 22:08:11.812 INFO: GET 200 /copies
+- 22:08:11.828 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:51002/copies
+- 22:08:13.750 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:51002/copies
+- 22:08:13.453 DEBUG: V8 browser was created
+- 22:08:13.453 ERROR: StoreJavascriptApi() failed, api already exists
+- 22:08:13.687 DEBUG: V8 context created, in context: 1
+- 22:08:13.984 INFO: GET 200 /
+- 22:08:13.984 INFO: JS Console: [Info] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:51002/_boost/browser-logs(http://127.0.0.1:51002/:17)
+- 22:08:13.000 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:51002/
+- 22:08:15.687 DEBUG: WM_DESTROY
+- 22:08:15.687 DEBUG: Remove browser window, hwnd = 4259886
+- 22:08:15.687 INFO: Stopping Mongoose web server
+- 22:08:15.687 DEBUG: Mongoose webserver stopped immediately
+- 22:08:15.406 DEBUG: V8 browser was destroyed
+- 22:08:15.703 DEBUG: Before browser is closed, hwnd=1181604
+- 22:08:15.703 DEBUG: Remove browser window, hwnd = 1181604
+- 22:08:15.703 DEBUG: Browser window not found, hwnd = 1181604
+- 22:08:15.703 WARNING: RemoveBrowserWindow() failed: GetBrowserWindow() failed
+- 22:08:15.703 DEBUG: Quit CEF message loop
+- 22:08:15.781 INFO: Ended application
+- 22:08:15.781 INFO: --------------------------------------------------------

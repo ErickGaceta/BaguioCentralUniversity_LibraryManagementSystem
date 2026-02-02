@@ -1,6 +1,6 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\BookCopiesController;
 use App\Http\Controllers\LibraryTransactionsController;
@@ -9,7 +9,6 @@ use App\Http\Controllers\FacultiesController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\GenerateController;
 use App\Http\Controllers\ArchivesController;
-use App\Http\Controllers\DashboardController;
 
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
