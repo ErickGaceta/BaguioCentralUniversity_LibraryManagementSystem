@@ -824,3 +824,67 @@
 - 22:08:15.703 DEBUG: Quit CEF message loop
 - 22:08:15.781 INFO: Ended application
 - 22:08:15.781 INFO: --------------------------------------------------------
+- 18:00:33.016 INFO: --------------------------------------------------------
+- 18:00:33.016 INFO: Starting application
+- 18:00:33.016 INFO: PHP Desktop version: 130.1
+- 18:00:33.016 INFO: Chromium version: CEF 130.1.15+g34b05bb+chromium-130.0.6723.92
+- 18:00:33.016 INFO: Logging to: E:\BCULMS\debug.log
+- 18:00:33.016 INFO: Log level = DEBUG4
+- 18:00:33.016 INFO: Starting Mongoose 3.9c web server
+- 18:00:33.016 INFO: WWW directory: E:\BCULMS\www\public
+- 18:00:33.016 INFO: Index files: index.html,index.php
+- 18:00:33.016 INFO: CGI interpreter: E:\BCULMS\php\php-cgi.exe
+- 18:00:33.016 INFO: CGI pattern: **.php$
+- 18:00:33.016 INFO: Hide files patterns: 
+- 18:00:33.016 INFO: CGI environment variables set: TMP=C:\Users\darkp\AppData\Local\Temp\,TEMP=C:\Users\darkp\AppData\Local\Temp\,TMPDIR=C:\Users\darkp\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=130.1
+- 18:00:33.016 INFO: Web server url: http://127.0.0.1:64455/
+- 18:00:33.016 INFO: remote_debugging_port = 51652
+- 18:00:33.016 INFO: Sandbox is disabled
+- 18:00:33.016 DEBUG: Command line string for the browser process: "E:\BCULMS\BCULMS.exe" --no-sandbox --lang=en-US --log-file="E:\BCULMS\debug.log" --remote-debugging-port=51652 --disable-gpu
+[9420:14748:0203/180033.389:WARNING:chrome_main_delegate.cc(747)] This is Chrome version 130.0.6723.92 (not a warning)
+[9420:17760:0203/180033.465:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 18:00:33.000 DEBUG: Command line string for the gpu-process process: "E:\BCULMS\BCULMS.exe" --type=gpu-process --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --gpu-preferences=UAAAAAAAAADgAAAEAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --use-gl=angle --use-angle=swiftshader-webgl --field-trial-handle=1972,i,5663009201342875892,15894510823444941971,262144 --variations-seed-version --enable-logging=handle --log-file=2112 --mojo-platform-channel-handle=1968 /prefetch:2
+[9420:14748:0203/180033.514:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[17800:17884:0203/180033.514:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 18:00:33.188 DEBUG: App context initialized
+- 18:00:33.188 INFO: Create main window
+- 18:00:33.188 DEBUG: Window max width/height = 1840/984
+- 18:00:33.188 DEBUG: Browser window not found, hwnd = 67568
+- 18:00:33.188 DEBUG: Event WM_GETMINMAXINFO: could not fetch browser window
+- 18:00:33.188 DEBUG: Create main browser
+- 18:00:33.188 INFO: Runtime style: alloy
+- 18:00:33.188 DEBUG: Store browser window, hwnd = 67568
+- 18:00:33.203 INFO: Main window was created, hwnd=67568
+- 18:00:33.235 DEBUG: Browser was created
+- 18:00:33.235 DEBUG: Set browser for window
+- 18:00:33.250 DEBUG: OnLoadingStateChange: loading=1, url=
+[9420:14748:0203/180033.616:WARNING:extension_service.cc(2028)] Found external version of extension ngpampappnmepgilojfohadhhmbhlaekthat is older than current version. Current version is: 6.42.59. New version is: 6.42.50. Keeping current version.
+- 18:00:33.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2376,i,5663009201342875892,15894510823444941971,262144 --variations-seed-version --enable-logging=handle --log-file=2396 --mojo-platform-channel-handle=2392 /prefetch:8
+- 18:00:33.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=51652 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1770098922820544 --launch-time-ticks=13910782641 --field-trial-handle=3608,i,5663009201342875892,15894510823444941971,262144 --variations-seed-version --enable-logging=handle --log-file=3672 --mojo-platform-channel-handle=3668 /prefetch:1
+- 18:00:33.016 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=51652 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1770098922820544 --launch-time-ticks=13910778264 --field-trial-handle=3584,i,5663009201342875892,15894510823444941971,262144 --variations-seed-version --enable-logging=handle --log-file=3600 --mojo-platform-channel-handle=3596 /prefetch:1
+- 18:00:33.062 DEBUG: V8 browser was created
+[17788:17792:0203/180034.126:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+- 18:00:34.906 INFO: GET 302 /
+- 18:00:34.313 INFO: GET 200 /dashboard
+- 18:00:34.328 INFO: GET 200 /build/assets/app-l0sNRNKZ.js
+- 18:00:34.328 INFO: GET 200 /build/assets/app-DTvLoY4-.css
+- 18:00:34.328 INFO: GET 200 /favicon.ico
+- 18:00:34.031 DEBUG: V8 context created, in context: 1
+- 18:00:34.422 INFO: GET 200 /fonts/Montserrat-VariableFont_wght.ttf
+- 18:00:35.781 INFO: GET 200 /flux/flux.js?id=a81ab97b
+- 18:00:35.781 INFO: GET 200 /livewire-227249e7/livewire.js?id=8a1734eb
+- 18:00:35.828 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:64455/dashboard
+- 18:00:36.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4344,i,5663009201342875892,15894510823444941971,262144 --variations-seed-version --enable-logging=handle --log-file=4464 --mojo-platform-channel-handle=4328 /prefetch:8
+[9420:17712:0203/180038.488:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[17800:17876:0203/180038.537:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 18:00:39.922 DEBUG: WM_DESTROY
+- 18:00:39.922 DEBUG: Remove browser window, hwnd = 67568
+- 18:00:39.922 INFO: Stopping Mongoose web server
+- 18:00:39.922 DEBUG: Mongoose webserver stopped immediately
+- 18:00:39.953 DEBUG: Before browser is closed, hwnd=1247174
+- 18:00:39.953 DEBUG: Remove browser window, hwnd = 1247174
+- 18:00:39.953 DEBUG: Browser window not found, hwnd = 1247174
+- 18:00:39.953 WARNING: RemoveBrowserWindow() failed: GetBrowserWindow() failed
+- 18:00:39.953 DEBUG: Quit CEF message loop
+- 18:00:39.031 INFO: Ended application
+- 18:00:39.031 INFO: --------------------------------------------------------

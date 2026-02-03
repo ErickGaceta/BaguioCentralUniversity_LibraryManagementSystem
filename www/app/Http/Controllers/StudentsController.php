@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 class StudentsController extends Controller
 {
     public function index (){
-        return view('layouts.pages.users.students.index');
+        return view('pages.students.index');
+    }
+
+    public function create () {
+        return view('pages.students.create');
+    }
+
+    public function edit () {
+        return view('pages.students.edit');
     }
 }

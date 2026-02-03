@@ -1,0 +1,10 @@
+{
+    "agents": [
+        "claude_code"
+    ],
+    "skills": [
+        "fluxui-development",
+        "livewire-development",
+        "tailwindcss-development"
+    ]
+}
