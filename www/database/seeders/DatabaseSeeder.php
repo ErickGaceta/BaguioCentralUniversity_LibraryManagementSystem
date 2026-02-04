@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             DepartmentSeeder::class,
             CourseSeeder::class,
+            BookSeeder::class,
+            CopySeeder::class,
         ]);
     }
 }

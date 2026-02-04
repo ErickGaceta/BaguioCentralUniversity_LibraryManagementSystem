@@ -1,3 +1,7 @@
-<div>
-    <!-- Happiness is not something readymade. It comes from your own actions. - Dalai Lama -->
-</div>
+<x-layouts::app :title="('__Edit Faculty')">
+    <div class="flex flex-col w-full mx-auto gap-2">
+        <div class="mb-4">
+            <flux:heading size="xl">Edit Faculty</flux:heading>
+        </div>
+    </div>
+</x-layouts::app>

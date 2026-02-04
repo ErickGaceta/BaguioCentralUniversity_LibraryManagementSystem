@@ -17,6 +17,8 @@ return new class extends Migration
             $table->text("copy_id");
             $table->text("amount");
             $table->text("reason");
+            $table->integer("status")->default(0);
+            $table->date("date_paid")->nullable();
             $table->timestamps();
 
             $table->foreign("faculty_id")->references('faculty_id')->on('faculties')->cascadeOnUpdate()->cascadeOnDelete();

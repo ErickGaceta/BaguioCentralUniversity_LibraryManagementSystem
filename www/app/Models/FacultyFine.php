@@ -11,6 +11,8 @@ class FacultyFine extends Model
         'copy_id',
         'amount',
         'reason',
+        'status',
+        'date_paid',
     ];
 
     public function faculty()
@@ -21,5 +23,17 @@ class FacultyFine extends Model
     public function copy()
     {
         return $this->belongsTo(Copy::class, 'copy_id', 'copy_id');
+    }
+
+    public function isPaid()
+    {
+        return $this->status === 1;
+    }
+
+    public function markAsPaid()
+    {
+        $this->status = 1;
+        $this->date_paid = now();
+        $this->save();
     }
 }

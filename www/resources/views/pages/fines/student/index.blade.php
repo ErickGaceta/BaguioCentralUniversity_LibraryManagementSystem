@@ -1,3 +1,7 @@
-<div>
-    <!-- Knowing is not enough; we must apply. Being willing is not enough; we must do. - Leonardo da Vinci -->
-</div>
+<x-layouts::app :title="('__Student Fines')">
+    <div class="flex flex-col w-full mx-auto gap-2">
+        <div class="mb-4">
+            <flux:heading size="xl">Student Fines</flux:heading>
+        </div>
+    </div>
+</x-layouts::app>

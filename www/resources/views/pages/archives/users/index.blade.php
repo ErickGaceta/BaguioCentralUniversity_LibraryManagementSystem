@@ -1,3 +1,7 @@
-<div>
-    <!-- Let all your things have their places; let each part of your business have its time. - Benjamin Franklin -->
-</div>
+<x-layouts::app :title="('__User Archive')">
+    <div class="flex flex-col w-full mx-auto gap-2">
+        <div class="mb-4">
+            <flux:heading size="xl">User Archive</flux:heading>
+        </div>
+    </div>
+</x-layouts::app>

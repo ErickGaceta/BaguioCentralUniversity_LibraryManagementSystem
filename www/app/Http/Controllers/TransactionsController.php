@@ -9,10 +9,10 @@ class TransactionsController extends Controller
     public function index(){
         return view("pages.transactions.index");
     }
-    public function transactions_library (){
+    public function library (){
         return view('pages.transactions.library.index');
     }
-    public function transactions_borrow (){
+    public function borrow (){
         return view('pages.transactions.borrow.index');
     }
 }

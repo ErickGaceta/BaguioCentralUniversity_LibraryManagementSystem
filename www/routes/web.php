@@ -28,6 +28,13 @@ Route::prefix('books')->name('books.')->controller(BooksController::class)->grou
 // Book Copies
 Route::get('/copies', [BookCopiesController::class, 'index'])->name('copies.index');
 
+
+// Transactions
+Route::prefix('transactions')->name('transactions.')->controller(TransactionsController::class)->group(function () {
+    Route::get('/borrow', 'borrow')->name('borrow.index');
+    Route::get('/library', 'library')->name('library.index');
+});
+
 // Students
 Route::prefix('students')->name('students.')->controller(StudentsController::class)->group(function () {
     Route::get('/', 'index')->name('index');
@@ -45,23 +52,16 @@ Route::prefix('faculty')->name('faculty.')->controller(FacultiesController::clas
 // Archives
 Route::prefix('archives')->name('archives.')->controller(ArchivesController::class)->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::get('/books', 'archive_books')->name('books');
-    Route::get('/library', 'archive_library')->name('library');
-    Route::get('/users', 'archive_users')->name('users');
-});
-
-// Transactions
-Route::prefix('transactions')->name('transactions.')->controller(TransactionsController::class)->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/library', 'transactions_library')->name('library');
-    Route::get('/borrow', 'transactions_borrow')->name('borrow');
+    Route::get('/books', 'archive_books')->name('books.index');
+    Route::get('/transactions', 'archive_transactions')->name('transactions.index');
+    Route::get('/users', 'archive_users')->name('users.index');
 });
 
 // Fines
 Route::prefix('fines')->name('fines.')->controller(FinesController::class)->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::get('/students', 'fines_students')->name('students');
-    Route::get('/faculty', 'fines_faculties')->name('faculty');
+    Route::get('/students', 'fines_students')->name('students.index');
+    Route::get('/faculty', 'fines_faculties')->name('faculty.index');
 });
 
 // Generate

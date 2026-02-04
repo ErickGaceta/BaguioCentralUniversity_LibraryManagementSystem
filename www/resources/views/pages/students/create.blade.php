@@ -1,3 +1,7 @@
-<div>
-    <!-- I begin to speak only when I am certain what I will say is not better left unsaid. - Cato the Younger -->
-</div>
+<x-layouts::app :title="('__Add Student')">
+    <div class="flex flex-col w-full mx-auto gap-2">
+        <div class="mb-4">
+            <flux:heading size="xl">Add Student</flux:heading>
+        </div>
+    </div>
+</x-layouts::app>

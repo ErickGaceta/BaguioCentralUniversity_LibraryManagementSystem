@@ -1,3 +1,7 @@
-<div>
-    <!-- Do what you can, with what you have, where you are. - Theodore Roosevelt -->
-</div>
+<x-layouts::app :title="('__Students')">
+    <div class="flex flex-col w-full mx-auto gap-2">
+        <div class="mb-4">
+            <flux:heading size="xl">Reports</flux:heading>
+        </div>
+    </div>
+</x-layouts::app>

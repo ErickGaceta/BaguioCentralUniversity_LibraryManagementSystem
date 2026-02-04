@@ -14,8 +14,8 @@ class ArchivesController extends Controller
         return view('pages.archives.books.index');
     }
 
-    public function archive_library (){
-        return view('pages.archives.library.index');
+    public function archive_transactions (){
+        return view('pages.archives.transactions.index');
     }
 
     public function archive_users (){
