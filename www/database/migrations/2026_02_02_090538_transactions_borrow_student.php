@@ -16,9 +16,10 @@ return new class extends Migration
             $table->text("student_id");
             $table->text("copy_id");
             $table->text("ref_number");
-            $table->date("date_borrowed");
+            $table->text("return_ref_number")->nullable();
+            $table->datetime("date_borrowed");
             $table->date("due_date");
-            $table->date("date_returned");
+            $table->datetime("date_returned")->nullable();
 
             $table->foreign("student_id")->references('student_id')->on( 'students')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign("copy_id")->references('copy_id')->on('copies')->cascadeOnUpdate()->cascadeOnDelete();

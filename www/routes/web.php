@@ -1,71 +1,62 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\BooksController;
-use App\Http\Controllers\BookCopiesController;
-use App\Http\Controllers\StudentsController;
-use App\Http\Controllers\FacultiesController;
-use App\Http\Controllers\ArchivesController;
-use App\Http\Controllers\TransactionsController;
-use App\Http\Controllers\FinesController;
-use App\Http\Controllers\GenerateController;
+use App\Livewire\Dashboard;
+use App\Livewire\Pages\Books\BookIndex;
+use App\Livewire\Pages\Books\BookEdit;
+use App\Livewire\Pages\Books\BookCreate;
+use App\Livewire\Pages\Copies\CopyIndex;
+use App\Livewire\Pages\Transactions\Issuance;
+use App\Livewire\Pages\Transactions\Library;
+use App\Livewire\Pages\Users\FacultyCreate;
+use App\Livewire\Pages\Users\FacultyEdit;
+use App\Livewire\Pages\Users\FacultyIndex;
+use App\Livewire\Pages\Users\StudentCreate;
+use App\Livewire\Pages\Users\StudentEdit;
+use App\Livewire\Pages\Users\StudentIndex;
+use App\Livewire\Pages\Fines\Student;
+use App\Livewire\Pages\Fines\Faculty;
+use App\Livewire\Pages\Archives\Libraries;
+use App\Livewire\Pages\Archives\Users;
+use App\Livewire\Pages\Archives\Transaction;
+use App\Livewire\Pages\Reports\Generate;
+use App\Livewire\Pages\Reports\Index;
 
-Route::get('/', function () {
-    return redirect()->route('dashboard');
+Route::get('/', Dashboard::class)->name('dashboard');
+
+
+Route::prefix('books')->name('books.')->group(function () {
+    Route::get('/', BookIndex::class)->name('index');
 });
 
-// Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/copies', CopyIndex::class)->name('copies.index');
 
-// Books
-Route::prefix('books')->name('books.')->controller(BooksController::class)->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/create', 'create')->name('create');
-    Route::get('/edit', 'edit')->name('edit');
+Route::prefix('transactions')->name('transactions.')->group(function () {
+    Route::get('/issuance', Issuance::class)->name('issuance');
+    Route::get('/library', Library::class)->name('library');
 });
 
-// Book Copies
-Route::get('/copies', [BookCopiesController::class, 'index'])->name('copies.index');
-
-
-// Transactions
-Route::prefix('transactions')->name('transactions.')->controller(TransactionsController::class)->group(function () {
-    Route::get('/borrow', 'borrow')->name('borrow.index');
-    Route::get('/library', 'library')->name('library.index');
+Route::prefix('users')->name('users.')->group(function () {
+    Route::get('/students-index', StudentIndex::class)->name('students-index');
+    Route::get('/students-create', StudentCreate::class)->name('students-create');
+    Route::get('/students-edit', StudentEdit::class)->name('students-edit');
+    Route::get('/faculties-index', FacultyIndex::class)->name('faculties-index');
+    Route::get('/faculties-create', FacultyCreate::class)->name('faculties-create');
+    Route::get('/faculties-edit', FacultyEdit::class)->name('faculties-edit');
 });
 
-// Students
-Route::prefix('students')->name('students.')->controller(StudentsController::class)->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/create', 'create')->name('create');
-    Route::get('/edit', 'edit')->name('edit');
+Route::prefix('fines')->name('fines.')->group(function () {
+    Route::get('/student-fines', Student::class)->name('student-fines');
+    Route::get('/faculty-fines', Faculty::class)->name('faculty-fines');
 });
 
-// Faculties
-Route::prefix('faculty')->name('faculty.')->controller(FacultiesController::class)->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/create', 'create')->name('create');
-    Route::get('/edit', 'edit')->name('edit');
+Route::prefix('archives')->name('archives.')->group(function () {
+    Route::get('/archives-library', Libraries::class)->name('archives-library');
+    Route::get('/archives-transactions', Transaction::class)->name('archives-transactions');
+    Route::get('/archives-users', Users::class)->name('archives-users');
 });
 
-// Archives
-Route::prefix('archives')->name('archives.')->controller(ArchivesController::class)->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/books', 'archive_books')->name('books.index');
-    Route::get('/transactions', 'archive_transactions')->name('transactions.index');
-    Route::get('/users', 'archive_users')->name('users.index');
-});
-
-// Fines
-Route::prefix('fines')->name('fines.')->controller(FinesController::class)->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/students', 'fines_students')->name('students.index');
-    Route::get('/faculty', 'fines_faculties')->name('faculty.index');
-});
-
-// Generate
-Route::prefix('generate')->name('generate.')->controller(GenerateController::class)->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/create', 'create')->name('create');
+Route::prefix('reports')->name('reports.')->group(function () {
+    Route::get('/', Index::class)->name('reports-index');
+    Route::get('/generate', Generate::class)->name('reports-generate');
 });

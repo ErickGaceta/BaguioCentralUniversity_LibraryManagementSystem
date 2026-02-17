@@ -12,15 +12,16 @@ class StudentBorrow extends Model
         'student_id',
         'copy_id',
         'ref_number',
+        'return_ref_number', // Add this
         'date_borrowed',
         'due_date',
         'date_returned',
     ];
 
     protected $casts = [
-        'date_borrowed' => 'date',
+        'date_borrowed' => 'datetime',
         'due_date' => 'date',
-        'date_returned' => 'date',
+        'date_returned' => 'datetime',
     ];
 
     public function student()

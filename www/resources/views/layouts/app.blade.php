@@ -1,5 +1,10 @@
-<x-layouts::app.sidebar :title="$title ?? null">
-    <flux:main>
-        {{ $slot }}
-    </flux:main>
-</x-layouts::app.sidebar>
+@include('partial.header')
+
+@include('partial.sidebar')
+
+<main class="w-full">
+    {{ $slot }}
+</main>
+
+
+@include('partial.footer')

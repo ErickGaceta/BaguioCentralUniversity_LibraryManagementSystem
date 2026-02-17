@@ -15,7 +15,8 @@ return new class extends Migration
             $table->text("copy_id")->primary();
             $table->integer("book_id");
             $table->text("course_id");
-            $table->text("status")->default('available');
+            $table->text("status")->default('Available');
+            $table->text("condition")->default('Good');
             $table->timestamps();
 
             $table->foreign("course_id")->references('course_code')->on('courses')->cascadeOnUpdate()->cascadeOnDelete();
