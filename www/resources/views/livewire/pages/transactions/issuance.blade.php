@@ -35,6 +35,7 @@
                 <flux:table.column>Date</flux:table.column>
                 <flux:table.column>Time</flux:table.column>
                 <flux:table.column>Made By</flux:table.column>
+                <flux:table.column></flux:table.column>
             </flux:table.columns>
 
             <flux:table.rows>
@@ -63,10 +64,17 @@
                             <flux:text size="xs" class="text-zinc-500">{{ $borrow->display_id }}</flux:text>
                         </div>
                     </flux:table.cell>
+                    <flux:table.cell align="end">
+                        <flux:button
+                            icon="archive-box-arrow-down"
+                            variant="danger"
+                            wire:click="archiveTransaction('{{ $borrow->type }}', {{ $borrow->id }})"
+                            wire:confirm="Archive this transaction ({{ $borrow->ref_number }})? It will be moved to transaction archives." />
+                    </flux:table.cell>
                 </flux:table.row>
                 @empty
                 <flux:table.row>
-                    <flux:table.cell colspan="5" align="center">No Issuance Transactions</flux:table.cell>
+                    <flux:table.cell colspan="6" align="center">No Issuance Transactions</flux:table.cell>
                 </flux:table.row>
                 @endforelse
             </flux:table.rows>

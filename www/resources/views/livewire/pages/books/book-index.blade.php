@@ -72,7 +72,14 @@
                     <flux:table.cell>{{ $book->publication_date->format('M d, Y') }}</flux:table.cell>
                     <flux:table.cell>{{ $book->copies }}</flux:table.cell>
                     <flux:table.cell align="end">
-                        <flux:button icon="eye" wire:click="openEditModal({{ $book->id }})" />
+                        <div class="flex gap-2 justify-end">
+                            <flux:button icon="eye" wire:click="openEditModal({{ $book->id }})" />
+                            <flux:button
+                                icon="archive-box-arrow-down"
+                                variant="danger"
+                                wire:click="archiveBook({{ $book->id }})"
+                                wire:confirm="Archive '{{ $book->title }}'? It will be moved to the book archives." />
+                        </div>
                     </flux:table.cell>
                 </flux:table.row>
                 @empty

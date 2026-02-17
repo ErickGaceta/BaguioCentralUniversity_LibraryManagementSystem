@@ -5,6 +5,7 @@ namespace App\Livewire\Pages\Users;
 use App\Models\Student;
 use App\Models\Department;
 use App\Models\Course;
+use App\Services\ArchiveTransactionService;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
@@ -61,6 +62,29 @@ class StudentIndex extends Component
         $this->showEditModal = true;
     }
 
+    public function archiveStudent($studentId)
+    {
+        $student = Student::find($studentId);
+
+        if (!$student) {
+            session()->flash('message', 'Student not found.');
+            return;
+        }
+
+        // Prevent archiving if there are active borrows
+        $activeBorrows = $student->borrows()->whereNull('date_returned')->count();
+        if ($activeBorrows > 0) {
+            session()->flash('message', 'Cannot archive student with active book issuances. Please return all books first.');
+            return;
+        }
+
+        ArchiveTransactionService::record('student', "{$student->full_name} ({$student->student_id})");
+
+        $student->delete();
+
+        session()->flash('message', 'Student has been archived.');
+    }
+
     public function updatingSearch()
     {
         $this->resetPage();
@@ -112,9 +136,9 @@ class StudentIndex extends Component
             ->paginate($this->perPage);
 
         return view('livewire.pages.users.student-index', [
-            'students' => $students,
+            'students'    => $students,
             'departments' => $departments,
-            'courses' => $courses,
+            'courses'     => $courses,
         ]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Livewire\Pages\Users;
 
 use App\Models\Faculty;
 use App\Models\Department;
+use App\Services\ArchiveTransactionService;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
@@ -58,6 +59,29 @@ class FacultyIndex extends Component
         $this->showEditModal = true;
     }
 
+    public function archiveFaculty($facultyId)
+    {
+        $faculty = Faculty::find($facultyId);
+
+        if (!$faculty) {
+            session()->flash('message', 'Faculty member not found.');
+            return;
+        }
+
+        // Prevent archiving if there are active borrows
+        $activeBorrows = $faculty->borrows()->whereNull('date_returned')->count();
+        if ($activeBorrows > 0) {
+            session()->flash('message', 'Cannot archive faculty with active book issuances. Please return all books first.');
+            return;
+        }
+
+        ArchiveTransactionService::record('faculty', "{$faculty->full_name} ({$faculty->faculty_id})");
+
+        $faculty->delete();
+
+        session()->flash('message', 'Faculty member has been archived.');
+    }
+
     public function updatingSearch()
     {
         $this->resetPage();
@@ -91,7 +115,7 @@ class FacultyIndex extends Component
             ->paginate($this->perPage);
 
         return view('livewire.pages.users.faculty-index', [
-            'faculties' => $faculties,
+            'faculties'   => $faculties,
             'departments' => $departments,
         ]);
     }

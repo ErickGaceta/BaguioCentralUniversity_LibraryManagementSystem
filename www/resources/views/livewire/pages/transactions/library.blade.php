@@ -23,7 +23,8 @@
     </div>
     <div>
         <flux:heading size="xl">Library Transactions</flux:heading>
-        <flux:text>A table for the transactions made by the librarian <flux:text size="xs">(Add, Edit, and Archive Book)</flux:text></flux:text>
+        <flux:text>A table for the transactions made by the librarian <flux:text size="xs">(Add, Edit, and Archive Book)</flux:text>
+        </flux:text>
     </div>
 
     <div>
@@ -34,6 +35,7 @@
                 <flux:table.column>Date</flux:table.column>
                 <flux:table.column>Time</flux:table.column>
                 <flux:table.column>Made By</flux:table.column>
+                <flux:table.column></flux:table.column>
             </flux:table.columns>
 
             <flux:table.rows>
@@ -44,9 +46,16 @@
                     <flux:table.cell>{{ $lt->created_at->format('M d, Y') }}</flux:table.cell>
                     <flux:table.cell>{{ $lt->created_at->format('h:i A') }}</flux:table.cell>
                     <flux:table.cell>Admin</flux:table.cell>
+                    <flux:table.cell align="end">
+                        <flux:button
+                            icon="archive-box-arrow-down"
+                            variant="danger"
+                            wire:click="archiveLibraryTransaction({{ $lt->id }})"
+                            wire:confirm="Archive this transaction ({{ $lt->ref_number }})? It will be moved to transaction archives." />
+                    </flux:table.cell>
                 </flux:table.row>
                 @empty
-                <flux:table.row col-span="5">
+                <flux:table.row col-span="6">
                     <flux:table.cell align="center">No Recent Transactions</flux:table.cell>
                 </flux:table.row>
                 @endforelse

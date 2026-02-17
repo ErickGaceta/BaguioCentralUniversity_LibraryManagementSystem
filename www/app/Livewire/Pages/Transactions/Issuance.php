@@ -4,6 +4,8 @@ namespace App\Livewire\Pages\Transactions;
 
 use App\Models\FacultyBorrow;
 use App\Models\StudentBorrow;
+use App\Models\TransactionArchive;
+use App\Services\ArchiveTransactionService;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
@@ -14,6 +16,31 @@ class Issuance extends Component
     use WithPagination;
 
     public $perPage = 20;
+
+    public function archiveTransaction($type, $id)
+    {
+        if ($type === 'student') {
+            $record = StudentBorrow::find($id);
+            if ($record) {
+                TransactionArchive::create([
+                    'student_borrow_transaction_id' => (string) $record->id,
+                    'name' => 'Student Borrow - Ref: ' . $record->ref_number,
+                ]);
+                $record->delete();
+                session()->flash('message', 'Student issuance transaction has been archived.');
+            }
+        } elseif ($type === 'faculty') {
+            $record = FacultyBorrow::find($id);
+            if ($record) {
+                TransactionArchive::create([
+                    'faculty_borrow_transaction_id' => (string) $record->id,
+                    'name' => 'Faculty Borrow - Ref: ' . $record->ref_number,
+                ]);
+                $record->delete();
+                session()->flash('message', 'Faculty issuance transaction has been archived.');
+            }
+        }
+    }
 
     public function render()
     {

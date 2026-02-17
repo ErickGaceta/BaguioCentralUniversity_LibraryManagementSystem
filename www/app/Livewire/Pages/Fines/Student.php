@@ -5,7 +5,8 @@ namespace App\Livewire\Pages\Fines;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\StudentFine;
-use App\Models\Student as StudentModel;
+use App\Models\StudentFineArchive;
+use App\Services\ArchiveTransactionService;
 use App\Services\AutomaticPenaltyService;
 
 class Student extends Component
@@ -13,20 +14,17 @@ class Student extends Component
     use WithPagination;
 
     public $search = '';
-    public $statusFilter = 'all'; // all, paid, unpaid
+    public $statusFilter = 'all';
     public $showPaymentModal = false;
 
-    // Payment
     public $fineToPayId;
     public $paymentAmount;
 
-    // Penalty processing status
     public $penaltiesProcessed = false;
     public $penaltyCount = 0;
 
     public function mount()
     {
-        // Automatically check and process penalties when page loads
         $result = AutomaticPenaltyService::checkAndProcess();
 
         if ($result['processed']) {
@@ -48,7 +46,6 @@ class Student extends Component
 
     public function reprocessPenalties()
     {
-        // Clear cache and force reprocessing
         \Illuminate\Support\Facades\Cache::forget('penalties_last_processed');
 
         $result = AutomaticPenaltyService::checkAndProcess();
@@ -108,10 +105,41 @@ class Student extends Component
         }
     }
 
-    public function deleteFine($fineId)
+    public function archiveFine($fineId)
     {
-        StudentFine::find($fineId)->delete();
-        session()->flash('success', 'Fine deleted successfully.');
+        $fine = StudentFine::with(['student', 'copy.book'])->find($fineId);
+
+        if (!$fine) {
+            session()->flash('success', 'Fine not found.');
+            return;
+        }
+
+        // Copy into archive table
+        StudentFineArchive::create([
+            'fine_id'     => $fine->id,
+            'student_id'  => $fine->student_id,
+            'copy_id'     => $fine->copy_id,
+            'amount'      => $fine->amount,
+            'reason'      => $fine->reason,
+            'status'      => $fine->status,
+            'date_paid'   => $fine->date_paid,
+            'archived_at' => now(),
+        ]);
+
+        // Log to library transactions
+        $studentName = $fine->student->first_name . ' ' . $fine->student->last_name;
+        $bookTitle   = $fine->copy->book->title ?? 'Unknown Book';
+        $amount      = number_format($fine->amount, 2);
+        $status      = $fine->isPaid() ? 'Paid' : 'Unpaid';
+
+        ArchiveTransactionService::record(
+            'student_fine',
+            "{$studentName} ({$fine->student_id}) - {$bookTitle} - ₱{$amount} [{$status}]"
+        );
+
+        $fine->delete();
+
+        session()->flash('success', 'Fine has been archived.');
     }
 
     public function render()
@@ -133,16 +161,15 @@ class Student extends Component
             ->orderBy('created_at', 'desc')
             ->paginate(15);
 
-        // Calculate statistics
-        $allFines = StudentFine::all();
+        $allFines    = StudentFine::all();
         $totalUnpaid = $allFines->where('status', 0)->sum('amount');
-        $totalPaid = $allFines->where('status', 1)->sum('amount');
+        $totalPaid   = $allFines->where('status', 1)->sum('amount');
         $countUnpaid = $allFines->where('status', 0)->count();
 
         return view('livewire.pages.fines.student', [
-            'fines' => $fines,
+            'fines'       => $fines,
             'totalUnpaid' => $totalUnpaid,
-            'totalPaid' => $totalPaid,
+            'totalPaid'   => $totalPaid,
             'countUnpaid' => $countUnpaid,
         ]);
     }

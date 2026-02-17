@@ -1898,3 +1898,460 @@
 - 11:18:33.735 DEBUG: Quit CEF message loop
 - 11:18:33.828 INFO: Ended application
 - 11:18:33.828 INFO: --------------------------------------------------------
+- 12:06:16.000 INFO: --------------------------------------------------------
+- 12:06:16.000 INFO: Starting application
+- 12:06:16.000 INFO: PHP Desktop version: 130.1
+- 12:06:16.000 INFO: Chromium version: CEF 130.1.15+g34b05bb+chromium-130.0.6723.92
+- 12:06:16.000 INFO: Logging to: E:\BCULMS\debug.log
+- 12:06:16.000 INFO: Log level = DEBUG4
+- 12:06:16.000 INFO: Starting Mongoose 3.9c web server
+- 12:06:16.000 INFO: WWW directory: E:\BCULMS\www\public
+- 12:06:16.000 INFO: Index files: index.html,index.php
+- 12:06:16.000 INFO: CGI interpreter: E:\BCULMS\php\php-cgi.exe
+- 12:06:16.000 INFO: CGI pattern: **.php$
+- 12:06:16.000 INFO: Hide files patterns: 
+- 12:06:16.000 INFO: CGI environment variables set: TMP=C:\Users\darkp\AppData\Local\Temp\,TEMP=C:\Users\darkp\AppData\Local\Temp\,TMPDIR=C:\Users\darkp\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=130.1
+- 12:06:16.015 INFO: Web server url: http://127.0.0.1:50118/
+- 12:06:16.015 INFO: remote_debugging_port = 61887
+- 12:06:16.015 INFO: Sandbox is disabled
+- 12:06:16.015 DEBUG: Command line string for the browser process: "E:\BCULMS\BCULMS.exe" --no-sandbox --lang=en-US --log-file="E:\BCULMS\debug.log" --remote-debugging-port=61887 --disable-gpu
+[2724:13824:0217/120616.820:WARNING:chrome_main_delegate.cc(747)] This is Chrome version 130.0.6723.92 (not a warning)
+[2724:13824:0217/120616.881:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+- 12:06:16.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2268,i,11732550933566858940,7857414329234234511,262144 --variations-seed-version --enable-logging=handle --log-file=2256 --mojo-platform-channel-handle=2240 /prefetch:3
+- 12:06:16.015 DEBUG: Command line string for the gpu-process process: "E:\BCULMS\BCULMS.exe" --type=gpu-process --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --gpu-preferences=UAAAAAAAAADgAAAEAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --use-gl=angle --use-angle=swiftshader-webgl --field-trial-handle=2096,i,11732550933566858940,7857414329234234511,262144 --variations-seed-version --enable-logging=handle --log-file=2160 --mojo-platform-channel-handle=2088 /prefetch:2
+- 12:06:16.093 DEBUG: App context initialized
+- 12:06:16.093 INFO: Create main window
+- 12:06:16.093 DEBUG: Window max width/height = 1840/984
+- 12:06:16.093 DEBUG: Browser window not found, hwnd = 1706662
+- 12:06:16.093 DEBUG: Event WM_GETMINMAXINFO: could not fetch browser window
+- 12:06:16.093 DEBUG: Create main browser
+- 12:06:16.093 INFO: Runtime style: alloy
+- 12:06:16.093 DEBUG: Store browser window, hwnd = 1706662
+- 12:06:16.016 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2396,i,11732550933566858940,7857414329234234511,262144 --variations-seed-version --enable-logging=handle --log-file=2116 --mojo-platform-channel-handle=2316 /prefetch:8
+- 12:06:16.125 INFO: Main window was created, hwnd=1706662
+[2724:13824:0217/120616.948:WARNING:extension_service.cc(2028)] Found external version of extension ngpampappnmepgilojfohadhhmbhlaekthat is older than current version. Current version is: 6.42.59. New version is: 6.42.50. Keeping current version.
+- 12:06:16.172 DEBUG: Browser was created
+- 12:06:16.172 DEBUG: Set browser for window
+- 12:06:16.172 DEBUG: OnLoadingStateChange: loading=1, url=
+- 12:06:17.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=61887 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1771293228828040 --launch-time-ticks=7948152570 --field-trial-handle=3628,i,11732550933566858940,7857414329234234511,262144 --variations-seed-version --enable-logging=handle --log-file=3652 --mojo-platform-channel-handle=3644 /prefetch:1
+[16792:16848:0217/120617.017:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+- 12:06:17.015 DEBUG: V8 browser was created
+- 12:06:17.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=61887 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1771293228828040 --launch-time-ticks=7948149289 --field-trial-handle=3596,i,11732550933566858940,7857414329234234511,262144 --variations-seed-version --enable-logging=handle --log-file=3620 --mojo-platform-channel-handle=3616 /prefetch:1
+- 12:06:17.750 INFO: GET 200 /build/assets/app-C10hZZy0.css
+- 12:06:17.750 INFO: GET 200 /favicon.ico
+- 12:06:17.547 DEBUG: V8 context created, in context: 1
+- 12:06:17.750 INFO: GET 200 /build/assets/app-CY4WpChI.js
+- 12:06:17.750 INFO: GET 200 /
+- 12:06:17.812 INFO: GET 200 /fonts/Montserrat-VariableFont_wght.ttf
+- 12:06:17.187 INFO: GET 200 /flux/flux.js?id=dca30f4a
+- 12:06:17.187 INFO: GET 200 /livewire-133a85f4/livewire.js?id=51c462b0
+- 12:06:18.234 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50118/build/assets/app-CY4WpChI.js:103)
+- 12:06:18.234 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50118/build/assets/app-CY4WpChI.js:103)
+- 12:06:18.250 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50118/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 12:06:18.250 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50118/
+- 12:06:19.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4432,i,11732550933566858940,7857414329234234511,262144 --variations-seed-version --enable-logging=handle --log-file=3540 --mojo-platform-channel-handle=4356 /prefetch:8
+- 12:06:55.218 INFO: Focus browser, id=1
+- 12:06:55.140 DEBUG: F5 pressed, reloading page
+- 12:06:55.140 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50118/
+- 12:06:56.484 DEBUG: V8 context created, in context: 1
+- 12:06:56.687 INFO: GET 200 /build/assets/app-C10hZZy0.css
+- 12:06:56.687 INFO: GET 200 /favicon.ico
+- 12:06:56.687 INFO: GET 200 /build/assets/app-CY4WpChI.js
+- 12:06:56.687 INFO: GET 200 /
+- 12:06:56.703 INFO: GET 200 /fonts/Montserrat-VariableFont_wght.ttf
+- 12:06:56.140 INFO: GET 200 /flux/flux.js?id=dca30f4a
+- 12:06:56.140 INFO: GET 200 /livewire-133a85f4/livewire.js?id=51c462b0
+- 12:06:57.203 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50118/build/assets/app-CY4WpChI.js:103)
+- 12:06:57.203 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50118/build/assets/app-CY4WpChI.js:103)
+- 12:06:57.218 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50118/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 12:06:57.218 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50118/
+- 12:06:57.218 INFO: GET 200 /favicon.ico
+- 12:06:57.797 DEBUG: WM_DESTROY
+- 12:06:57.797 DEBUG: Remove browser window, hwnd = 1706662
+- 12:06:57.797 INFO: Stopping Mongoose web server
+- 12:06:57.797 DEBUG: Mongoose webserver stopped immediately
+- 12:06:57.828 DEBUG: Before browser is closed, hwnd=526900
+- 12:06:57.828 DEBUG: Remove browser window, hwnd = 526900
+- 12:06:57.828 DEBUG: Browser window not found, hwnd = 526900
+- 12:06:57.828 WARNING: RemoveBrowserWindow() failed: GetBrowserWindow() failed
+- 12:06:57.828 DEBUG: Quit CEF message loop
+- 12:06:57.937 INFO: Ended application
+- 12:06:57.937 INFO: --------------------------------------------------------
+- 12:07:06.000 INFO: --------------------------------------------------------
+- 12:07:06.000 INFO: Starting application
+- 12:07:06.000 INFO: PHP Desktop version: 130.1
+- 12:07:06.000 INFO: Chromium version: CEF 130.1.15+g34b05bb+chromium-130.0.6723.92
+- 12:07:06.000 INFO: Logging to: E:\BCULMS\debug.log
+- 12:07:06.000 INFO: Log level = DEBUG4
+- 12:07:06.000 INFO: Starting Mongoose 3.9c web server
+- 12:07:06.000 INFO: WWW directory: E:\BCULMS\www\public
+- 12:07:06.000 INFO: Index files: index.html,index.php
+- 12:07:06.000 INFO: CGI interpreter: E:\BCULMS\php\php-cgi.exe
+- 12:07:06.000 INFO: CGI pattern: **.php$
+- 12:07:06.000 INFO: Hide files patterns: 
+- 12:07:06.000 INFO: CGI environment variables set: TMP=C:\Users\darkp\AppData\Local\Temp\,TEMP=C:\Users\darkp\AppData\Local\Temp\,TMPDIR=C:\Users\darkp\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=130.1
+- 12:07:06.000 INFO: Web server url: http://127.0.0.1:59464/
+- 12:07:06.000 INFO: remote_debugging_port = 58901
+- 12:07:06.000 INFO: Sandbox is disabled
+- 12:07:06.000 DEBUG: Command line string for the browser process: "E:\BCULMS\BCULMS.exe" --no-sandbox --lang=en-US --log-file="E:\BCULMS\debug.log" --remote-debugging-port=58901 --disable-gpu
+[10224:6688:0217/120706.746:WARNING:chrome_main_delegate.cc(747)] This is Chrome version 130.0.6723.92 (not a warning)
+[10224:6688:0217/120706.816:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+- 12:07:06.015 DEBUG: Command line string for the gpu-process process: "E:\BCULMS\BCULMS.exe" --type=gpu-process --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --gpu-preferences=UAAAAAAAAADgAAAEAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --use-gl=angle --use-angle=swiftshader-webgl --field-trial-handle=2132,i,14498330068238976071,13935164147887508041,262144 --variations-seed-version --enable-logging=handle --log-file=2184 --mojo-platform-channel-handle=2128 /prefetch:2
+- 12:07:06.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2248,i,14498330068238976071,13935164147887508041,262144 --variations-seed-version --enable-logging=handle --log-file=2276 --mojo-platform-channel-handle=2260 /prefetch:3
+- 12:07:06.094 DEBUG: App context initialized
+- 12:07:06.094 INFO: Create main window
+- 12:07:06.094 DEBUG: Window max width/height = 1840/984
+- 12:07:06.094 DEBUG: Browser window not found, hwnd = 1706552
+- 12:07:06.094 DEBUG: Event WM_GETMINMAXINFO: could not fetch browser window
+- 12:07:06.094 DEBUG: Create main browser
+- 12:07:06.094 INFO: Runtime style: alloy
+- 12:07:06.094 DEBUG: Store browser window, hwnd = 1706552
+- 12:07:06.110 INFO: Main window was created, hwnd=1706552
+- 12:07:06.015 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2392,i,14498330068238976071,13935164147887508041,262144 --variations-seed-version --enable-logging=handle --log-file=2416 --mojo-platform-channel-handle=2412 /prefetch:8
+[10224:6688:0217/120706.874:WARNING:extension_service.cc(2028)] Found external version of extension ngpampappnmepgilojfohadhhmbhlaekthat is older than current version. Current version is: 6.42.59. New version is: 6.42.50. Keeping current version.
+- 12:07:06.156 DEBUG: Browser was created
+- 12:07:06.156 DEBUG: Set browser for window
+- 12:07:06.172 DEBUG: OnLoadingStateChange: loading=1, url=
+[17576:9496:0217/120706.935:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+- 12:07:06.015 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=58901 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1771293228828146 --launch-time-ticks=7998083396 --field-trial-handle=3660,i,14498330068238976071,13935164147887508041,262144 --variations-seed-version --enable-logging=handle --log-file=3680 --mojo-platform-channel-handle=3672 /prefetch:1
+- 12:07:06.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=58901 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1771293228828146 --launch-time-ticks=7998079537 --field-trial-handle=3616,i,14498330068238976071,13935164147887508041,262144 --variations-seed-version --enable-logging=handle --log-file=3628 --mojo-platform-channel-handle=3624 /prefetch:1
+- 12:07:06.031 DEBUG: V8 browser was created
+- 12:07:07.750 INFO: GET 200 /build/assets/app-C10hZZy0.css
+- 12:07:07.562 DEBUG: V8 context created, in context: 1
+- 12:07:07.750 INFO: GET 200 /favicon.ico
+- 12:07:07.750 INFO: GET 200 /build/assets/app-CY4WpChI.js
+- 12:07:07.750 INFO: GET 200 /
+- 12:07:07.797 INFO: GET 200 /fonts/Montserrat-VariableFont_wght.ttf
+- 12:07:07.219 INFO: GET 200 /flux/flux.js?id=dca30f4a
+- 12:07:07.219 INFO: GET 200 /livewire-133a85f4/livewire.js?id=51c462b0
+- 12:07:08.266 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:59464/build/assets/app-CY4WpChI.js:103)
+- 12:07:08.266 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:59464/build/assets/app-CY4WpChI.js:103)
+- 12:07:08.281 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:59464/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 12:07:08.281 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:59464/
+- 12:07:09.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4516,i,14498330068238976071,13935164147887508041,262144 --variations-seed-version --enable-logging=handle --log-file=4472 --mojo-platform-channel-handle=4456 /prefetch:8
+- 12:07:36.125 INFO: Focus browser, id=1
+- 12:07:37.969 DEBUG: F5 pressed, reloading page
+- 12:07:37.969 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:59464/
+- 12:07:38.297 DEBUG: V8 context created, in context: 1
+- 12:07:38.485 INFO: GET 200 /favicon.ico
+- 12:07:38.485 INFO: GET 200 /build/assets/app-C10hZZy0.css
+- 12:07:38.485 INFO: GET 200 /build/assets/app-CY4WpChI.js
+- 12:07:38.485 INFO: GET 200 /
+- 12:07:38.500 INFO: GET 200 /fonts/Montserrat-VariableFont_wght.ttf
+- 12:07:38.906 INFO: GET 200 /flux/flux.js?id=dca30f4a
+- 12:07:38.906 INFO: GET 200 /livewire-133a85f4/livewire.js?id=51c462b0
+- 12:07:38.938 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:59464/build/assets/app-CY4WpChI.js:103)
+- 12:07:38.938 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:59464/build/assets/app-CY4WpChI.js:103)
+- 12:07:38.953 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:59464/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 12:07:38.953 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:59464/
+- 12:07:38.953 INFO: GET 200 /favicon.ico
+- 12:07:39.656 DEBUG: WM_DESTROY
+- 12:07:39.656 DEBUG: Remove browser window, hwnd = 1706552
+- 12:07:39.656 INFO: Stopping Mongoose web server
+- 12:07:39.656 DEBUG: Mongoose webserver stopped immediately
+- 12:07:39.656 DEBUG: Before browser is closed, hwnd=2230336
+- 12:07:39.656 DEBUG: Remove browser window, hwnd = 2230336
+- 12:07:39.656 DEBUG: Browser window not found, hwnd = 2230336
+- 12:07:39.656 WARNING: RemoveBrowserWindow() failed: GetBrowserWindow() failed
+- 12:07:39.656 DEBUG: Quit CEF message loop
+- 12:07:39.781 INFO: Ended application
+- 12:07:39.781 INFO: --------------------------------------------------------
+- 12:48:15.000 INFO: --------------------------------------------------------
+- 12:48:15.000 INFO: Starting application
+- 12:48:15.000 INFO: PHP Desktop version: 130.1
+- 12:48:15.000 INFO: Chromium version: CEF 130.1.15+g34b05bb+chromium-130.0.6723.92
+- 12:48:15.000 INFO: Logging to: E:\BCULMS\debug.log
+- 12:48:15.000 INFO: Log level = DEBUG4
+- 12:48:15.000 INFO: Starting Mongoose 3.9c web server
+- 12:48:15.000 INFO: WWW directory: E:\BCULMS\www\public
+- 12:48:15.000 INFO: Index files: index.html,index.php
+- 12:48:15.000 INFO: CGI interpreter: E:\BCULMS\php\php-cgi.exe
+- 12:48:15.000 INFO: CGI pattern: **.php$
+- 12:48:15.000 INFO: Hide files patterns: 
+- 12:48:15.000 INFO: CGI environment variables set: TMP=C:\Users\darkp\AppData\Local\Temp\,TEMP=C:\Users\darkp\AppData\Local\Temp\,TMPDIR=C:\Users\darkp\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=130.1
+- 12:48:15.000 INFO: Web server url: http://127.0.0.1:64056/
+- 12:48:15.016 INFO: remote_debugging_port = 64767
+- 12:48:15.016 INFO: Sandbox is disabled
+- 12:48:15.016 DEBUG: Command line string for the browser process: "E:\BCULMS\BCULMS.exe" --no-sandbox --lang=en-US --log-file="E:\BCULMS\debug.log" --remote-debugging-port=64767 --disable-gpu
+[16560:16536:0217/124815.381:WARNING:chrome_main_delegate.cc(747)] This is Chrome version 130.0.6723.92 (not a warning)
+[16560:16536:0217/124815.446:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+- 12:48:15.016 DEBUG: Command line string for the gpu-process process: "E:\BCULMS\BCULMS.exe" --type=gpu-process --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --gpu-preferences=UAAAAAAAAADgAAAEAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --use-gl=angle --use-angle=swiftshader-webgl --field-trial-handle=2108,i,9048675897883480776,7259746103230077645,262144 --variations-seed-version --enable-logging=handle --log-file=2164 --mojo-platform-channel-handle=2112 /prefetch:2
+- 12:48:15.016 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2232,i,9048675897883480776,7259746103230077645,262144 --variations-seed-version --enable-logging=handle --log-file=2312 --mojo-platform-channel-handle=2308 /prefetch:3
+- 12:48:15.094 DEBUG: App context initialized
+- 12:48:15.094 INFO: Create main window
+- 12:48:15.094 DEBUG: Window max width/height = 1840/984
+- 12:48:15.094 DEBUG: Browser window not found, hwnd = 1968806
+- 12:48:15.094 DEBUG: Event WM_GETMINMAXINFO: could not fetch browser window
+- 12:48:15.110 DEBUG: Create main browser
+- 12:48:15.110 INFO: Runtime style: alloy
+- 12:48:15.110 DEBUG: Store browser window, hwnd = 1968806
+- 12:48:15.125 INFO: Main window was created, hwnd=1968806
+- 12:48:15.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2176,i,9048675897883480776,7259746103230077645,262144 --variations-seed-version --enable-logging=handle --log-file=2096 --mojo-platform-channel-handle=2344 /prefetch:8
+[16560:16536:0217/124815.507:WARNING:extension_service.cc(2028)] Found external version of extension ngpampappnmepgilojfohadhhmbhlaekthat is older than current version. Current version is: 6.42.59. New version is: 6.42.50. Keeping current version.
+- 12:48:15.156 DEBUG: Browser was created
+- 12:48:15.156 DEBUG: Set browser for window
+- 12:48:15.172 DEBUG: OnLoadingStateChange: loading=1, url=
+- 12:48:15.015 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=64767 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1771293228828533 --launch-time-ticks=10466712884 --field-trial-handle=3636,i,9048675897883480776,7259746103230077645,262144 --variations-seed-version --enable-logging=handle --log-file=3288 --mojo-platform-channel-handle=3224 /prefetch:1
+[15144:3228:0217/124815.577:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+- 12:48:15.031 DEBUG: V8 browser was created
+- 12:48:15.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=64767 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1771293228828533 --launch-time-ticks=10466708594 --field-trial-handle=3620,i,9048675897883480776,7259746103230077645,262144 --variations-seed-version --enable-logging=handle --log-file=3632 --mojo-platform-channel-handle=3628 /prefetch:1
+- 12:48:16.735 INFO: GET 200 /build/assets/app-C10hZZy0.css
+- 12:48:16.547 DEBUG: V8 context created, in context: 1
+- 12:48:16.735 INFO: GET 200 /favicon.ico
+- 12:48:16.735 INFO: GET 200 /build/assets/app-CY4WpChI.js
+- 12:48:16.735 INFO: GET 200 /
+- 12:48:16.781 INFO: GET 200 /fonts/Montserrat-VariableFont_wght.ttf
+- 12:48:16.156 INFO: GET 200 /flux/flux.js?id=dca30f4a
+- 12:48:16.172 INFO: GET 200 /livewire-133a85f4/livewire.js?id=51c462b0
+- 12:48:16.203 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:64056/build/assets/app-CY4WpChI.js:103)
+- 12:48:16.203 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:64056/build/assets/app-CY4WpChI.js:103)
+- 12:48:16.219 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:64056/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 12:48:16.219 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:64056/
+- 12:48:18.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4292,i,9048675897883480776,7259746103230077645,262144 --variations-seed-version --enable-logging=handle --log-file=4384 --mojo-platform-channel-handle=4392 /prefetch:8
+- 12:48:35.672 INFO: Focus browser, id=1
+- 12:48:35.344 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:64056/
+- 12:48:37.578 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:64056/books
+- 12:48:37.578 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:64056/
+- 12:48:37.578 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:64056/
+- 12:48:39.422 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:64056/books
+- 12:48:39.422 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:64056/
+- 12:48:39.422 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:64056/
+- 12:48:39.578 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:64056/books
+- 12:48:39.578 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:64056/
+- 12:48:39.578 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:64056/
+- 12:48:40.063 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:64056/books
+- 12:48:40.063 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:64056/
+- 12:48:40.063 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:64056/
+- 12:48:40.156 INFO: GET 200 /books
+- 12:48:40.156 INFO: GET 200 /books
+- 12:48:40.188 INFO: GET 200 /books
+- 12:48:40.203 INFO: GET 200 /books
+- 12:48:40.235 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:64056/copies
+- 12:48:40.250 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:64056/
+- 12:48:40.250 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:64056/
+- 12:48:41.641 INFO: GET 200 /copies
+- 12:48:41.688 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:64056/copies
+- 12:48:41.688 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:64056/
+- 12:48:41.688 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:64056/
+- 12:48:41.781 INFO: GET 200 /copies
+- 12:48:41.860 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:64056/books
+- 12:48:41.860 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:64056/
+- 12:48:41.860 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:64056/
+- 12:48:41.141 INFO: GET 200 /books
+- 12:48:41.140 DEBUG: V8 context created, in context: 1
+- 12:48:41.328 INFO: GET 200 /books
+- 12:48:41.375 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:64056/build/assets/app-CY4WpChI.js:103)
+- 12:48:41.375 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:64056/build/assets/app-CY4WpChI.js:103)
+- 12:48:41.391 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:64056/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 12:48:41.406 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:64056/books
+- 12:48:47.797 INFO: POST 200 /livewire-133a85f4/update
+- 12:49:12.000 INFO: POST 200 /livewire-133a85f4/update
+- 12:49:19.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=patch.mojom.FilePatcher --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4620,i,9048675897883480776,7259746103230077645,262144 --variations-seed-version --enable-logging=handle --log-file=4936 --mojo-platform-channel-handle=4956 /prefetch:8
+- 12:49:19.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=unzip.mojom.Unzipper --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=5052,i,9048675897883480776,7259746103230077645,262144 --variations-seed-version --enable-logging=handle --log-file=4864 --mojo-platform-channel-handle=4872 /prefetch:8
+- 12:49:24.016 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=patch.mojom.FilePatcher --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4848,i,9048675897883480776,7259746103230077645,262144 --variations-seed-version --enable-logging=handle --log-file=4952 --mojo-platform-channel-handle=4872 /prefetch:8
+- 12:49:24.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=unzip.mojom.Unzipper --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=5108,i,9048675897883480776,7259746103230077645,262144 --variations-seed-version --enable-logging=handle --log-file=4436 --mojo-platform-channel-handle=4796 /prefetch:8
+- 12:49:28.703 INFO: POST 200 /livewire-133a85f4/update
+- 12:49:28.141 INFO: POST 200 /livewire-133a85f4/update
+- 12:49:28.015 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=patch.mojom.FilePatcher --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4952,i,9048675897883480776,7259746103230077645,262144 --variations-seed-version --enable-logging=handle --log-file=4960 --mojo-platform-channel-handle=4364 /prefetch:8
+- 12:49:28.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=unzip.mojom.Unzipper --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4712,i,9048675897883480776,7259746103230077645,262144 --variations-seed-version --enable-logging=handle --log-file=4796 --mojo-platform-channel-handle=5024 /prefetch:8
+- 12:49:37.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=patch.mojom.FilePatcher --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4876,i,9048675897883480776,7259746103230077645,262144 --variations-seed-version --enable-logging=handle --log-file=4856 --mojo-platform-channel-handle=4880 /prefetch:8
+- 12:49:37.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=unzip.mojom.Unzipper --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4364,i,9048675897883480776,7259746103230077645,262144 --variations-seed-version --enable-logging=handle --log-file=4784 --mojo-platform-channel-handle=4856 /prefetch:8
+- 12:54:21.860 INFO: Focus browser, id=1
+- 12:54:21.969 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:64056/books
+- 12:54:21.265 DEBUG: V8 context created, in context: 1
+- 12:54:21.453 INFO: GET 200 /copies
+- 12:54:21.500 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:64056/build/assets/app-CY4WpChI.js:103)
+- 12:54:21.500 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:64056/build/assets/app-CY4WpChI.js:103)
+- 12:54:21.516 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:64056/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 12:54:21.516 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:64056/copies
+- 12:54:26.016 INFO: POST 200 /livewire-133a85f4/update
+- 12:54:29.844 INFO: POST 200 /livewire-133a85f4/update
+- 12:54:29.297 DEBUG: WM_DESTROY
+- 12:54:29.297 DEBUG: Remove browser window, hwnd = 1968806
+- 12:54:29.297 INFO: Stopping Mongoose web server
+- 12:54:29.297 DEBUG: Mongoose webserver stopped immediately
+- 12:54:29.313 INFO: POST 200 /livewire-133a85f4/update
+- 12:54:29.344 DEBUG: Before browser is closed, hwnd=5244374
+- 12:54:29.344 DEBUG: Remove browser window, hwnd = 5244374
+- 12:54:29.344 DEBUG: Browser window not found, hwnd = 5244374
+- 12:54:29.344 WARNING: RemoveBrowserWindow() failed: GetBrowserWindow() failed
+- 12:54:29.344 DEBUG: Quit CEF message loop
+- 12:54:29.438 INFO: Ended application
+- 12:54:29.438 INFO: --------------------------------------------------------
+- 12:55:01.000 INFO: --------------------------------------------------------
+- 12:55:01.000 INFO: Starting application
+- 12:55:01.000 INFO: PHP Desktop version: 130.1
+- 12:55:01.000 INFO: Chromium version: CEF 130.1.15+g34b05bb+chromium-130.0.6723.92
+- 12:55:01.000 INFO: Logging to: E:\BCULMS\debug.log
+- 12:55:01.000 INFO: Log level = DEBUG4
+- 12:55:01.000 INFO: Starting Mongoose 3.9c web server
+- 12:55:01.000 INFO: WWW directory: E:\BCULMS\www\public
+- 12:55:01.000 INFO: Index files: index.html,index.php
+- 12:55:01.000 INFO: CGI interpreter: E:\BCULMS\php\php-cgi.exe
+- 12:55:01.000 INFO: CGI pattern: **.php$
+- 12:55:01.000 INFO: Hide files patterns: 
+- 12:55:01.000 INFO: CGI environment variables set: TMP=C:\Users\darkp\AppData\Local\Temp\,TEMP=C:\Users\darkp\AppData\Local\Temp\,TMPDIR=C:\Users\darkp\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=130.1
+- 12:55:01.000 INFO: Web server url: http://127.0.0.1:50710/
+- 12:55:01.000 INFO: remote_debugging_port = 53398
+- 12:55:01.000 INFO: Sandbox is disabled
+- 12:55:01.000 DEBUG: Command line string for the browser process: "E:\BCULMS\BCULMS.exe" --no-sandbox --lang=en-US --log-file="E:\BCULMS\debug.log" --remote-debugging-port=53398 --disable-gpu
+[17628:7088:0217/125501.387:WARNING:chrome_main_delegate.cc(747)] This is Chrome version 130.0.6723.92 (not a warning)
+[17628:7088:0217/125501.455:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+- 12:55:01.000 DEBUG: Command line string for the gpu-process process: "E:\BCULMS\BCULMS.exe" --type=gpu-process --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --gpu-preferences=UAAAAAAAAADgAAAEAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --use-gl=angle --use-angle=swiftshader-webgl --field-trial-handle=2020,i,6834672669601234855,14261444739959082181,262144 --variations-seed-version --enable-logging=handle --log-file=2100 --mojo-platform-channel-handle=2004 /prefetch:2
+- 12:55:01.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2252,i,6834672669601234855,14261444739959082181,262144 --variations-seed-version --enable-logging=handle --log-file=2280 --mojo-platform-channel-handle=2284 /prefetch:3
+- 12:55:01.094 DEBUG: App context initialized
+- 12:55:01.094 INFO: Create main window
+- 12:55:01.094 DEBUG: Window max width/height = 1840/984
+- 12:55:01.094 DEBUG: Browser window not found, hwnd = 3213338
+- 12:55:01.094 DEBUG: Event WM_GETMINMAXINFO: could not fetch browser window
+- 12:55:01.094 DEBUG: Create main browser
+- 12:55:01.094 INFO: Runtime style: alloy
+- 12:55:01.094 DEBUG: Store browser window, hwnd = 3213338
+- 12:55:01.109 INFO: Main window was created, hwnd=3213338
+[17628:7088:0217/125501.506:WARNING:extension_service.cc(2028)] Found external version of extension ngpampappnmepgilojfohadhhmbhlaekthat is older than current version. Current version is: 6.42.59. New version is: 6.42.50. Keeping current version.
+- 12:55:01.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2352,i,6834672669601234855,14261444739959082181,262144 --variations-seed-version --enable-logging=handle --log-file=2368 --mojo-platform-channel-handle=2364 /prefetch:8
+- 12:55:01.156 DEBUG: Browser was created
+- 12:55:01.156 DEBUG: Set browser for window
+- 12:55:01.172 DEBUG: OnLoadingStateChange: loading=1, url=
+- 12:55:01.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=53398 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1771293228828180 --launch-time-ticks=10872714872 --field-trial-handle=3596,i,6834672669601234855,14261444739959082181,262144 --variations-seed-version --enable-logging=handle --log-file=3632 --mojo-platform-channel-handle=3628 /prefetch:1
+- 12:55:01.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=53398 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1771293228828180 --launch-time-ticks=10872718960 --field-trial-handle=3656,i,6834672669601234855,14261444739959082181,262144 --variations-seed-version --enable-logging=handle --log-file=3684 --mojo-platform-channel-handle=3676 /prefetch:1
+[17068:16312:0217/125501.585:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+- 12:55:01.032 DEBUG: V8 browser was created
+- 12:55:03.484 INFO: GET 200 /build/assets/app-C10hZZy0.css
+- 12:55:03.297 DEBUG: V8 context created, in context: 1
+- 12:55:03.484 INFO: GET 200 /favicon.ico
+- 12:55:03.484 INFO: GET 200 /build/assets/app-CY4WpChI.js
+- 12:55:03.484 INFO: GET 200 /
+- 12:55:03.547 INFO: GET 200 /fonts/Montserrat-VariableFont_wght.ttf
+- 12:55:04.922 INFO: GET 200 /flux/flux.js?id=dca30f4a
+- 12:55:04.922 INFO: GET 200 /livewire-133a85f4/livewire.js?id=51c462b0
+- 12:55:04.953 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 12:55:04.953 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 12:55:04.969 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 12:55:04.969 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50710/
+- 12:55:06.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=3904,i,6834672669601234855,14261444739959082181,262144 --variations-seed-version --enable-logging=handle --log-file=4692 --mojo-platform-channel-handle=4688 /prefetch:8
+- 12:55:20.484 INFO: Focus browser, id=1
+- 12:55:30.984 INFO: Focus browser, id=1
+- 12:55:31.953 DEBUG: F5 pressed, reloading page
+- 12:55:31.953 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50710/
+- 12:55:32.719 DEBUG: V8 context created, in context: 1
+- 12:55:32.906 INFO: GET 200 /build/assets/app-C10hZZy0.css
+- 12:55:32.906 INFO: GET 200 /favicon.ico
+- 12:55:32.906 INFO: GET 200 /build/assets/app-CY4WpChI.js
+- 12:55:32.906 INFO: GET 200 /
+- 12:55:32.922 INFO: GET 200 /fonts/Montserrat-VariableFont_wght.ttf
+- 12:55:33.250 INFO: GET 200 /flux/flux.js?id=dca30f4a
+- 12:55:33.250 INFO: GET 200 /livewire-133a85f4/livewire.js?id=51c462b0
+- 12:55:33.281 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 12:55:33.281 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 12:55:33.297 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 12:55:33.297 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50710/
+- 12:55:33.297 INFO: GET 200 /favicon.ico
+- 13:46:56.500 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50710/
+- 13:46:58.156 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:50710/users/faculties-index
+- 13:46:58.156 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50710/
+- 13:46:58.156 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50710/
+- 13:47:02.031 INFO: GET 200 /users/faculties-index
+- 13:47:02.875 DEBUG: V8 context created, in context: 1
+- 13:47:02.062 INFO: GET 200 /users/faculties-index
+- 13:47:02.109 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:47:02.109 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:47:02.125 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:47:02.140 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50710/users/faculties-index
+- 13:47:04.500 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50710/users/faculties-index
+- 13:47:11.438 DEBUG: V8 context created, in context: 1
+- 13:47:11.640 INFO: GET 200 /users/students-index
+- 13:47:11.672 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:47:11.672 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:47:11.703 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:47:11.703 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50710/users/students-index
+- 13:47:18.265 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50710/users/students-index
+- 13:47:19.078 DEBUG: V8 context created, in context: 1
+- 13:47:19.281 INFO: GET 200 /fines/student-fines
+- 13:47:19.344 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:47:19.344 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:47:19.359 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:47:19.390 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50710/fines/student-fines
+- 13:47:22.672 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50710/fines/student-fines
+- 13:47:23.453 DEBUG: V8 context created, in context: 1
+- 13:47:23.640 INFO: GET 200 /fines/faculty-fines
+- 13:47:23.672 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:47:23.672 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:47:23.672 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:47:23.687 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50710/fines/faculty-fines
+- 13:47:25.000 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50710/fines/faculty-fines
+- 13:47:30.578 DEBUG: V8 context created, in context: 1
+- 13:47:30.781 INFO: GET 200 /archives/archives-library
+- 13:47:30.812 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:47:30.812 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:47:30.812 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:47:30.828 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50710/archives/archives-library
+- 13:47:33.422 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50710/archives/archives-library
+- 13:47:39.328 DEBUG: V8 context created, in context: 1
+- 13:47:39.531 INFO: GET 200 /archives/archives-transactions
+- 13:47:39.562 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:47:39.562 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:47:39.578 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:47:39.594 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50710/archives/archives-transactions
+- 13:47:42.484 INFO: POST 200 /livewire-133a85f4/update
+- 13:47:44.109 INFO: POST 200 /livewire-133a85f4/update
+- 13:47:46.625 INFO: POST 200 /livewire-133a85f4/update
+- 13:47:47.078 INFO: POST 200 /livewire-133a85f4/update
+- 13:47:49.500 INFO: POST 200 /livewire-133a85f4/update
+- 13:47:53.125 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50710/archives/archives-transactions
+- 13:47:59.078 DEBUG: V8 context created, in context: 1
+- 13:47:59.281 INFO: GET 200 /archives/archives-users
+- 13:47:59.297 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:47:59.297 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:47:59.312 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:47:59.328 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50710/archives/archives-users
+- 13:48:01.125 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50710/archives/archives-users
+- 13:48:02.891 DEBUG: V8 context created, in context: 1
+- 13:48:02.078 INFO: GET 200 /reports
+- 13:48:02.094 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:48:02.094 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:48:02.109 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:48:02.109 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50710/reports
+- 13:48:04.984 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50710/reports
+- 13:48:05.750 DEBUG: V8 context created, in context: 1
+- 13:48:05.937 INFO: GET 200 /
+- 13:48:05.969 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:48:05.969 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:48:05.984 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:48:05.984 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50710/
+- 13:48:07.609 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50710/
+- 13:48:07.391 DEBUG: V8 context created, in context: 1
+- 13:48:07.578 INFO: GET 200 /books
+- 13:48:07.609 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:48:08.609 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:48:08.625 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:48:08.640 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50710/books
+- 13:48:09.750 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50710/books
+- 13:48:10.657 DEBUG: V8 context created, in context: 1
+- 13:48:10.875 INFO: GET 200 /copies
+- 13:48:10.937 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:48:10.937 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:48:10.969 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:48:10.984 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50710/copies
+- 13:48:12.750 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50710/copies
+- 13:48:16.875 DEBUG: V8 context created, in context: 1
+- 13:48:16.078 INFO: GET 200 /transactions/issuance
+- 13:48:16.125 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:48:16.125 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/build/assets/app-CY4WpChI.js:103)
+- 13:48:16.140 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50710/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:48:16.140 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50710/transactions/issuance
+- 14:59:07.203 INFO: Focus browser, id=1
+- 16:05:04.703 INFO: Focus browser, id=1
+- 16:05:04.703 INFO: Focus browser, id=1
+- 16:05:10.281 INFO: Focus browser, id=1
+- 16:05:10.344 DEBUG: WM_DESTROY
+- 16:05:10.344 DEBUG: Remove browser window, hwnd = 3213338
+- 16:05:10.344 INFO: Stopping Mongoose web server
+- 16:05:10.344 DEBUG: Mongoose webserver stopped immediately
+- 16:05:10.359 DEBUG: Before browser is closed, hwnd=591510
+- 16:05:10.359 DEBUG: Remove browser window, hwnd = 591510
+- 16:05:10.359 DEBUG: Browser window not found, hwnd = 591510
+- 16:05:10.359 WARNING: RemoveBrowserWindow() failed: GetBrowserWindow() failed
+- 16:05:10.359 DEBUG: Quit CEF message loop
+- 16:05:10.453 INFO: Ended application
+- 16:05:10.453 INFO: --------------------------------------------------------

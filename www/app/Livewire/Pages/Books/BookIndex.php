@@ -5,6 +5,8 @@ namespace App\Livewire\Pages\Books;
 use Livewire\WithPagination;
 use App\Models\Book;
 use App\Models\Department;
+use App\Models\ArchivesLibrary;
+use App\Services\ArchiveTransactionService;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
@@ -61,6 +63,33 @@ class BookIndex extends Component
         $this->showEditModal = true;
     }
 
+    public function archiveBook($bookId)
+    {
+        $book = Book::find($bookId);
+
+        if (!$book) {
+            session()->flash('message', 'Book not found.');
+            return;
+        }
+
+        ArchivesLibrary::create([
+            'book_id'          => $book->id,
+            'title'            => $book->title,
+            'author'           => $book->author,
+            'publication_date' => $book->publication_date,
+            'publisher'        => $book->publisher,
+            'isbn'             => $book->isbn,
+            'department_id'    => $book->department_id,
+            'copies'           => $book->copies,
+        ]);
+
+        ArchiveTransactionService::record('book', "\"{$book->title}\" by {$book->author}");
+
+        $book->delete();
+
+        session()->flash('message', 'Book has been archived.');
+    }
+
     public function updatingSearch()
     {
         $this->resetPage();
@@ -87,7 +116,7 @@ class BookIndex extends Component
             ->paginate($this->perPage);
 
         return view('livewire.pages.books.book-index', [
-            'books' => $books,
+            'books'       => $books,
             'departments' => $departments,
         ]);
     }

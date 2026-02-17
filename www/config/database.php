@@ -34,7 +34,18 @@ return [
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
-            'database' => env('DB_DATABASE', database_path('database.sqlite')),
+            'database' => env('DB_DATABASE', function () {
+                $home = $_SERVER['HOME'] ?? $_SERVER['USERPROFILE'] ?? getenv('HOME') ?: getenv('USERPROFILE');
+                $dbPath = $home . DIRECTORY_SEPARATOR . 'Documents' . DIRECTORY_SEPARATOR . 'BCULMS' . DIRECTORY_SEPARATOR . 'library.sqlite';
+
+                // Create Documents folder if it doesn't exist (edge case)
+                $dir = dirname($dbPath);
+                if (!file_exists($dir)) {
+                    mkdir($dir, 0755, true);
+                }
+
+                return $dbPath;
+            }),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
             'busy_timeout' => null,

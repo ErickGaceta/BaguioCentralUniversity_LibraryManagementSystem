@@ -114,7 +114,14 @@
                         @endif
                     </flux:table.cell>
                     <flux:table.cell align="end">
-                        <flux:button icon="eye" wire:click="openEditModal('{{ $st->student_id }}')" />
+                        <div class="flex gap-2 justify-end">
+                            <flux:button icon="eye" wire:click="openEditModal('{{ $st->student_id }}')" />
+                            <flux:button
+                                icon="archive-box-arrow-down"
+                                variant="danger"
+                                wire:click="archiveStudent('{{ $st->student_id }}')"
+                                wire:confirm="Archive {{ $st->full_name }}? This will remove them from the active student list." />
+                        </div>
                     </flux:table.cell>
                 </flux:table.row>
                 @empty

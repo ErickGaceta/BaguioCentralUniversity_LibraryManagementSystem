@@ -17,7 +17,6 @@
     </flux:header>
 
     <flux:main container class="flex flex-col gap-3">
-        {{-- Success Message --}}
         @if (session()->has('success'))
         <flux:card class="mb-6 bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500">
             <div class="flex gap-3 items-center">
@@ -146,12 +145,12 @@
                             @endif
 
                             <flux:button
-                                wire:click="deleteFine({{ $fine->id }})"
-                                wire:confirm="Are you sure you want to delete this fine?"
+                                wire:click="archiveFine({{ $fine->id }})"
+                                wire:confirm="Archive this fine for {{ $fine->faculty->first_name }} {{ $fine->faculty->last_name }}? It will be saved to the archive and removed from this list."
                                 size="sm"
                                 variant="danger"
-                                icon="trash">
-                                Delete
+                                icon="archive-box-arrow-down">
+                                Archive
                             </flux:button>
                         </div>
                     </flux:table.cell>
@@ -166,7 +165,6 @@
             </flux:table.rows>
         </flux:table>
 
-        {{-- Pagination --}}
         <div class="mt-4">
             {{ $fines->links() }}
         </div>

@@ -2,12 +2,57 @@
 
 namespace App\Livewire\Pages\Reports;
 
+use App\Models\Report;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
+    use WithPagination;
+
+    public string $search     = '';
+    public string $typeFilter = '';
+
+    protected $queryString = [
+        'search'     => ['except' => ''],
+        'typeFilter' => ['except' => ''],
+    ];
+
+    // ── Listeners ─────────────────────────────────────────────────────────────
+
+    protected $listeners = ['report-generated' => '$refresh'];
+
+    // ── Actions ───────────────────────────────────────────────────────────────
+
+    public function delete(int $id): void
+    {
+        Report::findOrFail($id)->delete();
+        session()->flash('success', 'Report deleted.');
+    }
+
+    public function updatingSearch(): void
+    {
+        $this->resetPage();
+    }
+
+    public function updatingTypeFilter(): void
+    {
+        $this->resetPage();
+    }
+
+    // ── Render ────────────────────────────────────────────────────────────────
+
     public function render()
     {
-        return view('livewire.pages.reports.index');
+        $reports = Report::query()
+            ->when($this->search, fn($q) => $q->where('title', 'like', "%{$this->search}%"))
+            ->when($this->typeFilter, fn($q) => $q->where('report_type', $this->typeFilter))
+            ->latest()
+            ->paginate(12);
+
+        return view('livewire.pages.reports.index', [
+            'reports'     => $reports,
+            'reportTypes' => Report::TYPES,
+        ]);
     }
 }
