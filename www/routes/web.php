@@ -3,8 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Dashboard;
 use App\Livewire\Pages\Books\BookIndex;
-use App\Livewire\Pages\Books\BookEdit;
-use App\Livewire\Pages\Books\BookCreate;
 use App\Livewire\Pages\Copies\CopyIndex;
 use App\Livewire\Pages\Transactions\Issuance;
 use App\Livewire\Pages\Transactions\Library;
@@ -21,6 +19,7 @@ use App\Livewire\Pages\Archives\Users;
 use App\Livewire\Pages\Archives\Transaction;
 use App\Livewire\Pages\Reports\Generate;
 use App\Livewire\Pages\Reports\Index;
+use App\Http\Controllers\ReportPdfController;
 
 Route::get('/', Dashboard::class)->name('dashboard');
 
@@ -60,3 +59,6 @@ Route::prefix('reports')->name('reports.')->group(function () {
     Route::get('/', Index::class)->name('reports-index');
     Route::get('/generate', Generate::class)->name('reports-generate');
 });
+
+Route::get('/reports/{report}/pdf', [ReportPdfController::class, 'show'])
+    ->name('reports.pdf');

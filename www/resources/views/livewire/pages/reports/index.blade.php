@@ -1,11 +1,29 @@
 <div class="flex flex-col gap-6 p-6">
 
-    <div>
-        <flux:heading size="xl">Reports</flux:heading>
-        <flux:subheading>Generate and browse library reports by type and date range.</flux:subheading>
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+            <flux:heading size="xl">Reports</flux:heading>
+            <flux:subheading>Generate and browse library reports by type and date range.</flux:subheading>
+        </div>
+
+        <flux:modal.trigger name="generate-report">
+            <flux:button
+                variant="primary"
+                icon="clipboard-document-list"
+                color="amber"
+                class="hover:opacity-90 transition shrink-0">
+                Generate Report
+            </flux:button>
+        </flux:modal.trigger>
     </div>
 
-    <div class="flex gap-4 sm:flex-row sm:items-center sm:justify-between">
+    @if (session('success'))
+    <flux:callout variant="success" icon="check-circle" dismissible>
+        {{ session('success') }}
+    </flux:callout>
+    @endif
+
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
         <div class="flex-1">
             <flux:input
                 wire:model.live.debounce.300ms="search"
@@ -13,31 +31,16 @@
                 icon="magnifying-glass"
                 clearable />
         </div>
-        <div class="flex gap-2">
-            <flux:modal.trigger name="generate-report">
-                <flux:button
-                    variant="primary"
-                    icon="document-arrow-down"
-                    style="background-color: #860805;"
-                    class="hover:opacity-90 transition shrink-0 text-white">
-                    Generate Report
-                </flux:button>
-            </flux:modal.trigger>
-            <flux:select
-                wire:model.live="typeFilter"
-                placeholder="All types"
-                class="sm:w-56">
-                @foreach ($reportTypes as $value => $label)
-                <flux:select.option value="{{ $value }}">{{ $label }}</flux:select.option>
-                @endforeach
-            </flux:select>
-        </div>
+
+        <flux:select
+            wire:model.live="typeFilter"
+            placeholder="All types"
+            class="sm:w-56">
+            @foreach ($reportTypes as $value => $label)
+            <flux:select.option value="{{ $value }}">{{ $label }}</flux:select.option>
+            @endforeach
+        </flux:select>
     </div>
-    @if (session('success'))
-    <flux:callout variant="success" icon="check-circle" dismissible>
-        {{ session('success') }}
-    </flux:callout>
-    @endif
 
     <flux:table>
         <flux:table.columns>
@@ -96,12 +99,13 @@
                 <flux:table.cell>
                     <div class="flex items-center gap-1 justify-end">
 
-                        <flux:button
-                            size="sm"
-                            variant="ghost"
-                            icon="eye"
-                            title="View report"
-                            wire:click="$dispatch('view-report', { id: {{ $report->id }} })" />
+                        <a href="{{ route('reports.pdf', $report) }}" target="_blank">
+                            <flux:button
+                                size="sm"
+                                variant="ghost"
+                                icon="eye"
+                                title="View / print PDF" />
+                        </a>
 
                         <flux:button
                             size="sm"

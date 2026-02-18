@@ -109,11 +109,11 @@ class Generate extends Component
         Report::create([
             'title'        => $title,
             'report_type'  => $this->reportType,
-            'period_preset'=> $this->preset,
+            'period_preset' => $this->preset,
             'date_from'    => $dateFrom->toDateString(),
             'date_to'      => $dateTo->toDateString(),
             'report_data'  => $data,
-            'total_records'=> $total,
+            'total_records' => $total,
         ]);
 
         $this->close();
@@ -301,6 +301,24 @@ class Generate extends Component
 
     // ── Render ────────────────────────────────────────────────────────────────
 
+    // ── Computed Properties ───────────────────────────────────────────────────
+
+    public function getPreviewUrlProperty(): string
+    {
+        if (!$this->reportType || !$this->resolvedFrom || !$this->resolvedTo) {
+            return '#';
+        }
+
+        return route('reports.preview', [
+            'type'   => $this->reportType,
+            'preset' => $this->preset,
+            'from'   => $this->resolvedFrom,
+            'to'     => $this->resolvedTo,
+        ]);
+    }
+
+    // ── Render ────────────────────────────────────────────────────────────
+
     public function render()
     {
         return view('livewire.pages.reports.generate', [
@@ -308,9 +326,15 @@ class Generate extends Component
             'presets'     => Report::PRESETS,
             'years'       => range(now()->year, now()->year - 5),
             'months'      => array_combine(range(1, 12), array_map(
-                fn ($m) => Carbon::create(null, $m)->format('F'),
+                fn($m) => Carbon::create(null, $m)->format('F'),
                 range(1, 12)
             )),
+            'subGridClass' => match ($this->preset) {
+                'monthly'     => 'grid-cols-2',
+                'quarterly'   => 'grid-cols-3',
+                'semi_annual' => 'grid-cols-3',
+                default       => 'grid-cols-1',
+            },
         ]);
     }
 }
