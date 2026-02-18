@@ -1,4 +1,4 @@
-**[Home](README.md)** | **[Flowchart]**
+**[Home](README.md)** | **Flowchart**
 
 # BCU Library Management System — Application Flowchart
 
