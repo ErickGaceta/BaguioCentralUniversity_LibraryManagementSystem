@@ -1,3 +1,5 @@
+**[Home](README.md)** | **[Flowchart]**
+
 # BCU Library Management System — Application Flowchart
 
 > Renders in GitHub, GitLab, Obsidian, VS Code (with Mermaid extension), and most modern documentation platforms.
