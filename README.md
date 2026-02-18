@@ -1,3 +1,5 @@
+**Home** | **[Flowchart](Flowchart.md)**
+
 # Baguio Central University — Library Management System
 ### Full Application Documentation
 
