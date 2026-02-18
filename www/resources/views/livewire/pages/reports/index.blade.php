@@ -1,20 +1,10 @@
-<div class="flex flex-col gap-6 p-6">
+<div class="flex flex-col gap-4 p-4">
 
-    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <div class="flex flex-col">
         <div>
             <flux:heading size="xl">Reports</flux:heading>
             <flux:subheading>Generate and browse library reports by type and date range.</flux:subheading>
         </div>
-
-        <flux:modal.trigger name="generate-report">
-            <flux:button
-                variant="primary"
-                icon="clipboard-document-list"
-                color="amber"
-                class="hover:opacity-90 transition shrink-0">
-                Generate Report
-            </flux:button>
-        </flux:modal.trigger>
     </div>
 
     @if (session('success'))
@@ -23,7 +13,7 @@
     </flux:callout>
     @endif
 
-    <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+    <div class="flex gap-3 sm:flex-row sm:items-center">
         <div class="flex-1">
             <flux:input
                 wire:model.live.debounce.300ms="search"
@@ -31,15 +21,26 @@
                 icon="magnifying-glass"
                 clearable />
         </div>
+        <div class="flex gap-2">
+            <flux:modal.trigger name="generate-report">
+                <flux:button
+                    variant="primary"
+                    icon="clipboard-document-list"
+                    color="amber"
+                    class="hover:opacity-90 transition shrink-0">
+                    Generate Report
+                </flux:button>
+            </flux:modal.trigger>
 
-        <flux:select
-            wire:model.live="typeFilter"
-            placeholder="All types"
-            class="sm:w-56">
-            @foreach ($reportTypes as $value => $label)
-            <flux:select.option value="{{ $value }}">{{ $label }}</flux:select.option>
-            @endforeach
-        </flux:select>
+            <flux:select
+                wire:model.live="typeFilter"
+                placeholder="All types"
+                class="sm:w-56">
+                @foreach ($reportTypes as $value => $label)
+                <flux:select.option value="{{ $value }}">{{ $label }}</flux:select.option>
+                @endforeach
+            </flux:select>
+        </div>
     </div>
 
     <flux:table>
