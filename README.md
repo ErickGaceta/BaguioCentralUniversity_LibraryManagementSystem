@@ -1,251 +1,532 @@
-Baguio Central University Library Management System (BCULMS)
+# Baguio Central University — Library Management System
+### Full Application Documentation
 
-Desktop application for managing library books, copies, students, and transactions.
-Built with PHPDesktop and Laravel, using an embedded SQLite database.
+---
 
-Features
+## Table of Contents
 
-Books management: add, edit, archive, and restore.
+1. [Project Overview](#1-project-overview)
+2. [Technology Stack](#2-technology-stack)
+3. [Prerequisites & Installation](#3-prerequisites--installation)
+4. [Directory Structure](#4-directory-structure)
+5. [Database Schema](#5-database-schema)
+6. [Application Modules](#6-application-modules)
+7. [Running the Application](#7-running-the-application)
 
-Book copies management with automatic copy ID generation.
+---
 
-Borrow/return tracking (transaction_borrow) and library change log (transaction_library).
+## 1. Project Overview
 
-Students management with department and course linkage.
+The **Baguio Central University Library Management System (BCU-LMS)** is a desktop web application built to manage the university library's day-to-day operations. It handles book inventory, borrowing and returning of books, fines management, student and faculty records, and archiving — all within a clean, role-aware interface.
 
-Archived books view, including archived copies and historical transactions.
+The system runs locally via **PHPDesktop**, which wraps the Laravel application in a standalone desktop executable, eliminating the need for a separate browser or web server setup for end users.
 
-Tech Stack
+---
 
-PHPDesktop runtime with embedded Chromium for the UI.
+## 2. Technology Stack
 
-Laravel 11+ for backend routing, database operations, and templating.
+### Backend
 
-SQLite database (local file storage).
+| Technology | Version | Purpose |
+|---|---|---|
+| **PHP** | ^8.2 | Core server-side language |
+| **Laravel** | ^11.x | MVC application framework |
+| **SQLite** | 3.x | Local relational database (bundled with PHPDesktop) |
 
-Blade templates, Vanilla JavaScript, Bootstrap for frontend UI.
+### Frontend
 
-Project Structure
-app/                 Laravel backend logic (controllers, models, services)
-    Http/
-        Controllers/     BooksController.php, StudentsController.php, TransactionsController.php
-    Models/             Book.php, BookCopy.php, TransactionBorrow.php, ArchivedBook.php, etc.
-database/            Migrations and seeders for creating schema and seeding initial data
-resources/
-    views/            Blade templates (dashboard.blade.php, books.blade.php, archived-books.blade.php)
-    js/               Frontend scripts (frontend-operations.js, library-operations.js, popup.js)
-public/              Static assets (CSS, JS, images, favicon.ico)
-storage/             SQLite database (library.db), logs, and backups
+| Technology | Version | Purpose |
+|---|---|---|
+| **Livewire** | ^3.x | Full-stack reactive components without writing custom JavaScript |
+| **Flux UI** | ^1.x | Blade component library built on top of Livewire for UI elements (sidebar, navs, avatars, etc.) |
+| **Alpine.js** | ^3.x | Lightweight JavaScript for inline interactivity and state management |
+| **Tailwind CSS** | ^3.x | Utility-first CSS framework for styling |
+| **Vite** | ^5.x | Frontend asset bundler |
 
+### Desktop Runtime
 
-app/Http/Controllers/: Handles domain logic (books, copies, transactions).
+| Technology | Purpose |
+|---|---|
+| **PHPDesktop** | Packages the Laravel app as a native desktop application using an embedded Chromium browser and a PHP CGI server |
 
-app/Models/: Laravel Eloquent models mapping to database tables.
+---
 
-database/migrations/: Schema creation and migration scripts.
+## 3. Prerequisites & Installation
 
-resources/views/: Blade templates for UI pages.
+### 3.1 Development Prerequisites
 
-resources/js/: JavaScript helpers and page-specific logic.
+Ensure the following are installed on your development machine before proceeding.
 
-public/: Assets served to the embedded browser.
+#### Required Software
 
-storage/: Database files and backups.
+- **PHP 8.2+**
+  Download from [https://www.php.net/downloads](https://www.php.net/downloads). Ensure the following extensions are enabled in `php.ini`:
+  ```
+  extension=pdo_sqlite
+  extension=sqlite3
+  extension=mbstring
+  extension=openssl
+  extension=curl
+  extension=fileinfo
+  extension=zip
+  ```
 
-Database
+- **Composer** (PHP dependency manager)
+  Download from [https://getcomposer.org](https://getcomposer.org)
 
-Location: storage/library.db (created automatically on first run).
+- **Node.js 20+ & npm**
+  Download from [https://nodejs.org](https://nodejs.org). Required for building frontend assets with Vite.
 
-Integrity: Checked on app startup; if corrupt, a timestamped backup is saved and DB rebuilt.
+- **Git** *(optional, for version control)*
+  Download from [https://git-scm.com](https://git-scm.com)
 
-Seeding: Departments and courses are created automatically if missing.
+---
 
-Schema highlights:
+### 3.2 PHPDesktop
 
-books holds active metadata and status.
+**PHPDesktop** is a Windows tool that converts a PHP web application into a standalone desktop application. It bundles:
 
-book_copy holds physical copies.
+- An embedded **PHP CGI** server
+- An embedded **Chromium** browser window
+- Your application files
 
-transaction_borrow records borrow/return per copy.
+#### Download & Setup
 
-transaction_library records library operations (Add, Edit, Archive, Restore, Delete).
+1. Download the latest PHPDesktop release from the official GitHub repository:
+   [https://github.com/cztomczak/phpdesktop](https://github.com/cztomczak/phpdesktop)
 
-archived_books holds archived book records, including author and publication date.
+2. Extract the downloaded ZIP into a folder, e.g., `C:\phpdesktop\`
 
-archived_book_copy holds archived copies.
+3. Copy your Laravel project files into the `www/` folder inside PHPDesktop's directory.
 
-archived_transaction_borrow keeps historical borrow transactions after archiving.
-
-Archiving Flow
-
-Triggered via LibraryOperations::archiveBook($bookId) (PHP service class).
-
-Updates books.status to Archived.
-
-Inserts into archived_books including book_title, author, publication_date, and archive_date.
-
-Migrates non-borrowed copies from book_copy to archived_book_copy.
-
-Moves completed borrow transactions into archived_transaction_borrow and cleans up.
-
-Logs an Archive operation in transaction_library.
-
-Restoring uses LibraryOperations::restoreArchivedBook($bookId) which reverses the above steps and logs Restore.
-
-Running
-
-Packaged app: Launch the executable under dist/BCULMS/.
-
-Development (optional):
-
-Install PHPDesktop for Windows.
-
-Place Laravel project inside www/ folder of PHPDesktop.
-
-Ensure storage/library.db is writable.
-
-Run php artisan serve --host=127.0.0.1 --port=8000 if needed.
-
-Troubleshooting
-
-DB not ready on page load: Ensure queries occur only after Laravel services initialize.
-
-SQLite errors or corruption: On startup, PRAGMA integrity_check is performed; auto-recover if needed via backup and rebuild.
-
-Contributing
-
-Follow existing code style and patterns in app/ and resources/js/.
-
-Use Eloquent models and DB wrapper methods for operations.
-
-Avoid committing secrets; all data is stored locally in SQLite.
-
-Credits
-
-PHPDesktop: https://github.com/cztomczak/phpdesktop
-
-Laravel Framework: https://laravel.com
-
-If thou wishest, I can also rewrite the folder structure diagram as it would exist in PHPDesktop + Laravel specifically, showing where the HTML, JS, CSS, and SQLite files go for the desktop package.
-
-Dost thou wish me to do that?
-
-can you style it?
-
-Aye, I shall craft it in clean, styled Markdown fit for documentation or README display, with headings, code blocks, lists, and subtle emphasis for clarity. Here is the polished version:
-
-Baguio Central University Library Management System (BCULMS)
-
-Desktop application for managing library books, copies, students, and transactions.
-Built with PHPDesktop and Laravel, using an embedded SQLite database.
-
-Features
-
-Books management: Add, edit, archive, and restore.
-
-Book copies management: Automatic copy ID generation.
-
-Borrow/return tracking (transaction_borrow) and library change log (transaction_library).
-
-Students management: Department and course linkage.
-
-Archived books view: Archived copies and historical transactions.
-
-Tech Stack
-
-Runtime: PHPDesktop with embedded Chromium.
-
-Backend: Laravel 11+.
-
-Database: SQLite (local file storage).
-
-Frontend: Blade templates, Vanilla JavaScript, Bootstrap.
-
-Project Structure
-BCULMS/
-├─ app/
-│  ├─ Http/Controllers/    # Controllers (BooksController, StudentsController, TransactionsController)
-│  └─ Models/              # Eloquent models (Book, BookCopy, TransactionBorrow, ArchivedBook, etc.)
-├─ database/
-│  ├─ migrations/          # Schema creation and migration scripts
-│  └─ seeders/             # Initial seeding of departments/courses
-├─ resources/
-│  ├─ views/               # Blade templates (dashboard.blade.php, books.blade.php, archived-books.blade.php)
-│  └─ js/                  # Frontend scripts (frontend-operations.js, library-operations.js, popup.js)
-├─ public/                 # Static assets (CSS, JS, images, favicon.ico)
-├─ storage/                # SQLite database (library.db), logs, backups
-└─ dist/                   # Packaged PHPDesktop app
-
-Database
-
-Location: storage/library.db (auto-created on first run).
-
-Integrity: Checked at startup; corrupt DB triggers backup and rebuild.
-
-Seeding: Departments and courses are automatically seeded if missing.
-
-Schema Highlights:
-
-Table	Purpose
-books	Active book metadata and status
-book_copy	Physical copies of books
-transaction_borrow	Borrow/return transactions
-transaction_library	Log of library operations (Add/Edit/Archive/Restore/Delete)
-archived_books	Archived book records (title, author, publication_date, archive_date)
-archived_book_copy	Archived copies
-archived_transaction_borrow	Historical borrow transactions
-Archiving & Restoring Flow
-
-Archiving:
-
-LibraryOperations::archiveBook($bookId) updates books.status to Archived.
-
-Inserts data into archived_books.
-
-Migrates non-borrowed copies from book_copy → archived_book_copy.
-
-Moves completed borrow transactions → archived_transaction_borrow.
-
-Logs operation in transaction_library.
-
-Restoring:
-
-LibraryOperations::restoreArchivedBook($bookId) reverses the above and logs Restore.
-
-Running the Application
-
-Packaged App:
-
-Launch the executable under dist/BCULMS/.
-
-Development Mode:
-
-Install PHPDesktop.
-
-Place Laravel project in PHPDesktop www/ folder.
-
-Ensure storage/library.db is writable.
-
-Run Laravel locally if needed:
-
-php artisan serve --host=127.0.0.1 --port=8000
-
-Troubleshooting
-
-DB not ready on page load: Ensure queries occur only after Laravel initializes services.
-
-SQLite errors or corruption: Integrity is checked at startup. Backup is saved and DB rebuilt automatically.
-
-Contributing
-
-Follow the existing code style in app/ and resources/js/.
-
-Use Eloquent models and database wrapper methods.
-
-Avoid committing secrets; DB is local.
-
-Credits
-
-PHPDesktop: https://github.com/cztomczak/phpdesktop
-
-Laravel Framework: https://laravel.com
+4. Edit `settings.json` in the PHPDesktop root to configure the startup URL and window settings:
+   ```json
+   {
+     "main_window": {
+       "title": "BCU Library Management System",
+       "default_size": [1280, 800],
+       "minimum_size": [1024, 768],
+       "center_on_screen": true,
+       "start_fullscreen": false
+     },
+     "web_server": {
+       "listen_on": ["127.0.0.1", 0],
+       "www_directory": "www",
+       "index_files": ["index.php"],
+       "cgi_interpreter": "php/php-cgi.exe",
+       "cgi_extensions": ["php"]
+     }
+   }
+   ```
+
+5. Place the PHP binaries (`php-cgi.exe` and associated DLLs) in the `php/` folder inside the PHPDesktop directory.
+
+6. Set the `APP_URL` in your `.env` file to `http://localhost` and `SESSION_DRIVER=file` so it works without a database-backed session server.
+
+#### Notes for PHPDesktop Deployment
+
+- The SQLite database file should be placed inside `www/database/` and referenced in `.env` as:
+  ```
+  DB_CONNECTION=sqlite
+  DB_DATABASE=/full/path/to/www/database/database.sqlite
+  ```
+- Run `php artisan config:cache` and `php artisan route:cache` before packaging to improve load times.
+- Pre-build all frontend assets with `npm run build` — Vite's dev server is not used in PHPDesktop.
+
+---
+
+### 3.3 Local Development Setup
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-org/bcu-lms.git
+cd bcu-lms
+
+# 2. Install PHP dependencies
+composer install
+
+# 3. Install Node dependencies
+npm install
+
+# 4. Copy environment file and configure
+cp .env.example .env
+php artisan key:generate
+
+# 5. Set up the SQLite database
+touch database/database.sqlite
+php artisan migrate
+
+# 6. Seed the database (optional)
+php artisan db:seed
+
+# 7. Build frontend assets
+npm run build
+# OR for development with hot reload:
+npm run dev
+
+# 8. Start the development server
+php artisan serve
+```
+
+The application will be available at `http://127.0.0.1:8000`.
+
+---
+
+## 4. Directory Structure
+
+```
+bcu-lms/
+│
+├── app/
+│   ├── Http/
+│   │   └── Controllers/         # Standard Laravel controllers (if any)
+│   ├── Livewire/                 # Livewire component classes
+│   │   ├── Books/
+│   │   │   ├── BookList.php
+│   │   │   ├── BookForm.php
+│   │   │   └── CopyList.php
+│   │   ├── Transactions/
+│   │   │   ├── Issuance.php
+│   │   │   └── LibraryTransaction.php
+│   │   ├── Users/
+│   │   │   ├── StudentList.php
+│   │   │   └── FacultyList.php
+│   │   ├── Fines/
+│   │   │   ├── StudentFines.php
+│   │   │   └── FacultyFines.php
+│   │   ├── Archives/
+│   │   │   ├── ArchiveBooks.php
+│   │   │   ├── ArchiveTransactions.php
+│   │   │   └── ArchiveUsers.php
+│   │   ├── Dashboard.php
+│   │   └── Reports.php
+│   ├── Models/
+│   │   ├── Book.php
+│   │   ├── Copy.php
+│   │   ├── Course.php
+│   │   ├── Department.php
+│   │   ├── Faculty.php
+│   │   ├── FacultyBorrow.php
+│   │   ├── FacultyFine.php
+│   │   ├── LibraryTransaction.php
+│   │   ├── Student.php
+│   │   ├── StudentBorrow.php
+│   │   ├── StudentFine.php
+│   │   ├── TransactionArchive.php
+│   │   └── ArchivesLibrary.php
+│   └── Providers/
+│       └── AppServiceProvider.php
+│
+├── database/
+│   ├── migrations/
+│   │   ├── xxxx_xx_xx_create_cache_table.php
+│   │   ├── xxxx_xx_xx_create_jobs_table.php
+│   │   ├── xxxx_xx_xx_create_departments_table.php
+│   │   ├── xxxx_xx_xx_create_books_table.php
+│   │   ├── xxxx_xx_xx_create_courses_table.php
+│   │   ├── xxxx_xx_xx_create_copies_table.php
+│   │   ├── xxxx_xx_xx_create_archives_library_table.php
+│   │   ├── xxxx_xx_xx_create_faculties_table.php
+│   │   ├── xxxx_xx_xx_create_students_table.php
+│   │   ├── xxxx_xx_xx_create_faculty_borrows_table.php
+│   │   ├── xxxx_xx_xx_create_student_borrows_table.php
+│   │   ├── xxxx_xx_xx_create_library_transactions_table.php
+│   │   ├── xxxx_xx_xx_create_student_fines_table.php
+│   │   ├── xxxx_xx_xx_create_faculty_fines_table.php
+│   │   ├── xxxx_xx_xx_create_transaction_archives_table.php
+│   │   └── xxxx_xx_xx_create_sessions_table.php
+│   ├── seeders/
+│   │   └── DatabaseSeeder.php
+│   └── database.sqlite              # SQLite database file (auto-generated)
+│
+├── resources/
+│   ├── css/
+│   │   └── app.css                  # Tailwind CSS entry point
+│   ├── js/
+│   │   └── app.js                   # Alpine.js / JS entry point
+│   └── views/
+│       ├── layouts/
+│       │   ├── app.blade.php        # Main layout shell
+│       │   └── partial/
+│       │       ├── header.blade.php # HTML head, Vite assets, Livewire styles
+│       │       ├── sidebar.blade.php# Flux sidebar navigation
+│       │       └── footer.blade.php # Livewire scripts, closing tags
+│       ├── livewire/
+│       │   ├── books/
+│       │   │   ├── book-list.blade.php
+│       │   │   ├── book-form.blade.php
+│       │   │   └── copy-list.blade.php
+│       │   ├── transactions/
+│       │   │   ├── issuance.blade.php
+│       │   │   └── library-transaction.blade.php
+│       │   ├── users/
+│       │   │   ├── student-list.blade.php
+│       │   │   └── faculty-list.blade.php
+│       │   ├── fines/
+│       │   │   ├── student-fines.blade.php
+│       │   │   └── faculty-fines.blade.php
+│       │   ├── archives/
+│       │   │   ├── archive-books.blade.php
+│       │   │   ├── archive-transactions.blade.php
+│       │   │   └── archive-users.blade.php
+│       │   ├── dashboard.blade.php
+│       │   └── reports.blade.php
+│       └── components/              # Reusable Blade/Flux components
+│
+├── routes/
+│   └── web.php                      # Application routes
+│
+├── config/
+│   ├── app.php
+│   ├── database.php
+│   └── ...
+│
+├── public/
+│   ├── index.php                    # Application entry point
+│   ├── favicon.ico                  # BCU logo / favicon
+│   └── build/                       # Compiled Vite assets (after npm run build)
+│
+├── storage/
+│   ├── app/
+│   ├── framework/
+│   └── logs/
+│
+├── bootstrap/
+│   └── app.php
+│
+├── .env                             # Environment configuration
+├── .env.example
+├── artisan                          # Laravel CLI
+├── composer.json
+├── package.json
+├── tailwind.config.js
+├── vite.config.js
+└── README.md
+```
+
+---
+
+## 5. Database Schema
+
+The application uses **SQLite** as its database engine. All tables are defined via Laravel migrations. Foreign key constraints are enforced via `PRAGMA foreign_keys=ON`.
+
+### Entity Overview
+
+#### `departments`
+Stores academic departments. Acts as the root entity for both books and users.
+
+| Column | Type | Notes |
+|---|---|---|
+| `department_code` | TEXT | Primary Key |
+| `name` | TEXT | Indexed |
+
+---
+
+#### `courses`
+Academic courses, each belonging to a department.
+
+| Column | Type | Notes |
+|---|---|---|
+| `course_code` | TEXT | Primary Key |
+| `department_id` | TEXT | FK → `departments.department_code` |
+| `name` | TEXT | Indexed |
+
+---
+
+#### `books`
+The master book catalog.
+
+| Column | Type | Notes |
+|---|---|---|
+| `id` | INTEGER | Auto-increment PK |
+| `title` | TEXT | Indexed |
+| `author` | TEXT | |
+| `publication_date` | DATE | |
+| `publisher` | TEXT | |
+| `isbn` | TEXT | |
+| `department_id` | TEXT | FK → `departments.department_code` |
+| `category` | TEXT | |
+| `copies` | INTEGER | Total copy count |
+
+---
+
+#### `copies`
+Individual physical copies of a book, linked to a specific course.
+
+| Column | Type | Notes |
+|---|---|---|
+| `copy_id` | TEXT | Primary Key |
+| `book_id` | INTEGER | FK → `books.id` |
+| `course_id` | TEXT | FK → `courses.course_code` |
+| `status` | TEXT | Default: `Available` |
+| `condition` | TEXT | Default: `Good` |
+
+---
+
+#### `students`
+
+| Column | Type | Notes |
+|---|---|---|
+| `student_id` | TEXT | Primary Key |
+| `first_name` | TEXT | |
+| `middle_name` | TEXT | |
+| `last_name` | TEXT | Composite index with names |
+| `department_id` | TEXT | FK → `departments.department_code` |
+| `course_id` | TEXT | FK → `courses.course_code` |
+| `year_level` | INTEGER | |
+
+---
+
+#### `faculties`
+
+| Column | Type | Notes |
+|---|---|---|
+| `faculty_id` | TEXT | Primary Key |
+| `first_name` | TEXT | |
+| `middle_name` | TEXT | |
+| `last_name` | TEXT | Composite index with names |
+| `department_id` | TEXT | FK → `departments.department_code` |
+| `occupation` | TEXT | |
+
+---
+
+#### `student_borrows` / `faculty_borrows`
+Tracks borrowing transactions for students and faculty respectively.
+
+| Column | Type | Notes |
+|---|---|---|
+| `id` | INTEGER | Auto-increment PK |
+| `student_id` / `faculty_id` | TEXT | FK to respective table |
+| `copy_id` | TEXT | FK → `copies.copy_id` |
+| `ref_number` | TEXT | Transaction reference |
+| `date_borrowed` | DATE | |
+| `due_date` | DATE | |
+| `date_returned` | DATE | |
+
+---
+
+#### `student_fines` / `faculty_fines`
+Tracks overdue or damage fines.
+
+| Column | Type | Notes |
+|---|---|---|
+| `id` | INTEGER | Auto-increment PK |
+| `student_id` / `faculty_id` | TEXT | FK to respective table |
+| `copy_id` | TEXT | FK → `copies.copy_id` |
+| `amount` | TEXT | Fine amount |
+| `reason` | TEXT | |
+| `status` | INTEGER | `0` = Unpaid, `1` = Paid |
+| `date_paid` | DATE | Nullable |
+
+---
+
+#### `library_transactions`
+General library-level transaction log (e.g., in-library use, walk-ins).
+
+| Column | Type | Notes |
+|---|---|---|
+| `id` | INTEGER | Auto-increment PK |
+| `transaction_name` | TEXT | |
+| `ref_number` | TEXT | |
+
+---
+
+#### `archives_library`
+Archived/retired book records removed from active inventory.
+
+| Column | Type | Notes |
+|---|---|---|
+| `id` | INTEGER | Auto-increment PK |
+| `book_id` | INTEGER | Original book reference |
+| `title`, `author`, `publisher`, etc. | TEXT | Snapshot at time of archiving |
+| `department_id` | TEXT | FK → `departments.department_code` |
+
+---
+
+#### `transaction_archives`
+Links archived student/faculty borrow or library transaction records.
+
+| Column | Type | Notes |
+|---|---|---|
+| `id` | INTEGER | Auto-increment PK |
+| `student_borrow_transaction_id` | TEXT | Nullable |
+| `faculty_borrow_transaction_id` | TEXT | Nullable |
+| `library_transaction_id` | TEXT | Nullable |
+| `name` | TEXT | |
+
+---
+
+## 6. Application Modules
+
+The sidebar navigation defines the primary modules of the application:
+
+### Dashboard
+An at-a-glance summary of library activity: total books, active borrows, pending fines, and recent transactions.
+
+### Bookshelf
+- **Books** — Add, edit, search, and manage the master book catalog. Each book is tied to a department and has a total copy count.
+- **Copies** — Manage individual physical copies of books. Each copy has a status (`Available`, `Borrowed`, `Lost`, etc.) and a condition rating.
+
+### Transactions
+- **Issuance** — Process book borrowing and returning for both students and faculty. Generates a reference number per transaction.
+- **Library** — Log in-library usage or reading room transactions that don't involve a take-home borrow.
+
+### Users
+- **Students** — Add and manage student profiles, including department and course enrollment.
+- **Faculties** — Add and manage faculty profiles and departmental assignments.
+
+### Fines
+- **Students** — View and manage outstanding fines for student borrowers. Mark fines as paid and record payment date.
+- **Faculties** — Same as above for faculty borrowers.
+
+### Archives
+- **Books** — View books that have been retired from active inventory.
+- **Transactions** — Historical log of completed or archived borrow transactions.
+- **Users** — Archived student or faculty profiles no longer actively using the library.
+
+### Reports
+Generate and print library reports, covering borrow frequency, overdue items, fine collection summaries, and department-level statistics.
+
+---
+
+## 7. Running the Application
+
+### Development Mode
+
+```bash
+# Terminal 1 — Start the Laravel dev server
+php artisan serve
+
+# Terminal 2 — Start Vite for hot module reloading
+npm run dev
+```
+
+Visit `http://127.0.0.1:8000` in your browser.
+
+### Production / PHPDesktop Mode
+
+```bash
+# Build optimized frontend assets
+npm run build
+
+# Cache config and routes for faster startup
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+Then launch `phpdesktop-chrome.exe` from the PHPDesktop directory. The app will open in a self-contained desktop window — no browser installation required by end users.
+
+### Useful Artisan Commands
+
+| Command | Purpose |
+|---|---|
+| `php artisan migrate` | Run all pending database migrations |
+| `php artisan migrate:fresh` | Drop all tables and re-run migrations |
+| `php artisan migrate:fresh --seed` | Fresh migration with seeders |
+| `php artisan db:seed` | Run database seeders |
+| `php artisan config:cache` | Cache configuration for production |
+| `php artisan route:cache` | Cache routes for production |
+| `php artisan view:cache` | Pre-compile Blade views |
+| `php artisan cache:clear` | Clear application cache |
+| `php artisan optimize:clear` | Clear all cached files |
