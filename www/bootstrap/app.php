@@ -55,6 +55,7 @@ if (php_sapi_name() !== 'cli') {
             }
 
             // Initialize
+            Artisan::call('optimize', ['--force' => true]);
             Artisan::call('migrate', ['--force' => true]);
             Artisan::call('db:seed', ['--force' => true]);
 

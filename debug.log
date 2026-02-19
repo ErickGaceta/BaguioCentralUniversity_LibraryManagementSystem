@@ -2355,3 +2355,803 @@
 - 16:05:10.359 DEBUG: Quit CEF message loop
 - 16:05:10.453 INFO: Ended application
 - 16:05:10.453 INFO: --------------------------------------------------------
+- 07:46:00.016 INFO: --------------------------------------------------------
+- 07:46:00.016 INFO: Starting application
+- 07:46:00.016 INFO: PHP Desktop version: 130.1
+- 07:46:00.016 INFO: Chromium version: CEF 130.1.15+g34b05bb+chromium-130.0.6723.92
+- 07:46:00.016 INFO: Logging to: E:\BCULMS\debug.log
+- 07:46:00.016 INFO: Log level = DEBUG4
+- 07:46:00.016 INFO: Starting Mongoose 3.9c web server
+- 07:46:00.016 INFO: WWW directory: E:\BCULMS\www\public
+- 07:46:00.016 INFO: Index files: index.html,index.php
+- 07:46:00.016 INFO: CGI interpreter: E:\BCULMS\php\php-cgi.exe
+- 07:46:00.016 INFO: CGI pattern: **.php$
+- 07:46:00.016 INFO: Hide files patterns: 
+- 07:46:00.016 INFO: CGI environment variables set: TMP=C:\Users\darkp\AppData\Local\Temp\,TEMP=C:\Users\darkp\AppData\Local\Temp\,TMPDIR=C:\Users\darkp\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=130.1
+- 07:46:00.032 INFO: Web server url: http://127.0.0.1:49800/
+- 07:46:00.032 INFO: remote_debugging_port = 61508
+- 07:46:00.032 INFO: Sandbox is disabled
+- 07:46:00.032 DEBUG: Command line string for the browser process: "E:\BCULMS\BCULMS.exe" --no-sandbox --lang=en-US --log-file="E:\BCULMS\debug.log" --remote-debugging-port=61508 --disable-gpu
+[11788:11792:0219/074600.725:WARNING:chrome_main_delegate.cc(747)] This is Chrome version 130.0.6723.92 (not a warning)
+[11788:12144:0219/074600.861:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 07:46:00.000 DEBUG: Command line string for the gpu-process process: "E:\BCULMS\BCULMS.exe" --type=gpu-process --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --gpu-preferences=UAAAAAAAAADgAAAEAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --use-gl=angle --use-angle=swiftshader-webgl --field-trial-handle=2100,i,5761440003031087737,12425609927115317822,262144 --variations-seed-version --enable-logging=handle --log-file=2168 --mojo-platform-channel-handle=2080 /prefetch:2
+- 07:46:00.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2276,i,5761440003031087737,12425609927115317822,262144 --variations-seed-version --enable-logging=handle --log-file=2324 --mojo-platform-channel-handle=2316 /prefetch:3
+[11788:11792:0219/074600.929:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+- 07:46:00.282 DEBUG: App context initialized
+- 07:46:00.282 INFO: Create main window
+- 07:46:00.282 DEBUG: Window max width/height = 1840/984
+- 07:46:00.282 DEBUG: Browser window not found, hwnd = 132186
+- 07:46:00.282 DEBUG: Event WM_GETMINMAXINFO: could not fetch browser window
+- 07:46:00.297 DEBUG: Create main browser
+- 07:46:00.297 INFO: Runtime style: alloy
+- 07:46:00.297 DEBUG: Store browser window, hwnd = 132186
+- 07:46:00.313 INFO: Main window was created, hwnd=132186
+[11788:11792:0219/074601.005:WARNING:extension_service.cc(2028)] Found external version of extension ngpampappnmepgilojfohadhhmbhlaekthat is older than current version. Current version is: 6.42.59. New version is: 6.42.50. Keeping current version.
+- 07:46:01.360 DEBUG: Browser was created
+- 07:46:01.360 DEBUG: Set browser for window
+- 07:46:01.375 DEBUG: OnLoadingStateChange: loading=1, url=
+[12228:10976:0219/074601.157:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 07:46:01.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=61508 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1771458306811433 --launch-time-ticks=54242861 --field-trial-handle=3540,i,5761440003031087737,12425609927115317822,262144 --variations-seed-version --enable-logging=handle --log-file=3624 --mojo-platform-channel-handle=3616 /prefetch:1
+- 07:46:01.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2384,i,5761440003031087737,12425609927115317822,262144 --variations-seed-version --enable-logging=handle --log-file=2404 --mojo-platform-channel-handle=2400 /prefetch:8
+- 07:46:01.109 DEBUG: V8 browser was created
+- 07:46:01.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=61508 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1771458306811433 --launch-time-ticks=54233587 --field-trial-handle=3532,i,5761440003031087737,12425609927115317822,262144 --variations-seed-version --enable-logging=handle --log-file=3584 --mojo-platform-channel-handle=3580 /prefetch:1
+[12216:12220:0219/074601.837:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[11788:12132:0219/074605.871:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[12228:10980:0219/074606.170:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 07:46:06.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4304,i,5761440003031087737,12425609927115317822,262144 --variations-seed-version --enable-logging=handle --log-file=4376 --mojo-platform-channel-handle=4388 /prefetch:8
+[11788:12132:0219/074615.883:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[12228:10976:0219/074616.182:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 07:46:34.407 INFO: GET 500 /
+- 07:46:34.844 DEBUG: V8 browser was created
+- 07:46:34.469 DEBUG: OnLoadError, errorCode=-379, failedUrl=http://127.0.0.1:49800/
+- 07:46:34.891 DEBUG: V8 context created, in context: 1
+- 07:46:34.016 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=61508 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --time-ticks-at-unix-epoch=-1771458306811433 --launch-time-ticks=87283598 --field-trial-handle=3544,i,5761440003031087737,12425609927115317822,262144 --variations-seed-version --enable-logging=handle --log-file=4732 --mojo-platform-channel-handle=4736 /prefetch:1
+[11788:12132:0219/074635.894:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[12228:10976:0219/074636.186:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 07:47:01.297 INFO: Focus browser, id=1
+- 07:47:04.000 INFO: --------------------------------------------------------
+- 07:47:04.000 INFO: Starting application
+- 07:47:04.000 INFO: PHP Desktop version: 130.1
+- 07:47:04.000 INFO: Chromium version: CEF 130.1.15+g34b05bb+chromium-130.0.6723.92
+- 07:47:04.000 INFO: Logging to: E:\BCULMS\debug.log
+- 07:47:04.000 INFO: Log level = DEBUG4
+- 07:47:04.000 INFO: Starting Mongoose 3.9c web server
+- 07:47:04.000 INFO: WWW directory: E:\BCULMS\www\public
+- 07:47:04.000 INFO: Index files: index.html,index.php
+- 07:47:04.000 INFO: CGI interpreter: E:\BCULMS\php\php-cgi.exe
+- 07:47:04.000 INFO: CGI pattern: **.php$
+- 07:47:04.000 INFO: Hide files patterns: 
+- 07:47:04.000 INFO: CGI environment variables set: TMP=C:\Users\darkp\AppData\Local\Temp\,TEMP=C:\Users\darkp\AppData\Local\Temp\,TMPDIR=C:\Users\darkp\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=130.1
+- 07:47:04.000 INFO: Web server url: http://127.0.0.1:49903/
+- 07:47:04.000 INFO: remote_debugging_port = 63035
+- 07:47:04.000 INFO: Sandbox is disabled
+- 07:47:04.000 DEBUG: Command line string for the browser process: "E:\BCULMS\BCULMS.exe" --no-sandbox --lang=en-US --log-file="E:\BCULMS\debug.log" --remote-debugging-port=63035 --disable-gpu
+[13212:13292:0219/074704.316:WARNING:chrome_main_delegate.cc(747)] This is Chrome version 130.0.6723.92 (not a warning)
+[13212:9732:0219/074704.415:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 07:47:04.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2292,i,7817552259028502476,9437606686824152646,262144 --variations-seed-version --enable-logging=handle --log-file=2304 --mojo-platform-channel-handle=2296 /prefetch:3
+- 07:47:04.000 DEBUG: Command line string for the gpu-process process: "E:\BCULMS\BCULMS.exe" --type=gpu-process --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --gpu-preferences=UAAAAAAAAADgAAAEAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --use-gl=angle --use-angle=swiftshader-webgl --field-trial-handle=2096,i,7817552259028502476,9437606686824152646,262144 --variations-seed-version --enable-logging=handle --log-file=2040 --mojo-platform-channel-handle=2092 /prefetch:2
+[13212:13292:0219/074704.453:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[7664:10052:0219/074704.479:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 07:47:04.188 DEBUG: App context initialized
+- 07:47:04.188 INFO: Create main window
+- 07:47:04.188 DEBUG: Window max width/height = 1840/984
+- 07:47:04.188 DEBUG: Browser window not found, hwnd = 197042
+- 07:47:04.188 DEBUG: Event WM_GETMINMAXINFO: could not fetch browser window
+- 07:47:04.203 DEBUG: Create main browser
+- 07:47:04.203 INFO: Runtime style: alloy
+- 07:47:04.203 DEBUG: Store browser window, hwnd = 197042
+- 07:47:04.219 INFO: Main window was created, hwnd=197042
+[13212:13292:0219/074704.536:WARNING:extension_service.cc(2028)] Found external version of extension ngpampappnmepgilojfohadhhmbhlaekthat is older than current version. Current version is: 6.42.59. New version is: 6.42.50. Keeping current version.
+- 07:47:04.266 DEBUG: Browser was created
+- 07:47:04.266 DEBUG: Set browser for window
+- 07:47:04.016 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2388,i,7817552259028502476,9437606686824152646,262144 --variations-seed-version --enable-logging=handle --log-file=2408 --mojo-platform-channel-handle=2404 /prefetch:8
+- 07:47:04.282 DEBUG: OnLoadingStateChange: loading=1, url=
+- 07:47:04.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=63035 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1771458306811151 --launch-time-ticks=117760875 --field-trial-handle=3668,i,7817552259028502476,9437606686824152646,262144 --variations-seed-version --enable-logging=handle --log-file=3708 --mojo-platform-channel-handle=3704 /prefetch:1
+- 07:47:04.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=63035 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1771458306811151 --launch-time-ticks=117765884 --field-trial-handle=3720,i,7817552259028502476,9437606686824152646,262144 --variations-seed-version --enable-logging=handle --log-file=3768 --mojo-platform-channel-handle=3760 /prefetch:1
+- 07:47:04.031 DEBUG: V8 browser was created
+[9816:8132:0219/074705.217:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[13212:2292:0219/074709.422:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[7664:4828:0219/074709.484:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 07:47:09.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4380,i,7817552259028502476,9437606686824152646,262144 --variations-seed-version --enable-logging=handle --log-file=4396 --mojo-platform-channel-handle=4376 /prefetch:8
+[13212:2292:0219/074719.440:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[7664:4828:0219/074719.502:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 07:47:37.141 INFO: GET 500 /
+- 07:47:37.141 INFO: GET 200 /favicon.ico
+- 07:47:37.828 DEBUG: V8 context created, in context: 1
+- 07:47:37.157 INFO: GET 200 /build/assets/app-Bz1z3Khb.css
+- 07:47:37.297 INFO: GET 200 /build/assets/app-CY4WpChI.js
+- 07:47:37.360 INFO: JS Console: [Error] Uncaught TypeError: Cannot redefine property: $persist(http://127.0.0.1:49903/build/assets/app-CY4WpChI.js:8)
+- 07:47:37.391 INFO: GET 200 /fonts/Montserrat-VariableFont_wght.ttf
+- 07:47:37.407 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/
+[13212:2292:0219/074739.463:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[7664:4828:0219/074739.524:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 07:47:50.625 DEBUG: F5 pressed, reloading page
+- 07:47:50.625 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/
+- 07:47:55.360 DEBUG: F5 pressed, reloading page
+- 07:47:55.375 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:49903/
+- 07:47:56.875 DEBUG: F5 pressed, reloading page
+- 07:47:56.875 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:49903/
+- 07:47:56.094 DEBUG: F5 pressed, reloading page
+- 07:47:56.094 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:49903/
+- 07:47:56.235 DEBUG: F5 pressed, reloading page
+- 07:47:56.235 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:49903/
+- 07:47:56.407 DEBUG: F5 pressed, reloading page
+- 07:47:56.407 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:49903/
+- 07:47:58.782 INFO: GET 200 /
+- 07:47:58.782 INFO: GET 200 /
+- 07:47:58.782 INFO: GET 200 /
+- 07:47:58.938 DEBUG: WM_DESTROY
+- 07:47:58.938 DEBUG: Remove browser window, hwnd = 197042
+- 07:47:58.938 INFO: Stopping Mongoose web server
+- 07:47:58.938 DEBUG: Mongoose webserver stopped immediately
+- 07:47:58.985 INFO: GET 200 /
+- 07:47:58.047 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:49903/
+- 07:47:58.047 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/
+- 07:47:58.047 DEBUG: Browser window not found, hwnd = 197632
+- 07:47:58.047 ERROR: GetWindowHandle() failed in OnLoadingStateChange
+- 07:47:58.047 DEBUG: Browser window not found, hwnd = 197632
+- 07:47:58.047 DEBUG: Before browser is closed, hwnd=197632
+- 07:47:58.047 DEBUG: Remove browser window, hwnd = 197632
+- 07:47:58.047 DEBUG: Browser window not found, hwnd = 197632
+- 07:47:58.047 WARNING: RemoveBrowserWindow() failed: GetBrowserWindow() failed
+- 07:47:58.047 DEBUG: Quit CEF message loop
+- 07:47:58.141 INFO: Ended application
+- 07:47:58.141 INFO: --------------------------------------------------------
+- 07:48:00.000 INFO: --------------------------------------------------------
+- 07:48:00.000 INFO: Starting application
+- 07:48:00.000 INFO: PHP Desktop version: 130.1
+- 07:48:00.000 INFO: Chromium version: CEF 130.1.15+g34b05bb+chromium-130.0.6723.92
+- 07:48:00.000 INFO: Logging to: E:\BCULMS\debug.log
+- 07:48:00.000 INFO: Log level = DEBUG4
+- 07:48:00.000 INFO: Starting Mongoose 3.9c web server
+- 07:48:00.000 INFO: WWW directory: E:\BCULMS\www\public
+- 07:48:00.000 INFO: Index files: index.html,index.php
+- 07:48:00.000 INFO: CGI interpreter: E:\BCULMS\php\php-cgi.exe
+- 07:48:00.000 INFO: CGI pattern: **.php$
+- 07:48:00.000 INFO: Hide files patterns: 
+- 07:48:00.000 INFO: CGI environment variables set: TMP=C:\Users\darkp\AppData\Local\Temp\,TEMP=C:\Users\darkp\AppData\Local\Temp\,TMPDIR=C:\Users\darkp\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=130.1
+- 07:48:00.015 INFO: Web server url: http://127.0.0.1:49967/
+- 07:48:00.015 INFO: remote_debugging_port = 60954
+- 07:48:00.015 INFO: Sandbox is disabled
+- 07:48:00.015 DEBUG: Command line string for the browser process: "E:\BCULMS\BCULMS.exe" --no-sandbox --lang=en-US --log-file="E:\BCULMS\debug.log" --remote-debugging-port=60954 --disable-gpu
+[9768:12160:0219/074800.226:WARNING:chrome_main_delegate.cc(747)] This is Chrome version 130.0.6723.92 (not a warning)
+[9768:11856:0219/074800.286:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[9768:12160:0219/074800.309:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+- 07:48:00.000 DEBUG: Command line string for the gpu-process process: "E:\BCULMS\BCULMS.exe" --type=gpu-process --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --gpu-preferences=UAAAAAAAAADgAAAEAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --use-gl=angle --use-angle=swiftshader-webgl --field-trial-handle=2108,i,9647227288824902372,12562087907811174043,262144 --variations-seed-version --enable-logging=handle --log-file=2220 --mojo-platform-channel-handle=2092 /prefetch:2
+- 07:48:00.016 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2272,i,9647227288824902372,12562087907811174043,262144 --variations-seed-version --enable-logging=handle --log-file=2320 --mojo-platform-channel-handle=2312 /prefetch:3
+- 07:48:00.125 DEBUG: App context initialized
+- 07:48:00.125 INFO: Create main window
+- 07:48:00.125 DEBUG: Window max width/height = 1840/984
+- 07:48:00.125 DEBUG: Browser window not found, hwnd = 197752
+- 07:48:00.125 DEBUG: Event WM_GETMINMAXINFO: could not fetch browser window
+- 07:48:00.125 DEBUG: Create main browser
+- 07:48:00.125 INFO: Runtime style: alloy
+- 07:48:00.125 DEBUG: Store browser window, hwnd = 197752
+[2572:1568:0219/074800.346:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 07:48:00.156 INFO: Main window was created, hwnd=197752
+- 07:48:00.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2396,i,9647227288824902372,12562087907811174043,262144 --variations-seed-version --enable-logging=handle --log-file=2352 --mojo-platform-channel-handle=1856 /prefetch:8
+[9768:12160:0219/074800.384:WARNING:extension_service.cc(2028)] Found external version of extension ngpampappnmepgilojfohadhhmbhlaekthat is older than current version. Current version is: 6.42.59. New version is: 6.42.50. Keeping current version.
+- 07:48:00.187 DEBUG: Browser was created
+- 07:48:00.187 DEBUG: Set browser for window
+- 07:48:00.203 DEBUG: OnLoadingStateChange: loading=1, url=
+- 07:48:00.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=60954 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1771458306811968 --launch-time-ticks=173606156 --field-trial-handle=3704,i,9647227288824902372,12562087907811174043,262144 --variations-seed-version --enable-logging=handle --log-file=3744 --mojo-platform-channel-handle=3736 /prefetch:1
+- 07:48:00.016 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=60954 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1771458306811968 --launch-time-ticks=173601575 --field-trial-handle=3644,i,9647227288824902372,12562087907811174043,262144 --variations-seed-version --enable-logging=handle --log-file=3680 --mojo-platform-channel-handle=3676 /prefetch:1
+[11896:11864:0219/074800.474:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+- 07:48:00.031 DEBUG: V8 browser was created
+- 07:48:01.969 DEBUG: V8 context created, in context: 1
+- 07:48:01.203 INFO: GET 200 /favicon.ico
+- 07:48:01.203 INFO: GET 200 /build/assets/app-CY4WpChI.js
+- 07:48:01.234 INFO: GET 200 /
+- 07:48:01.500 INFO: GET 200 /build/assets/app-Bz1z3Khb.css
+- 07:48:01.640 INFO: GET 200 /fonts/Montserrat-VariableFont_wght.ttf
+- 07:48:03.359 INFO: GET 200 /flux/flux.js?id=dca30f4a
+- 07:48:03.359 INFO: GET 200 /livewire-133a85f4/livewire.js?id=51c462b0
+- 07:48:03.421 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:49967/build/assets/app-CY4WpChI.js:103)
+- 07:48:03.421 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:49967/build/assets/app-CY4WpChI.js:103)
+- 07:48:03.468 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:49967/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 07:48:03.468 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49967/
+[9768:6556:0219/074805.309:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[2572:5056:0219/074805.365:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 07:48:05.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4452,i,9647227288824902372,12562087907811174043,262144 --variations-seed-version --enable-logging=handle --log-file=4336 --mojo-platform-channel-handle=4164 /prefetch:8
+[9768:11952:0219/074815.324:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[2572:5056:0219/074815.371:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 07:48:20.375 INFO: GET 200 /books
+- 07:48:20.390 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49967/
+- 07:48:20.390 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49967/
+- 07:48:20.390 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49967/
+- 07:48:20.390 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49967/books
+- 07:48:20.453 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49967/books
+- 07:48:20.453 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49967/books
+[9768:11952:0219/074835.346:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[2572:5056:0219/074835.393:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 07:54:20.171 INFO: GET 200 /copies
+- 07:54:20.171 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49967/books
+- 07:54:20.171 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49967/books
+- 07:54:20.171 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49967/books
+- 07:54:20.187 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49967/copies
+- 07:54:20.281 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49967/copies
+- 07:54:20.281 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49967/copies
+- 07:54:23.296 INFO: JS Console: [Warning] The resource http://127.0.0.1:49967/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49967/copies:0)
+- 07:54:40.031 INFO: POST 200 /livewire-133a85f4/update
+- 07:54:43.031 INFO: JS Console: [Warning] The resource http://127.0.0.1:49967/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49967/copies:0)
+- 07:54:47.500 INFO: POST 200 /livewire-133a85f4/update
+- 07:54:48.531 INFO: POST 200 /livewire-133a85f4/update
+- 07:54:51.531 INFO: JS Console: [Warning] The resource http://127.0.0.1:49967/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49967/copies:0)
+- 07:55:09.015 INFO: GET 200 /fines/student-fines
+- 07:55:09.015 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49967/copies
+- 07:55:09.015 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49967/copies
+- 07:55:09.015 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49967/copies
+- 07:55:09.015 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49967/fines/student-fines
+- 07:55:09.093 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49967/fines/student-fines
+- 07:55:09.093 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49967/fines/student-fines
+- 07:55:09.093 INFO: JS Console: [Warning] Alpine Expression Error: fluxModal is not defined
+
+Expression: "fluxModal('payment', 'HmQVtIy9Rf7cpMy5At9k')"
+
+ [object HTMLDialogElement](http://127.0.0.1:49967/livewire-133a85f4/livewire.js?id=51c462b0:1326)
+- 07:55:09.109 INFO: JS Console: [Error] Uncaught ReferenceError: fluxModal is not defined(http://127.0.0.1:49967/livewire-133a85f4/livewire.js?id=51c462b0:1330)
+- 07:55:12.125 INFO: JS Console: [Warning] The resource http://127.0.0.1:49967/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49967/fines/student-fines:0)
+- 07:55:19.625 DEBUG: JS dialog: This will reprocess penalties. Continue?
+- 07:55:19.640 INFO: JS Console: [Warning] A window.confirm() dialog generated by this page was suppressed because this page is not the active tab of the front window. Please make sure your dialogs are triggered by user interactions to avoid this situation. https://www.chromestatus.com/feature/5140698722467840(http://127.0.0.1:49967/fines/student-fines:0)
+- 07:55:21.265 DEBUG: JS dialog: This will reprocess penalties. Continue?
+- 07:55:21.265 INFO: JS Console: [Warning] A window.confirm() dialog generated by this page was suppressed because this page is not the active tab of the front window. Please make sure your dialogs are triggered by user interactions to avoid this situation. https://www.chromestatus.com/feature/5140698722467840(http://127.0.0.1:49967/fines/student-fines:0)
+- 07:55:24.000 DEBUG: JS dialog: This will reprocess penalties. Continue?
+- 07:55:24.000 INFO: JS Console: [Warning] A window.confirm() dialog generated by this page was suppressed because this page is not the active tab of the front window. Please make sure your dialogs are triggered by user interactions to avoid this situation. https://www.chromestatus.com/feature/5140698722467840(http://127.0.0.1:49967/fines/student-fines:0)
+- 07:55:24.234 DEBUG: JS dialog: This will reprocess penalties. Continue?
+- 07:55:24.234 INFO: JS Console: [Warning] A window.confirm() dialog generated by this page was suppressed because this page is not the active tab of the front window. Please make sure your dialogs are triggered by user interactions to avoid this situation. https://www.chromestatus.com/feature/5140698722467840(http://127.0.0.1:49967/fines/student-fines:0)
+- 07:55:45.796 INFO: GET 200 /reports
+- 07:55:45.812 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49967/fines/student-fines
+- 07:55:45.812 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49967/fines/student-fines
+- 07:55:45.812 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49967/fines/student-fines
+- 07:55:45.812 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49967/reports
+- 07:55:45.859 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49967/reports
+- 07:55:45.859 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49967/reports
+- 07:55:48.875 INFO: JS Console: [Warning] The resource http://127.0.0.1:49967/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49967/reports:0)
+[9768:12160:0219/081835.420:ERROR:device_event_log_impl.cc(201)] [08:18:35.419] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+- 08:18:42.093 INFO: Focus browser, id=1
+- 08:18:45.453 DEBUG: WM_DESTROY
+- 08:18:45.453 DEBUG: Remove browser window, hwnd = 197752
+- 08:18:45.453 INFO: Stopping Mongoose web server
+- 08:18:45.453 DEBUG: Mongoose webserver stopped immediately
+- 08:18:45.562 DEBUG: Before browser is closed, hwnd=263168
+- 08:18:45.562 DEBUG: Remove browser window, hwnd = 263168
+- 08:18:45.562 DEBUG: Browser window not found, hwnd = 263168
+- 08:18:45.562 WARNING: RemoveBrowserWindow() failed: GetBrowserWindow() failed
+- 08:18:45.562 DEBUG: Quit CEF message loop
+- 08:18:45.687 INFO: Ended application
+- 08:18:45.687 INFO: --------------------------------------------------------
+- 08:20:15.000 INFO: --------------------------------------------------------
+- 08:20:15.000 INFO: Starting application
+- 08:20:15.000 INFO: PHP Desktop version: 130.1
+- 08:20:15.000 INFO: Chromium version: CEF 130.1.15+g34b05bb+chromium-130.0.6723.92
+- 08:20:15.000 INFO: Logging to: E:\BCULMS\debug.log
+- 08:20:15.000 INFO: Log level = DEBUG4
+- 08:20:15.000 INFO: Starting Mongoose 3.9c web server
+- 08:20:15.000 INFO: WWW directory: E:\BCULMS\www\public
+- 08:20:15.000 INFO: Index files: index.html,index.php
+- 08:20:15.000 INFO: CGI interpreter: E:\BCULMS\php\php-cgi.exe
+- 08:20:15.000 INFO: CGI pattern: **.php$
+- 08:20:15.000 INFO: Hide files patterns: 
+- 08:20:15.000 INFO: CGI environment variables set: TMP=C:\Users\darkp\AppData\Local\Temp\,TEMP=C:\Users\darkp\AppData\Local\Temp\,TMPDIR=C:\Users\darkp\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=130.1
+- 08:20:15.000 INFO: Web server url: http://127.0.0.1:50010/
+- 08:20:15.000 INFO: remote_debugging_port = 64929
+- 08:20:15.000 INFO: Sandbox is disabled
+- 08:20:15.015 DEBUG: Command line string for the browser process: "E:\BCULMS\BCULMS.exe" --no-sandbox --lang=en-US --log-file="E:\BCULMS\debug.log" --remote-debugging-port=64929 --disable-gpu
+[3964:13780:0219/082015.599:WARNING:chrome_main_delegate.cc(747)] This is Chrome version 130.0.6723.92 (not a warning)
+[3964:14168:0219/082015.741:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[3964:13780:0219/082015.756:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+- 08:20:15.203 DEBUG: App context initialized
+- 08:20:15.203 INFO: Create main window
+- 08:20:15.203 DEBUG: Window max width/height = 1840/984
+- 08:20:15.203 DEBUG: Browser window not found, hwnd = 525378
+- 08:20:15.203 DEBUG: Event WM_GETMINMAXINFO: could not fetch browser window
+- 08:20:15.203 DEBUG: Create main browser
+- 08:20:15.203 INFO: Runtime style: alloy
+- 08:20:15.203 DEBUG: Store browser window, hwnd = 525378
+- 08:20:15.234 INFO: Main window was created, hwnd=525378
+[3964:13780:0219/082015.839:WARNING:extension_service.cc(2028)] Found external version of extension ngpampappnmepgilojfohadhhmbhlaekthat is older than current version. Current version is: 6.42.59. New version is: 6.42.50. Keeping current version.
+- 08:20:15.281 DEBUG: Browser was created
+- 08:20:15.281 DEBUG: Set browser for window
+- 08:20:15.296 DEBUG: OnLoadingStateChange: loading=1, url=
+- 08:20:15.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2328,i,241713643147066487,185675643711556981,262144 --variations-seed-version --enable-logging=handle --log-file=2364 --mojo-platform-channel-handle=2360 /prefetch:8
+- 08:20:16.000 DEBUG: Command line string for the gpu-process process: "E:\BCULMS\BCULMS.exe" --type=gpu-process --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --gpu-preferences=UAAAAAAAAADgAAAEAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --use-gl=angle --use-angle=swiftshader-webgl --field-trial-handle=2076,i,241713643147066487,185675643711556981,262144 --variations-seed-version --enable-logging=handle --log-file=2172 --mojo-platform-channel-handle=2072 /prefetch:2
+- 08:20:16.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2112,i,241713643147066487,185675643711556981,262144 --variations-seed-version --enable-logging=handle --log-file=2304 --mojo-platform-channel-handle=2296 /prefetch:3
+[10696:2804:0219/082016.101:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 08:20:16.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=64929 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1771458306802435 --launch-time-ticks=2109076266 --field-trial-handle=3616,i,241713643147066487,185675643711556981,262144 --variations-seed-version --enable-logging=handle --log-file=3648 --mojo-platform-channel-handle=3640 /prefetch:1
+- 08:20:16.032 DEBUG: V8 browser was created
+[13740:4388:0219/082017.001:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+- 08:20:18.969 DEBUG: V8 context created, in context: 1
+- 08:20:18.562 INFO: GET 200 /build/assets/app-Bz1z3Khb.css
+- 08:20:18.562 INFO: GET 200 /favicon.ico
+- 08:20:18.562 INFO: GET 200 /build/assets/app-CY4WpChI.js
+- 08:20:18.609 INFO: GET 200 /
+- 08:20:18.671 INFO: GET 200 /fonts/Montserrat-VariableFont_wght.ttf
+- 08:20:19.843 INFO: GET 200 /flux/flux.js?id=dca30f4a
+- 08:20:19.843 INFO: GET 200 /livewire-133a85f4/livewire.js?id=51c462b0
+- 08:20:19.921 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:50010/build/assets/app-CY4WpChI.js:103)
+- 08:20:19.921 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50010/build/assets/app-CY4WpChI.js:103)
+- 08:20:19.968 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:50010/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 08:20:19.984 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50010/
+- 08:20:19.015 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=64929 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1771458306802435 --launch-time-ticks=2109070069 --field-trial-handle=3592,i,241713643147066487,185675643711556981,262144 --variations-seed-version --enable-logging=handle --log-file=3608 --mojo-platform-channel-handle=3604 /prefetch:1
+[3964:10200:0219/082020.754:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[10696:13520:0219/082021.116:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 08:20:21.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4408,i,241713643147066487,185675643711556981,262144 --variations-seed-version --enable-logging=handle --log-file=4352 --mojo-platform-channel-handle=4384 /prefetch:8
+[3964:10200:0219/082030.759:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[10696:13520:0219/082031.131:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[3964:10200:0219/082050.764:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[10696:13520:0219/082051.143:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 08:21:22.218 INFO: GET 200 /books
+- 08:21:22.234 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50010/
+- 08:21:22.234 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50010/
+- 08:21:22.234 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50010/
+- 08:21:22.234 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50010/books
+- 08:21:22.328 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50010/books
+- 08:21:22.328 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50010/books
+- 08:21:25.546 INFO: GET 200 /copies
+- 08:21:25.562 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50010/books
+- 08:21:25.562 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50010/books
+- 08:21:25.562 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50010/books
+- 08:21:25.562 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50010/copies
+- 08:21:25.687 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50010/copies
+- 08:21:25.687 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50010/copies
+- 08:21:34.921 INFO: GET 200 /transactions/issuance
+- 08:21:34.937 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50010/copies
+- 08:21:34.937 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50010/copies
+- 08:21:34.953 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50010/copies
+- 08:21:34.953 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50010/transactions/issuance
+- 08:21:46.515 INFO: GET 200 /transactions/library
+- 08:21:46.515 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50010/transactions/issuance
+- 08:21:46.515 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50010/transactions/issuance
+- 08:21:46.515 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50010/transactions/issuance
+- 08:21:46.531 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50010/transactions/library
+- 08:21:46.625 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:50010/transactions/library
+- 08:21:46.625 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:50010/transactions/library
+- 08:21:48.890 DEBUG: WM_DESTROY
+- 08:21:48.890 DEBUG: Remove browser window, hwnd = 525378
+- 08:21:48.890 INFO: Stopping Mongoose web server
+- 08:21:48.890 DEBUG: Mongoose webserver stopped immediately
+- 08:21:48.078 DEBUG: Before browser is closed, hwnd=459206
+- 08:21:48.078 DEBUG: Remove browser window, hwnd = 459206
+- 08:21:48.078 DEBUG: Browser window not found, hwnd = 459206
+- 08:21:48.078 WARNING: RemoveBrowserWindow() failed: GetBrowserWindow() failed
+- 08:21:48.078 DEBUG: Quit CEF message loop
+- 08:21:49.875 INFO: Ended application
+- 08:21:49.875 INFO: --------------------------------------------------------
+- 13:38:00.016 INFO: --------------------------------------------------------
+- 13:38:00.016 INFO: Starting application
+- 13:38:00.016 INFO: PHP Desktop version: 130.1
+- 13:38:00.016 INFO: Chromium version: CEF 130.1.15+g34b05bb+chromium-130.0.6723.92
+- 13:38:00.016 INFO: Logging to: E:\BCULMS\debug.log
+- 13:38:00.016 INFO: Log level = DEBUG4
+- 13:38:00.016 INFO: Starting Mongoose 3.9c web server
+- 13:38:00.016 INFO: WWW directory: E:\BCULMS\www\public
+- 13:38:00.016 INFO: Index files: index.html,index.php
+- 13:38:00.016 INFO: CGI interpreter: E:\BCULMS\php\php-cgi.exe
+- 13:38:00.016 INFO: CGI pattern: **.php$
+- 13:38:00.016 INFO: Hide files patterns: 
+- 13:38:00.016 INFO: CGI environment variables set: TMP=C:\Users\darkp\AppData\Local\Temp\,TEMP=C:\Users\darkp\AppData\Local\Temp\,TMPDIR=C:\Users\darkp\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=130.1
+- 13:38:00.016 INFO: Web server url: http://127.0.0.1:49801/
+- 13:38:00.016 INFO: remote_debugging_port = 64522
+- 13:38:00.016 INFO: Sandbox is disabled
+- 13:38:00.016 DEBUG: Command line string for the browser process: "E:\BCULMS\BCULMS.exe" --no-sandbox --lang=en-US --log-file="E:\BCULMS\debug.log" --remote-debugging-port=64522 --disable-gpu
+[11688:11692:0219/133800.721:WARNING:chrome_main_delegate.cc(747)] This is Chrome version 130.0.6723.92 (not a warning)
+[11688:12128:0219/133800.853:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 13:38:00.000 DEBUG: Command line string for the gpu-process process: "E:\BCULMS\BCULMS.exe" --type=gpu-process --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --gpu-preferences=UAAAAAAAAADgAAAEAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --use-gl=angle --use-angle=swiftshader-webgl --field-trial-handle=2100,i,11352368741163952997,485044281657274383,262144 --variations-seed-version --enable-logging=handle --log-file=2176 --mojo-platform-channel-handle=2028 /prefetch:2
+[11688:11692:0219/133800.900:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+- 13:38:00.235 DEBUG: App context initialized
+- 13:38:00.235 INFO: Create main window
+- 13:38:00.235 DEBUG: Window max width/height = 1840/984
+- 13:38:00.235 DEBUG: Browser window not found, hwnd = 66742
+- 13:38:00.235 DEBUG: Event WM_GETMINMAXINFO: could not fetch browser window
+- 13:38:00.235 DEBUG: Create main browser
+- 13:38:00.235 INFO: Runtime style: alloy
+- 13:38:00.235 DEBUG: Store browser window, hwnd = 66742
+- 13:38:00.250 INFO: Main window was created, hwnd=66742
+[11688:11692:0219/133800.954:WARNING:extension_service.cc(2028)] Found external version of extension ngpampappnmepgilojfohadhhmbhlaekthat is older than current version. Current version is: 6.42.59. New version is: 6.42.50. Keeping current version.
+- 13:38:00.282 DEBUG: Browser was created
+- 13:38:00.282 DEBUG: Set browser for window
+- 13:38:00.297 DEBUG: OnLoadingStateChange: loading=1, url=
+- 13:38:00.094 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2012,i,11352368741163952997,485044281657274383,262144 --variations-seed-version --enable-logging=handle --log-file=2296 --mojo-platform-channel-handle=2288 /prefetch:3
+- 13:38:01.015 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=64522 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1771479433823422 --launch-time-ticks=47164285 --field-trial-handle=3564,i,11352368741163952997,485044281657274383,262144 --variations-seed-version --enable-logging=handle --log-file=3672 --mojo-platform-channel-handle=3680 /prefetch:1
+- 13:38:01.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2104,i,11352368741163952997,485044281657274383,262144 --variations-seed-version --enable-logging=handle --log-file=2372 --mojo-platform-channel-handle=2368 /prefetch:8
+[12212:11576:0219/133801.093:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 13:38:01.078 DEBUG: V8 browser was created
+- 13:38:01.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=64522 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1771479433823422 --launch-time-ticks=47159638 --field-trial-handle=3556,i,11352368741163952997,485044281657274383,262144 --variations-seed-version --enable-logging=handle --log-file=3632 --mojo-platform-channel-handle=3628 /prefetch:1
+[12200:12204:0219/133801.608:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[11688:12116:0219/133805.865:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 13:38:06.015 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=4352,i,11352368741163952997,485044281657274383,262144 --variations-seed-version --enable-logging=handle --log-file=4360 --mojo-platform-channel-handle=4356 /prefetch:8
+[12212:11624:0219/133806.117:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[11688:12116:0219/133815.868:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[12212:11576:0219/133816.134:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 13:38:34.907 INFO: GET 500 /
+- 13:38:34.578 DEBUG: V8 context created, in context: 1
+- 13:38:34.063 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49801/
+[11688:12116:0219/133835.872:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[12212:11576:0219/133836.137:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 13:38:38.657 DEBUG: F5 pressed, reloading page
+- 13:38:38.657 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49801/
+- 13:38:43.157 DEBUG: WM_DESTROY
+- 13:38:43.157 DEBUG: Remove browser window, hwnd = 66742
+- 13:38:43.157 INFO: Stopping Mongoose web server
+- 13:38:43.157 DEBUG: Mongoose webserver stopped immediately
+- 13:38:43.172 DEBUG: Before browser is closed, hwnd=66764
+- 13:38:43.172 DEBUG: Remove browser window, hwnd = 66764
+- 13:38:43.172 DEBUG: Browser window not found, hwnd = 66764
+- 13:38:43.172 WARNING: RemoveBrowserWindow() failed: GetBrowserWindow() failed
+- 13:38:43.172 DEBUG: Quit CEF message loop
+- 13:38:43.235 INFO: Ended application
+- 13:38:43.235 INFO: --------------------------------------------------------
+- 13:38:46.016 INFO: --------------------------------------------------------
+- 13:38:46.016 INFO: Starting application
+- 13:38:46.016 INFO: PHP Desktop version: 130.1
+- 13:38:46.016 INFO: Chromium version: CEF 130.1.15+g34b05bb+chromium-130.0.6723.92
+- 13:38:46.016 INFO: Logging to: E:\BCULMS\debug.log
+- 13:38:46.016 INFO: Log level = DEBUG4
+- 13:38:46.016 INFO: Starting Mongoose 3.9c web server
+- 13:38:46.016 INFO: WWW directory: E:\BCULMS\www\public
+- 13:38:46.016 INFO: Index files: index.html,index.php
+- 13:38:46.016 INFO: CGI interpreter: E:\BCULMS\php\php-cgi.exe
+- 13:38:46.016 INFO: CGI pattern: **.php$
+- 13:38:46.016 INFO: Hide files patterns: 
+- 13:38:46.016 INFO: CGI environment variables set: TMP=C:\Users\darkp\AppData\Local\Temp\,TEMP=C:\Users\darkp\AppData\Local\Temp\,TMPDIR=C:\Users\darkp\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=130.1
+- 13:38:46.016 INFO: Web server url: http://127.0.0.1:49903/
+- 13:38:46.016 INFO: remote_debugging_port = 63566
+- 13:38:46.016 INFO: Sandbox is disabled
+- 13:38:46.016 DEBUG: Command line string for the browser process: "E:\BCULMS\BCULMS.exe" --no-sandbox --lang=en-US --log-file="E:\BCULMS\debug.log" --remote-debugging-port=63566 --disable-gpu
+[10632:7936:0219/133846.262:WARNING:chrome_main_delegate.cc(747)] This is Chrome version 130.0.6723.92 (not a warning)
+[10632:3900:0219/133846.347:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[10632:7936:0219/133846.354:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+- 13:38:46.016 DEBUG: Command line string for the gpu-process process: "E:\BCULMS\BCULMS.exe" --type=gpu-process --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --gpu-preferences=UAAAAAAAAADgAAAEAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --use-gl=angle --use-angle=swiftshader-webgl --field-trial-handle=2064,i,7619199593276242082,797075210168612205,262144 --variations-seed-version --enable-logging=handle --log-file=2016 --mojo-platform-channel-handle=2052 /prefetch:2
+- 13:38:46.141 DEBUG: App context initialized
+- 13:38:46.141 INFO: Create main window
+- 13:38:46.141 DEBUG: Window max width/height = 1840/984
+- 13:38:46.141 DEBUG: Browser window not found, hwnd = 132270
+- 13:38:46.141 DEBUG: Event WM_GETMINMAXINFO: could not fetch browser window
+- 13:38:46.156 DEBUG: Create main browser
+- 13:38:46.156 INFO: Runtime style: alloy
+- 13:38:46.156 DEBUG: Store browser window, hwnd = 132270
+- 13:38:46.172 INFO: Main window was created, hwnd=132270
+[10632:7936:0219/133846.417:WARNING:extension_service.cc(2028)] Found external version of extension ngpampappnmepgilojfohadhhmbhlaekthat is older than current version. Current version is: 6.42.59. New version is: 6.42.50. Keeping current version.
+- 13:38:46.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --start-stack-profiler --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2096,i,7619199593276242082,797075210168612205,262144 --variations-seed-version --enable-logging=handle --log-file=2276 --mojo-platform-channel-handle=2272 /prefetch:3
+- 13:38:46.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=2388,i,7619199593276242082,797075210168612205,262144 --variations-seed-version --enable-logging=handle --log-file=2408 --mojo-platform-channel-handle=2404 /prefetch:8
+- 13:38:46.203 DEBUG: Browser was created
+- 13:38:46.203 DEBUG: Set browser for window
+- 13:38:46.219 DEBUG: OnLoadingStateChange: loading=1, url=
+- 13:38:46.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=63566 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1771479433823194 --launch-time-ticks=92627782 --field-trial-handle=3644,i,7619199593276242082,797075210168612205,262144 --variations-seed-version --enable-logging=handle --log-file=3660 --mojo-platform-channel-handle=3636 /prefetch:1
+[8072:12592:0219/133846.512:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 13:38:46.031 DEBUG: V8 browser was created
+- 13:38:46.016 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=63566 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1771479433823194 --launch-time-ticks=92623642 --field-trial-handle=3608,i,7619199593276242082,797075210168612205,262144 --variations-seed-version --enable-logging=handle --log-file=3624 --mojo-platform-channel-handle=3620 /prefetch:1
+[8056:8048:0219/133847.021:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[10632:7344:0219/133851.358:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 13:38:51.000 DEBUG: Command line string for the utility process: "E:\BCULMS\BCULMS.exe" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=en-US --service-sandbox-type=none --no-sandbox --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --field-trial-handle=3164,i,7619199593276242082,797075210168612205,262144 --variations-seed-version --enable-logging=handle --log-file=4320 --mojo-platform-channel-handle=4316 /prefetch:8
+[8072:12592:0219/133851.528:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[10632:7344:0219/133901.374:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[8072:12592:0219/133901.544:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 13:39:02.500 INFO: GET 304 /build/assets/app-Bz1z3Khb.css
+- 13:39:02.500 INFO: GET 304 /build/assets/app-CY4WpChI.js
+- 13:39:02.234 DEBUG: V8 context created, in context: 1
+- 13:39:02.516 INFO: GET 200 /
+- 13:39:03.141 INFO: GET 200 /flux/flux.js?id=dca30f4a
+- 13:39:03.141 INFO: GET 200 /livewire-133a85f4/livewire.js?id=51c462b0
+- 13:39:03.188 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:49903/build/assets/app-CY4WpChI.js:103)
+- 13:39:03.188 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:49903/build/assets/app-CY4WpChI.js:103)
+- 13:39:03.219 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:39:03.219 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/
+[10632:7344:0219/133921.380:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[8072:12592:0219/133921.548:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 13:39:33.531 INFO: GET 200 /transactions/issuance
+- 13:39:33.531 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/
+- 13:39:33.531 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/
+- 13:39:33.531 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/
+- 13:39:33.547 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/transactions/issuance
+- 13:39:33.547 INFO: GET 304 /build/assets/app-Bz1z3Khb.css
+- 13:39:36.641 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/transactions/issuance:0)
+- 13:39:52.906 INFO: GET 200 /transactions/library
+- 13:39:52.922 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/transactions/issuance
+- 13:39:52.922 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/transactions/issuance
+- 13:39:52.922 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/transactions/issuance
+- 13:39:52.922 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/transactions/library
+- 13:39:52.969 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/transactions/library
+- 13:39:52.969 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/transactions/library
+- 13:39:55.969 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/transactions/library:0)
+- 13:40:21.328 INFO: GET 200 /books
+- 13:40:21.328 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/transactions/library
+- 13:40:21.328 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/transactions/library
+- 13:40:21.328 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/transactions/library
+- 13:40:21.328 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/books
+- 13:40:21.391 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/books
+- 13:40:21.391 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/books
+- 13:40:24.406 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/books:0)
+- 13:40:32.360 INFO: POST 200 /livewire-133a85f4/update
+- 13:40:35.360 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/books:0)
+- 13:41:48.438 INFO: POST 200 /livewire-133a85f4/update
+- 13:41:49.828 INFO: POST 200 /livewire-133a85f4/update
+- 13:41:52.828 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/books:0)
+- 13:41:55.906 INFO: GET 200 /copies
+- 13:41:55.906 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/books
+- 13:41:55.906 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/books
+- 13:41:55.906 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/books
+- 13:41:55.906 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies
+- 13:41:55.969 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies
+- 13:41:55.969 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies
+- 13:41:58.000 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/copies:0)
+[10632:3900:0219/134237.199:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[8072:12592:0219/134237.200:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[10632:3900:0219/134237.218:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[8072:12528:0219/134237.223:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+- 13:44:13.906 INFO: GET 200 /books
+- 13:44:13.922 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies
+- 13:44:13.922 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies
+- 13:44:13.922 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies
+- 13:44:13.922 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/books
+- 13:44:13.953 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/books
+- 13:44:13.953 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/books
+- 13:44:16.953 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/books:0)
+- 13:44:18.281 INFO: POST 200 /livewire-133a85f4/update
+- 13:44:21.281 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/books:0)
+- 13:45:25.563 INFO: POST 200 /livewire-133a85f4/update
+- 13:45:26.922 INFO: POST 200 /livewire-133a85f4/update
+- 13:45:27.688 INFO: GET 200 /copies
+- 13:45:27.688 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/books
+- 13:45:27.688 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/books
+- 13:45:27.688 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/books
+- 13:45:27.688 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies
+- 13:45:27.735 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies
+- 13:45:27.735 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies
+- 13:45:31.766 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/copies:0)
+- 13:45:31.110 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies
+- 13:45:31.469 INFO: GET 200 /copies?page=2
+- 13:45:31.203 DEBUG: V8 context created, in context: 1
+- 13:45:31.469 INFO: GET 304 /build/assets/app-Bz1z3Khb.css
+- 13:45:31.469 INFO: GET 304 /build/assets/app-CY4WpChI.js
+- 13:45:31.547 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:49903/build/assets/app-CY4WpChI.js:103)
+- 13:45:31.547 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:49903/build/assets/app-CY4WpChI.js:103)
+- 13:45:31.578 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:45:31.578 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies?page=2
+- 13:45:45.219 INFO: GET 200 /books
+- 13:45:45.219 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies?page=2
+- 13:45:45.219 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies?page=2
+- 13:45:45.219 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies?page=2
+- 13:45:45.219 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/books
+- 13:45:45.235 INFO: GET 304 /build/assets/app-Bz1z3Khb.css
+- 13:45:45.266 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/books
+- 13:45:45.266 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/books
+- 13:45:47.406 INFO: POST 200 /livewire-133a85f4/update
+- 13:45:50.406 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/books:0)
+- 13:47:48.469 INFO: POST 200 /livewire-133a85f4/update
+- 13:47:51.485 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/books:0)
+- 13:48:21.078 INFO: POST 200 /livewire-133a85f4/update
+- 13:48:24.078 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/books:0)
+- 13:48:26.860 INFO: POST 200 /livewire-133a85f4/update
+- 13:48:26.266 INFO: POST 200 /livewire-133a85f4/update
+- 13:48:29.266 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/books:0)
+- 13:48:30.297 INFO: GET 200 /copies
+- 13:48:30.313 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/books
+- 13:48:30.313 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/books
+- 13:48:30.313 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/books
+- 13:48:30.313 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies
+- 13:48:30.375 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies
+- 13:48:30.375 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies
+- 13:48:33.375 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/copies:0)
+- 13:48:34.172 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies
+- 13:48:34.265 DEBUG: V8 context created, in context: 1
+- 13:48:34.531 INFO: GET 304 /build/assets/app-Bz1z3Khb.css
+- 13:48:34.531 INFO: GET 304 /build/assets/app-CY4WpChI.js
+- 13:48:34.531 INFO: GET 200 /copies?page=2
+- 13:48:34.594 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:49903/build/assets/app-CY4WpChI.js:103)
+- 13:48:34.594 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:49903/build/assets/app-CY4WpChI.js:103)
+- 13:48:34.610 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:48:34.610 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies?page=2
+- 13:48:38.453 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies?page=2
+- 13:48:39.562 DEBUG: V8 context created, in context: 1
+- 13:48:39.828 INFO: GET 304 /build/assets/app-Bz1z3Khb.css
+- 13:48:39.828 INFO: GET 304 /build/assets/app-CY4WpChI.js
+- 13:48:39.828 INFO: GET 200 /copies?page=1
+- 13:48:39.891 INFO: JS Console: [Warning] Detected multiple instances of Livewire running(http://127.0.0.1:49903/build/assets/app-CY4WpChI.js:103)
+- 13:48:39.891 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:49903/build/assets/app-CY4WpChI.js:103)
+- 13:48:39.906 INFO: JS Console: [Warning] Detected multiple instances of Alpine running(http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:14956)
+- 13:48:39.922 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies?page=1
+- 13:49:37.328 INFO: POST 200 /livewire-133a85f4/update
+- 13:49:44.250 INFO: POST 200 /livewire-133a85f4/update
+- 13:49:44.656 INFO: POST 200 /livewire-133a85f4/update
+- 13:49:46.625 INFO: POST 200 /livewire-133a85f4/update
+- 13:49:55.703 INFO: POST 200 /livewire-133a85f4/update
+- 13:49:56.156 INFO: POST 200 /livewire-133a85f4/update
+- 13:49:57.547 INFO: POST 200 /livewire-133a85f4/update
+- 13:50:01.688 INFO: POST 200 /livewire-133a85f4/update
+- 13:50:03.844 INFO: POST 200 /livewire-133a85f4/update
+- 13:50:04.016 INFO: POST 200 /livewire-133a85f4/update
+- 13:50:22.125 INFO: POST 200 /livewire-133a85f4/update
+- 13:50:27.844 INFO: POST 200 /livewire-133a85f4/update
+- 13:50:27.203 INFO: POST 200 /livewire-133a85f4/update
+- 13:50:49.141 INFO: GET 200 /fines/student-fines
+- 13:50:49.141 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies?page=1
+- 13:50:49.141 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies?page=1
+- 13:50:49.141 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies?page=1
+- 13:50:49.141 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/fines/student-fines
+- 13:50:49.156 INFO: GET 304 /build/assets/app-Bz1z3Khb.css
+- 13:50:49.188 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/fines/student-fines
+- 13:50:49.188 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/fines/student-fines
+- 13:50:49.188 INFO: JS Console: [Warning] Alpine Expression Error: fluxModal is not defined
+
+Expression: "fluxModal('payment', 'WPjkbVVgbYyxT3AXOew2')"
+
+ [object HTMLDialogElement](http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1326)
+- 13:50:49.203 INFO: JS Console: [Error] Uncaught ReferenceError: fluxModal is not defined(http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1330)
+- 13:50:52.203 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/fines/student-fines:0)
+- 13:51:15.297 DEBUG: JS dialog: This will reprocess penalties. Continue?
+- 13:51:15.297 INFO: JS Console: [Warning] A window.confirm() dialog generated by this page was suppressed because this page is not the active tab of the front window. Please make sure your dialogs are triggered by user interactions to avoid this situation. https://www.chromestatus.com/feature/5140698722467840(http://127.0.0.1:49903/fines/student-fines:0)
+- 13:51:17.125 DEBUG: JS dialog: This will reprocess penalties. Continue?
+- 13:51:17.125 INFO: JS Console: [Warning] A window.confirm() dialog generated by this page was suppressed because this page is not the active tab of the front window. Please make sure your dialogs are triggered by user interactions to avoid this situation. https://www.chromestatus.com/feature/5140698722467840(http://127.0.0.1:49903/fines/student-fines:0)
+- 13:51:40.938 INFO: GET 200 /copies
+- 13:51:40.938 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/fines/student-fines
+- 13:51:40.953 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/fines/student-fines
+- 13:51:40.953 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/fines/student-fines
+- 13:51:40.953 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies
+- 13:51:40.000 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies
+- 13:51:40.000 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies
+- 13:51:43.016 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/copies:0)
+- 13:52:01.422 INFO: POST 200 /livewire-133a85f4/update
+- 13:52:04.422 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/copies:0)
+- 13:52:15.313 INFO: POST 200 /livewire-133a85f4/update
+- 13:52:15.656 INFO: POST 200 /livewire-133a85f4/update
+- 13:52:18.672 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/copies:0)
+- 13:52:19.578 INFO: GET 200 /fines/student-fines
+- 13:52:19.594 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies
+- 13:52:19.594 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies
+- 13:52:19.594 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies
+- 13:52:19.594 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/fines/student-fines
+- 13:52:19.625 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/fines/student-fines
+- 13:52:19.625 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/fines/student-fines
+- 13:52:19.625 INFO: JS Console: [Warning] Alpine Expression Error: fluxModal is not defined
+
+Expression: "fluxModal('payment', 'dmBH1LgvUn23QLN7zGkf')"
+
+ [object HTMLDialogElement](http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1326)
+- 13:52:19.641 INFO: JS Console: [Error] Uncaught ReferenceError: fluxModal is not defined(http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1330)
+- 13:52:22.641 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/fines/student-fines:0)
+- 13:53:05.625 INFO: GET 200 /fines/faculty-fines
+- 13:53:05.625 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/fines/student-fines
+- 13:53:05.625 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/fines/student-fines
+- 13:53:05.625 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/fines/student-fines
+- 13:53:05.625 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/fines/faculty-fines
+- 13:53:05.656 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/fines/faculty-fines
+- 13:53:05.656 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/fines/faculty-fines
+- 13:53:08.656 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/fines/faculty-fines:0)
+- 13:53:20.328 INFO: GET 200 /users/students-index
+- 13:53:20.328 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/fines/faculty-fines
+- 13:53:20.328 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/fines/faculty-fines
+- 13:53:20.328 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/fines/faculty-fines
+- 13:53:20.328 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/users/students-index
+- 13:53:20.360 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/users/students-index
+- 13:53:20.360 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/users/students-index
+- 13:53:23.375 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/users/students-index:0)
+- 13:53:36.578 INFO: GET 200 /users/faculties-index
+- 13:53:36.578 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/users/students-index
+- 13:53:36.578 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/users/students-index
+- 13:53:36.578 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/users/students-index
+- 13:53:36.578 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/users/faculties-index
+- 13:53:36.610 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/users/faculties-index
+- 13:53:36.610 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/users/faculties-index
+- 13:53:39.610 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/users/faculties-index:0)
+- 13:53:45.938 INFO: POST 200 /livewire-133a85f4/update
+- 13:53:48.953 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/users/faculties-index:0)
+- 13:54:03.610 INFO: POST 200 /livewire-133a85f4/update
+- 13:54:04.953 INFO: POST 200 /livewire-133a85f4/update
+- 13:54:07.969 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/users/faculties-index:0)
+- 13:54:48.625 INFO: GET 200 /reports
+- 13:54:48.625 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/users/faculties-index
+- 13:54:48.625 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/users/faculties-index
+- 13:54:48.625 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/users/faculties-index
+- 13:54:48.625 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/reports
+- 13:54:48.656 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/reports
+- 13:54:48.656 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/reports
+- 13:54:48.656 INFO: JS Console: [Warning] Alpine Expression Error: fluxInputClearable is not defined
+
+Expression: "fluxInputClearable"
+
+ [object HTMLButtonElement](http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1326)
+- 13:54:48.656 INFO: JS Console: [Warning] Alpine Expression Error: fluxModal is not defined
+
+Expression: "fluxModal('generate-report', '3yIq6bDCHDOHFercvFF5')"
+
+ [object HTMLDialogElement](http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1326)
+- 13:54:48.656 INFO: JS Console: [Error] Uncaught ReferenceError: fluxInputClearable is not defined(http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1330)
+- 13:54:48.656 INFO: JS Console: [Error] Uncaught ReferenceError: fluxModal is not defined(http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1330)
+- 13:54:51.672 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/reports:0)
+- 13:55:13.906 DEBUG: Before popup is created
+- 13:55:13.906 INFO: Setting default size for a popup window 800/600
+- 13:55:13.906 DEBUG: Window max width/height = 1840/984
+- 13:55:13.922 DEBUG: Browser was created
+- 13:55:13.922 DEBUG: Browser window not found, hwnd = 1704410
+- 13:55:13.938 DEBUG: Create browser window for popup, hwnd=1704410
+- 13:55:13.938 DEBUG: Store browser window, hwnd = 1704410
+- 13:55:13.938 INFO: Focus browser, id=2
+- 13:55:13.938 DEBUG: Centering popup window relative to its parent
+- 13:55:13.953 DEBUG: OnLoadingStateChange: loading=1, url=
+- 13:55:13.656 DEBUG: V8 browser was created
+- 13:55:13.015 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=63566 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --time-ticks-at-unix-epoch=-1771479433823194 --launch-time-ticks=1079328046 --field-trial-handle=4796,i,7619199593276242082,797075210168612205,262144 --variations-seed-version --enable-logging=handle --log-file=4928 --mojo-platform-channel-handle=1388 /prefetch:1
+- 13:55:14.000 DEBUG: V8 context created, in context: 1
+- 13:55:14.297 INFO: GET 200 /reports/3/pdf
+- 13:55:14.016 DEBUG: V8 context created, in context: 1
+- 13:55:14.313 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/reports/3/pdf
+- 13:55:14.016 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --extension-process --init-isolate-as-foreground --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=63566 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --time-ticks-at-unix-epoch=-1771479433823194 --launch-time-ticks=1080735350 --field-trial-handle=4996,i,7619199593276242082,797075210168612205,262144 --variations-seed-version --enable-logging=handle --log-file=5232 --mojo-platform-channel-handle=5228 /prefetch:2
+- 13:55:14.016 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --pdf-renderer --no-sandbox --remote-debugging-port=63566 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --js-flags=--jitless --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --time-ticks-at-unix-epoch=-1771479433823194 --launch-time-ticks=1080879080 --field-trial-handle=5280,i,7619199593276242082,797075210168612205,262144 --variations-seed-version --enable-logging=handle --log-file=5292 --mojo-platform-channel-handle=5308 /prefetch:1
+- 13:55:48.625 INFO: Focus browser, id=1
+- 13:55:48.641 DEBUG: Before browser is closed, hwnd=1704410
+- 13:55:48.641 DEBUG: Remove browser window, hwnd = 1704410
+- 13:55:50.063 INFO: JS Console: [Warning] Alpine Expression Error: handleShow is not defined
+
+Expression: "handleShow($event)"
+
+ [object HTMLDialogElement](http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1326)
+- 13:55:50.063 INFO: JS Console: [Error] Uncaught ReferenceError: handleShow is not defined(http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1330)
+- 13:55:52.344 INFO: JS Console: [Warning] Alpine Expression Error: handleShow is not defined
+
+Expression: "handleShow($event)"
+
+ [object HTMLDialogElement](http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1326)
+- 13:55:52.344 INFO: JS Console: [Error] Uncaught ReferenceError: handleShow is not defined(http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1330)
+- 13:55:53.063 INFO: JS Console: [Warning] Alpine Expression Error: handleShow is not defined
+
+Expression: "handleShow($event)"
+
+ [object HTMLDialogElement](http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1326)
+- 13:55:53.063 INFO: JS Console: [Error] Uncaught ReferenceError: handleShow is not defined(http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1330)
+- 13:55:57.360 DEBUG: Before popup is created
+- 13:55:57.360 INFO: Setting default size for a popup window 800/600
+- 13:55:57.360 DEBUG: Window max width/height = 1840/984
+- 13:55:57.375 DEBUG: Browser was created
+- 13:55:57.375 DEBUG: Browser window not found, hwnd = 852774
+- 13:55:57.375 DEBUG: Create browser window for popup, hwnd=852774
+- 13:55:57.375 DEBUG: Store browser window, hwnd = 852774
+- 13:55:57.016 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=63566 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=11 --time-ticks-at-unix-epoch=-1771479433823194 --launch-time-ticks=1123782831 --field-trial-handle=5212,i,7619199593276242082,797075210168612205,262144 --variations-seed-version --enable-logging=handle --log-file=5000 --mojo-platform-channel-handle=4968 /prefetch:1
+- 13:55:57.391 INFO: Focus browser, id=3
+- 13:55:57.391 DEBUG: Centering popup window relative to its parent
+- 13:55:57.391 DEBUG: OnLoadingStateChange: loading=1, url=
+- 13:55:57.203 DEBUG: V8 browser was created
+- 13:55:57.562 DEBUG: V8 context created, in context: 1
+- 13:55:57.750 INFO: GET 200 /reports/3/pdf
+- 13:55:57.562 DEBUG: V8 context created, in context: 1
+- 13:55:57.750 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/reports/3/pdf
+- 13:55:58.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --extension-process --init-isolate-as-foreground --user-data-dir="E:\BCULMS\webcache" --no-sandbox --remote-debugging-port=63566 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12 --time-ticks-at-unix-epoch=-1771479433823194 --launch-time-ticks=1124172332 --field-trial-handle=3168,i,7619199593276242082,797075210168612205,262144 --variations-seed-version --enable-logging=handle --log-file=4768 --mojo-platform-channel-handle=5564 /prefetch:2
+- 13:55:58.000 DEBUG: Command line string for the renderer process: "E:\BCULMS\BCULMS.exe" --type=renderer --string-annotations=is-enterprise-managed=no --user-data-dir="E:\BCULMS\webcache" --pdf-renderer --no-sandbox --remote-debugging-port=63566 --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-US --js-flags=--jitless --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=13 --time-ticks-at-unix-epoch=-1771479433823194 --launch-time-ticks=1124281388 --field-trial-handle=5340,i,7619199593276242082,797075210168612205,262144 --variations-seed-version --enable-logging=handle --log-file=5196 --mojo-platform-channel-handle=3656 /prefetch:1
+- 13:56:14.250 INFO: Focus browser, id=1
+- 13:56:14.266 DEBUG: Before browser is closed, hwnd=852774
+- 13:56:14.266 DEBUG: Remove browser window, hwnd = 852774
+- 13:56:17.438 INFO: JS Console: [Warning] Alpine Expression Error: handleShow is not defined
+
+Expression: "handleShow($event)"
+
+ [object HTMLDialogElement](http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1326)
+- 13:56:17.438 INFO: JS Console: [Error] Uncaught ReferenceError: handleShow is not defined(http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1330)
+- 13:56:18.672 INFO: JS Console: [Warning] Alpine Expression Error: handleShow is not defined
+
+Expression: "handleShow($event)"
+
+ [object HTMLDialogElement](http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1326)
+- 13:56:18.672 INFO: JS Console: [Error] Uncaught ReferenceError: handleShow is not defined(http://127.0.0.1:49903/livewire-133a85f4/livewire.js?id=51c462b0:1330)
+- 13:56:34.110 INFO: GET 200 /copies
+- 13:56:34.110 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/reports
+- 13:56:34.110 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/reports
+- 13:56:34.110 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/reports
+- 13:56:34.110 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies
+- 13:56:34.156 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:49903/copies
+- 13:56:34.156 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:49903/copies
+- 13:56:37.172 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/copies:0)
+- 13:56:48.063 INFO: POST 200 /livewire-133a85f4/update
+- 13:56:49.860 INFO: POST 200 /livewire-133a85f4/update
+- 13:56:52.860 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/copies:0)
+- 13:56:53.813 INFO: POST 200 /livewire-133a85f4/update
+- 13:56:56.813 INFO: JS Console: [Warning] The resource http://127.0.0.1:49903/build/assets/app-Bz1z3Khb.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.(http://127.0.0.1:49903/copies:0)
+- 13:57:39.375 DEBUG: WM_DESTROY
+- 13:57:39.375 DEBUG: Remove browser window, hwnd = 132270
+- 13:57:39.375 INFO: Stopping Mongoose web server
+- 13:57:39.375 DEBUG: Mongoose webserver stopped immediately
+- 13:57:39.391 DEBUG: Before browser is closed, hwnd=132300
+- 13:57:39.391 DEBUG: Remove browser window, hwnd = 132300
+- 13:57:39.391 DEBUG: Browser window not found, hwnd = 132300
+- 13:57:39.391 WARNING: RemoveBrowserWindow() failed: GetBrowserWindow() failed
+- 13:57:39.391 DEBUG: Quit CEF message loop
+- 13:57:39.453 INFO: Ended application
+- 13:57:39.453 INFO: --------------------------------------------------------
