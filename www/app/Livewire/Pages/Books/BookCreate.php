@@ -3,13 +3,14 @@
 namespace App\Livewire\Pages\Books;
 
 use Livewire\Component;
+use Livewire\Attributes\On;
 use App\Models\Book;
 use App\Models\Department;
 use App\Models\Course;
 use App\Models\LibraryTransaction;
 use App\Models\Copy;
+use App\Models\CopyAccession;
 use Illuminate\Support\Str;
-use Flux\Flux;
 
 class BookCreate extends Component
 {
@@ -19,7 +20,7 @@ class BookCreate extends Component
     public $isbn;
     public $publication_date;
     public $department_id = null;
-    public $course_id = null;
+    public $course_id     = null;
     public $category;
     public $copies = 1;
 
@@ -27,118 +28,136 @@ class BookCreate extends Component
     public $filteredCourses = [];
 
     protected $rules = [
-        'title' => 'required|string|max:255',
-        'author' => 'required|string|max:255',
-        'publisher' => 'nullable|string|max:255',
-        'isbn' => 'nullable|string|max:50',
+        'title'            => 'required|string|max:255',
+        'author'           => 'required|string|max:255',
+        'publisher'        => 'nullable|string|max:255',
+        'isbn'             => 'nullable|string|max:50',
         'publication_date' => 'nullable|date',
-        'department_id' => 'required|exists:departments,department_code',
-        'course_id' => 'required|exists:courses,course_code',
-        'category' => 'nullable|string|max:100',
-        'copies' => 'required|integer|min:1|max:100',
+        'department_id'    => 'required|exists:departments,department_code',
+        'course_id'        => 'required|exists:courses,course_code',
+        'category'         => 'nullable|string|max:100',
+        'copies'           => 'required|integer|min:1|max:100',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->departments = Department::all();
     }
 
-    // This method is automatically called when department_id changes
-    public function updatedDepartmentId($value)
+    public function updatedDepartmentId($value): void
     {
-        // Reset course selection when department changes
-        $this->course_id = null;
-
-        // Filter courses by selected department
-        if ($value) {
-            $this->filteredCourses = Course::where('department_id', $value)->get();
-        } else {
-            $this->filteredCourses = [];
-        }
+        $this->course_id       = null;
+        $this->filteredCourses = $value
+            ? Course::where('department_id', $value)->get()
+            : [];
     }
 
-    public function saveBook()
+    /**
+     * Validates all book fields, then fires a browser event that BookCatalog listens for.
+     * Alpine passes the current copies count since it owns that input directly.
+     */
+    public function openCatalogModal(int $copiesCount): void
+    {
+        $this->copies = $copiesCount;
+
+        $this->validate();
+
+        $this->dispatch('open-book-catalog',
+            copies: (int) $this->copies,
+            title:  $this->title,
+        );
+    }
+
+    /**
+     * Fired by BookCatalog once the librarian has filled all accession/call numbers.
+     * Receives validated copy data and persists everything.
+     */
+    #[On('catalog-ready')]
+    public function saveBook(array $copyData): void
     {
         $this->validate();
 
         try {
             $book = Book::create([
-                'title' => $this->title,
-                'author' => $this->author,
-                'publisher' => $this->publisher,
-                'isbn' => $this->isbn,
+                'title'            => $this->title,
+                'author'           => $this->author,
+                'publisher'        => $this->publisher,
+                'isbn'             => $this->isbn,
                 'publication_date' => $this->publication_date,
-                'department_id' => $this->department_id,
-                'category' => $this->category,
-                'copies' => $this->copies,
+                'department_id'    => $this->department_id,
+                'category'         => $this->category,
+                'copies'           => $this->copies,
             ]);
-
-            $refNumber = $this->generateUniqueRefNumber();
 
             LibraryTransaction::create([
                 'transaction_name' => 'Add Book',
-                'ref_number' => $refNumber,
+                'ref_number'       => $this->generateUniqueRefNumber(),
             ]);
 
-            $this->generateCopies($book);
+            $this->generateCopies($book, $copyData);
 
-            $this->reset(['title', 'author', 'publisher', 'isbn', 'publication_date', 'department_id', 'course_id', 'category', 'copies']);
+            $this->reset(['title', 'author', 'publisher', 'isbn', 'publication_date',
+                          'department_id', 'course_id', 'category', 'copies']);
             $this->filteredCourses = [];
 
             $this->dispatch('bookCreated');
+
         } catch (\Exception $e) {
             session()->flash('error', 'Failed to add book: ' . $e->getMessage());
         }
     }
 
-    private function generateUniqueRefNumber()
+    private function generateUniqueRefNumber(): string
     {
         do {
-            $randomString = strtoupper(Str::random(15));
-            $randomString = preg_replace('/[^A-Z0-9]/', '', $randomString);
-            while (strlen($randomString) < 15) {
-                $randomString .= strtoupper(substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 1));
+            $random = strtoupper(Str::random(15));
+            $random = preg_replace('/[^A-Z0-9]/', '', $random);
+            while (strlen($random) < 15) {
+                $random .= strtoupper(substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 1));
             }
-            $randomString = substr($randomString, 0, 15);
-
-            $refNumber = 'BCU-ADDBK-' . $randomString;
+            $refNumber = 'BCU-ADDBK-' . substr($random, 0, 15);
         } while (LibraryTransaction::where('ref_number', $refNumber)->exists());
 
         return $refNumber;
     }
 
-    private function generateCopies(Book $book)
+    private function generateCopies(Book $book, array $copyData): void
     {
-        $titleWords = explode(' ', $book->title);
         $initials = '';
-        foreach ($titleWords as $word) {
+        foreach (explode(' ', $book->title) as $word) {
             if (!empty($word)) {
                 $initials .= strtoupper($word[0]);
             }
         }
 
-        $deptCode = $book->department_id;
+        foreach ($copyData as $i => $row) {
+            $copyId = $initials . $book->department_id . str_pad($i + 1, 3, '0', STR_PAD_LEFT);
 
-        for ($i = 1; $i <= $book->copies; $i++) {
-            $copyNumber = str_pad($i, 3, '0', STR_PAD_LEFT);
-            $copyId = $initials . $deptCode . $copyNumber;
-
-            Copy::create([
-                'copy_id' => $copyId,
-                'book_id' => $book->id,
+            $copy = Copy::create([
+                'copy_id'   => $copyId,
+                'book_id'   => $book->id,
                 'course_id' => $this->course_id,
-                'status' => 'Available',
+                'status'    => 'Available',
+                'condition' => 'Good',
+            ]);
+
+            CopyAccession::create([
+                'copy_id'          => $copy->copy_id,
+                'accession_number' => trim($row['accession_number']),
+                'call_number'      => trim($row['call_number']),
             ]);
         }
     }
 
-    public function closeModal()
+    public function closeModal(): void
     {
         $this->dispatch('closeCreate');
     }
 
     public function render()
     {
-        return view('livewire.pages.books.book-create');
+        return view('livewire.pages.books.book-create', [
+            'departments' => $this->departments,
+        ]);
     }
 }

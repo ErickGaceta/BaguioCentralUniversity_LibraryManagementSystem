@@ -49,6 +49,11 @@ class Copy extends Model
         return $this->hasMany(FacultyFine::class, 'copy_id', 'copy_id');
     }
 
+    public function accession()
+    {
+        return $this->hasOne(CopyAccession::class, 'copy_id', 'copy_id');
+    }
+
     /**
      * Borrow this copy for a student
      */
