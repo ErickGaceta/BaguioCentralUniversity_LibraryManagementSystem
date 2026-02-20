@@ -1,3 +1,5 @@
+@include('partial.loading-screen')
+
 @include('partial.header')
 
 @include('partial.sidebar')
