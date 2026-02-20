@@ -29,13 +29,14 @@ flowchart TD
 ```mermaid
 flowchart TD
     A([📚 Books Module]) --> B{Action}
-    B -->|Add| C[Fill in Title, Author,\nISBN, Dept, Category]
-    B -->|Search/Edit| D[Filter by Title,\nDept or Category]
+    B -->|Add| C[Fill in Title, Author, ISBN, Dept, Category, Copies]
+    C -->|Necessary Additions| Z[Fill a table for Call Number and Accession Number]
+    B -->|Search/Edit| D[Filter by Title, Dept or Category]
     C --> E[Save Book to Database]
     D --> E
 
     E --> F([📄 Copies Module])
-    F --> G[Add Copy\nassign copy_id, course,\ncondition]
+    F --> G[Add Copy assign copy_id, course, condition]
     G --> H{Copy Status?}
     H -->|Available| I([✅ Ready for Issuance])
     H -->|Borrowed| J([⚠️ Mark as Borrowed])
@@ -51,8 +52,8 @@ flowchart TD
     A{User Type} --> B([🎓 Students])
     A --> C([👨‍🏫 Faculties])
 
-    B --> D[Add Student\nID, Name, Dept, Course, Year Level]
-    C --> E[Add Faculty\nID, Name, Dept, Occupation]
+    B --> D[Add Student ID, Name, Dept, Course, Year Level]
+    C --> E[Add Faculty ID, Name, Dept, Occupation]
 
     D --> F[Profile Saved to DB]
     E --> F
@@ -78,7 +79,7 @@ flowchart TD
     F -->|Yes| H[Set Borrow Date & Due Date]
 
     H --> I[Generate Reference Number]
-    I --> J[Save to student_borrows\nor faculty_borrows]
+    I --> J[Save to student_borrows or faculty_borrows]
     J --> K[Update Copy Status → Borrowed]
     K --> L([✅ Issuance Complete])
 
@@ -91,7 +92,7 @@ flowchart TD
     Q --> R([✅ Transaction Closed])
 
     P -->|No| S[Calculate Fine Amount]
-    S --> T[Create Fine Record\nstudent_fines or faculty_fines]
+    S --> T[Create Fine Record student_fines or faculty_fines]
     T --> U[Update Copy Status → Available]
     U --> V([⚠️ Fine Pending Payment])
 ```
@@ -102,8 +103,8 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A([🏛️ Library Module]) --> B[Log In-Library Usage\nWalk-ins, Reading Room]
-    B --> C[Enter Transaction Name\n& Reference Number]
+    A([🏛️ Library Module]) --> B[Log In-Library Usage Walk-ins, Reading Room]
+    B --> C[Enter Transaction Name & Reference Number]
     C --> D[Save to library_transactions]
     D --> E([✅ Transaction Logged])
 ```
@@ -117,12 +118,12 @@ flowchart TD
     A{Fine Type} --> B([💰 Student Fines])
     A --> C([💰 Faculty Fines])
 
-    B --> D[View All Fines\nFilter: Unpaid / Paid]
+    B --> D[View All Fines Filter: Unpaid / Paid]
     C --> D
 
     D --> E{Fine Status?}
-    E -->|Unpaid| F[status = 0\nAwaiting Payment]
-    E -->|Paid| G[Mark as Paid\nRecord date_paid]
+    E -->|Unpaid| F[status = 0 Awaiting Payment]
+    E -->|Paid| G[Mark as Paid Record date_paid]
 
     F --> H{Payment Received?}
     H -->|Yes| G
@@ -141,9 +142,9 @@ flowchart TD
     A --> C([🔄 Transactions])
     A --> D([👥 Users])
 
-    B --> E[Retire Book from Active Catalog\nSnapshot data at archive time]
-    C --> F[Archive Borrow / Library\nTransaction Records]
-    D --> G[Archive Inactive\nStudent or Faculty Profile]
+    B --> E[Retire Book from Active Catalog Snapshot data at archive time]
+    C --> F[Archive Borrow / Library Transaction Records]
+    D --> G[Archive Inactive Student or Faculty Profile]
 
     E --> H[Save to archives_library]
     F --> I[Save to transaction_archives]
@@ -160,7 +161,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A([📋 Reports Module]) --> B[Select Report Type\nBorrows · Fines · Overdue · Dept Stats]
+    A([📋 Reports Module]) --> B[Select Report Type Borrows · Fines · Overdue · Dept Stats]
     B --> C[Set Filters & Date Range]
     C --> D[Query Database via Eloquent ORM]
     D --> E[Compile Results]
