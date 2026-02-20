@@ -31,16 +31,16 @@ The system runs locally via **PHPDesktop**, which wraps the Laravel application 
 
 | Technology | Version | Purpose |
 |---|---|---|
-| **PHP** | ^8.2 | Core server-side language |
-| **Laravel** | ^11.x | MVC application framework |
-| **SQLite** | 3.x | Local relational database (bundled with PHPDesktop) |
+| **PHP** | ^8.4 | Core server-side language |
+| **Laravel** | ^12.x | MVC application framework |
+| **SQLite** | 3 | Local relational database (bundled with PHPDesktop) |
 
 ### Frontend
 
 | Technology | Version | Purpose |
 |---|---|---|
-| **Livewire** | ^3.x | Full-stack reactive components without writing custom JavaScript |
-| **Flux UI** | ^1.x | Blade component library built on top of Livewire for UI elements (sidebar, navs, avatars, etc.) |
+| **Livewire** | ^4.x | Full-stack reactive components without writing custom JavaScript |
+| **Flux UI** | ^2.x | Blade component library built on top of Livewire for UI elements (sidebar, navs, avatars, etc.) |
 | **Alpine.js** | ^3.x | Lightweight JavaScript for inline interactivity and state management |
 | **Tailwind CSS** | ^3.x | Utility-first CSS framework for styling |
 | **Vite** | ^5.x | Frontend asset bundler |
