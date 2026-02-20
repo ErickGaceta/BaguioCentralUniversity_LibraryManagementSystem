@@ -18,7 +18,6 @@ class Book extends Model
     ];
 
     protected $casts = [
-        'publication_date' => 'date',
         'copies' => 'integer',
     ];
 

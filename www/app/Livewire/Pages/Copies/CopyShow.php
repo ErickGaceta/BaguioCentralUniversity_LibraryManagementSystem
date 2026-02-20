@@ -220,6 +220,7 @@ class CopyShow extends Component
         $this->copy = Copy::with([
             'book',
             'course',
+            'accession',
             'studentBorrows' => fn($q) => $q->with('student')->latest('date_borrowed'),
             'facultyBorrows' => fn($q) => $q->with('faculty')->latest('date_borrowed'),
         ])->findOrFail($this->copyId);

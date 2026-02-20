@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages\Books;
 
 use Livewire\Component;
+use Livewire\Attributes\On;
 use App\Models\Book;
 use App\Models\Department;
 use App\Models\Course;
@@ -23,12 +24,12 @@ class BookEdit extends Component
     public $isbn;
     public $publication_date;
     public $department_id = null;
-    public $course_id = null;
+    public $course_id     = null;
     public $category;
     public $copies = 1;
 
     public $originalCopies = 0;
-    public $originalData = [];
+    public $originalData   = [];
 
     public $departments;
     public $filteredCourses = [];
@@ -38,17 +39,17 @@ class BookEdit extends Component
         'author'           => 'required|string|max:255',
         'publisher'        => 'nullable|string|max:255',
         'isbn'             => 'nullable|string|max:50',
-        'publication_date' => 'nullable|date',
+        'publication_date' => 'nullable|string|max:50',
         'department_id'    => 'required|exists:departments,department_code',
         'course_id'        => 'required|exists:courses,course_code',
         'category'         => 'nullable|string|max:100',
         'copies'           => 'required|integer|min:1|max:100',
     ];
 
-    public function mount($bookId)
+    public function mount($bookId): void
     {
-        $this->bookId     = $bookId;
-        $this->book       = Book::findOrFail($bookId);
+        $this->bookId      = $bookId;
+        $this->book        = Book::findOrFail($bookId);
         $this->departments = Department::all();
 
         $this->title            = $this->book->title;
@@ -83,7 +84,7 @@ class BookEdit extends Component
         ];
     }
 
-    public function updatedDepartmentId($value)
+    public function updatedDepartmentId($value): void
     {
         $this->course_id       = null;
         $this->filteredCourses = $value
@@ -92,13 +93,18 @@ class BookEdit extends Component
     }
 
     /**
-     * Called by Alpine on submit.
+     * Validates form, then decides whether to open BookCatalog or save directly.
      *
-     * $newCopyData: array of { accession_number, call_number } for newly added copies only.
-     * Empty array when copy count has not increased.
+     * The catalog modal is needed when:
+     *   - Some existing copies have no CopyAccession record, OR
+     *   - New copies are being added
+     *
+     * If neither applies, we save directly.
      */
-    public function updateBook(array $newCopyData = []): void
+    public function openCatalogModal(int $copiesCount): void
     {
+        $this->copies = $copiesCount;
+
         $this->validate();
 
         if (!$this->hasChanges()) {
@@ -107,44 +113,46 @@ class BookEdit extends Component
             return;
         }
 
-        // Validate new copy cataloging data when copies are being added
-        $addedCount = (int) $this->copies - $this->originalCopies;
+        // Existing copies that have no accession record yet
+        $uncataloged = Copy::where('book_id', $this->book->id)
+            ->whereDoesntHave('accession')
+            ->get()
+            ->map(fn($c) => [
+                'copy_id' => $c->copy_id,
+                'label'   => $c->copy_id,
+            ])
+            ->values()
+            ->toArray();
 
-        if ($addedCount > 0) {
-            if (count($newCopyData) !== $addedCount) {
-                $this->addError('copies', 'Copy data mismatch. Please refresh and try again.');
-                return;
-            }
+        $newCopiesCount = max(0, (int) $this->copies - Copy::where('book_id', $this->book->id)->count());
 
-            foreach ($newCopyData as $i => $row) {
-                $num = $this->originalCopies + $i + 1;
-                if (empty(trim($row['accession_number'] ?? ''))) {
-                    $this->addError('copies', "Copy #{$num}: Accession number is required.");
-                    return;
-                }
-                if (empty(trim($row['call_number'] ?? ''))) {
-                    $this->addError('copies', "Copy #{$num}: Call number is required.");
-                    return;
-                }
-            }
-
-            $accessionNumbers = array_column($newCopyData, 'accession_number');
-
-            if (count($accessionNumbers) !== count(array_unique($accessionNumbers))) {
-                $this->addError('copies', 'Duplicate accession numbers found. Each new copy must have a unique accession number.');
-                return;
-            }
-
-            $existing = CopyAccession::whereIn('accession_number', $accessionNumbers)
-                ->pluck('accession_number')
-                ->toArray();
-
-            if (!empty($existing)) {
-                $this->addError('copies', 'These accession numbers already exist: ' . implode(', ', $existing));
-                return;
-            }
+        // If nothing needs cataloging, save straight away
+        if (empty($uncataloged) && $newCopiesCount === 0) {
+            $this->performUpdate([], []);
+            return;
         }
 
+        $this->dispatch('open-book-catalog',
+            title:          $this->title,
+            existingCopies: $uncataloged,
+            newCopiesCount: $newCopiesCount,
+        );
+    }
+
+    /**
+     * Receives validated catalog data from BookCatalog.
+     *
+     * $existingCatalogData : [{copy_id, label, accession_number, call_number}]
+     * $newCopyData         : [{accession_number, call_number}]
+     */
+    #[On('catalog-ready')]
+    public function saveWithCatalog(array $existingCatalogData = [], array $newCopyData = []): void
+    {
+        $this->performUpdate($existingCatalogData, $newCopyData);
+    }
+
+    private function performUpdate(array $existingCatalogData, array $newCopyData): void
+    {
         DB::beginTransaction();
 
         try {
@@ -159,18 +167,27 @@ class BookEdit extends Component
                 'copies'           => $this->copies,
             ]);
 
+            // Create accession records for previously uncataloged existing copies
+            foreach ($existingCatalogData as $row) {
+                CopyAccession::create([
+                    'copy_id'          => $row['copy_id'],
+                    'accession_number' => trim($row['accession_number']),
+                    'call_number'      => trim($row['call_number']),
+                ]);
+            }
+
+            // Handle copy count changes (add or remove)
             $this->handleCopyCountChange($newCopyData);
 
+            // Update course_id across all copies if it changed
             if ($this->course_id && $this->course_id !== $this->originalData['course_id']) {
                 Copy::where('book_id', $this->book->id)
                     ->update(['course_id' => $this->course_id]);
             }
 
-            $refNumber = $this->generateUniqueRefNumber();
-
             LibraryTransaction::create([
                 'transaction_name' => 'Edit Book',
-                'ref_number'       => $refNumber,
+                'ref_number'       => $this->generateUniqueRefNumber(),
             ]);
 
             DB::commit();
@@ -180,7 +197,7 @@ class BookEdit extends Component
 
         } catch (\Exception $e) {
             DB::rollBack();
-            $this->addError('copies', 'Failed to update book: ' . $e->getMessage());
+            $this->addError('general', 'Failed to update book: ' . $e->getMessage());
         }
     }
 
@@ -213,13 +230,13 @@ class BookEdit extends Component
         $newCount     = (int) $this->copies;
 
         if ($newCount > $currentCount) {
-            $this->addCopies($newCount - $currentCount, $newCopyData);
+            $this->addCopies($newCopyData);
         } elseif ($newCount < $currentCount) {
             $this->removeCopies($currentCount - $newCount);
         }
     }
 
-    private function addCopies(int $count, array $copyData): void
+    private function addCopies(array $copyData): void
     {
         $initials = '';
         foreach (explode(' ', $this->book->title) as $word) {
@@ -228,9 +245,6 @@ class BookEdit extends Component
             }
         }
 
-        $deptCode = $this->book->department_id;
-
-        // Find the highest existing sequence number for this book
         $lastCopyNumber = 0;
         $lastCopy = Copy::where('book_id', $this->book->id)
             ->orderBy('copy_id', 'desc')
@@ -244,8 +258,7 @@ class BookEdit extends Component
         }
 
         foreach ($copyData as $i => $row) {
-            $copyNumber = str_pad($lastCopyNumber + $i + 1, 3, '0', STR_PAD_LEFT);
-            $copyId     = $initials . $deptCode . $copyNumber;
+            $copyId = $initials . $this->book->department_id . str_pad($lastCopyNumber + $i + 1, 3, '0', STR_PAD_LEFT);
 
             $copy = Copy::create([
                 'copy_id'   => $copyId,
@@ -272,7 +285,7 @@ class BookEdit extends Component
 
         foreach ($copiesToRemove as $copy) {
             if ($copy->status !== 'Available') {
-                throw new \Exception("Cannot remove copies that are currently borrowed or unavailable. Copy ID: {$copy->copy_id}");
+                throw new \Exception("Cannot remove copies that are currently borrowed. Copy ID: {$copy->copy_id}");
             }
         }
 
@@ -285,8 +298,8 @@ class BookEdit extends Component
     private function generateUniqueRefNumber(): string
     {
         do {
-            $random    = strtoupper(Str::random(15));
-            $random    = preg_replace('/[^A-Z0-9]/', '', $random);
+            $random = strtoupper(Str::random(15));
+            $random = preg_replace('/[^A-Z0-9]/', '', $random);
             while (strlen($random) < 15) {
                 $random .= strtoupper(substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 1));
             }

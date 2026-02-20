@@ -32,7 +32,7 @@ class BookCreate extends Component
         'author'           => 'required|string|max:255',
         'publisher'        => 'nullable|string|max:255',
         'isbn'             => 'nullable|string|max:50',
-        'publication_date' => 'nullable|date',
+        'publication_date' => 'nullable|string|max:50',
         'department_id'    => 'required|exists:departments,department_code',
         'course_id'        => 'required|exists:courses,course_code',
         'category'         => 'nullable|string|max:100',
@@ -53,8 +53,8 @@ class BookCreate extends Component
     }
 
     /**
-     * Validates all book fields, then fires a browser event that BookCatalog listens for.
-     * Alpine passes the current copies count since it owns that input directly.
+     * Validates the book form, then opens BookCatalog with all copies as "new".
+     * Alpine passes the current copyCount since it owns that input.
      */
     public function openCatalogModal(int $copiesCount): void
     {
@@ -62,18 +62,21 @@ class BookCreate extends Component
 
         $this->validate();
 
-        $this->dispatch('open-book-catalog',
-            copies: (int) $this->copies,
-            title:  $this->title,
+        // For creation, there are no existing copies — everything is new
+        $this->dispatch(
+            'open-book-catalog',
+            title: $this->title,
+            existingCopies: [],
+            newCopiesCount: (int) $this->copies,
         );
     }
 
     /**
-     * Fired by BookCatalog once the librarian has filled all accession/call numbers.
-     * Receives validated copy data and persists everything.
+     * Receives validated catalog data from BookCatalog.
+     * In create mode, existingCatalogData will always be empty.
      */
     #[On('catalog-ready')]
-    public function saveBook(array $copyData): void
+    public function saveBook(array $existingCatalogData = [], array $newCopyData = []): void
     {
         $this->validate();
 
@@ -94,14 +97,22 @@ class BookCreate extends Component
                 'ref_number'       => $this->generateUniqueRefNumber(),
             ]);
 
-            $this->generateCopies($book, $copyData);
+            $this->generateCopies($book, $newCopyData);
 
-            $this->reset(['title', 'author', 'publisher', 'isbn', 'publication_date',
-                          'department_id', 'course_id', 'category', 'copies']);
+            $this->reset([
+                'title',
+                'author',
+                'publisher',
+                'isbn',
+                'publication_date',
+                'department_id',
+                'course_id',
+                'category',
+                'copies'
+            ]);
             $this->filteredCourses = [];
 
             $this->dispatch('bookCreated');
-
         } catch (\Exception $e) {
             session()->flash('error', 'Failed to add book: ' . $e->getMessage());
         }

@@ -20,6 +20,8 @@
             <flux:text><span class="font-semibold">Title:</span> {{ $copy->book->title }}</flux:text>
             <flux:text><span class="font-semibold">Author:</span> {{ $copy->book->author }}</flux:text>
             <flux:text><span class="font-semibold">ISBN:</span> {{ $copy->book->isbn ?? '—' }}</flux:text>
+            <flux:text><span class="font-semibold">Accession Number:</span> {{ $copy->accession->accession_number ?? '—' }}</flux:text>
+            <flux:text><span class="font-semibold">Call Number:</span> {{ $copy->accession->call_number ?? '—' }}</flux:text>
         </div>
         <div class="flex flex-col gap-2">
             <flux:text><span class="font-semibold">Copy ID:</span> {{ $copy->copy_id }}</flux:text>

@@ -38,8 +38,8 @@
             <flux:dropdown>
                 <flux:button icon:trailing="chevron-down">
                     {{ $courseFilter
-                        ? ($courses->firstWhere('course_code', $courseFilter)?->name ?? 'Course')
-                        : 'All Courses' }}
+    ? ($courses->firstWhere('course_code', $courseFilter)?->name ?? 'Course')
+    : 'All Courses' }}
                 </flux:button>
 
                 <flux:menu>
@@ -57,7 +57,7 @@
         <flux:table>
             <flux:table.columns>
                 <flux:table.column>Book Title</flux:table.column>
-                <flux:table.column>Copy ID</flux:table.column>
+                <flux:table.column>Copy ID || Accession || Call</flux:table.column>
                 <flux:table.column>Status</flux:table.column>
                 <flux:table.column>Course</flux:table.column>
                 <flux:table.column>Condition</flux:table.column>
@@ -67,40 +67,40 @@
 
             <flux:table.rows>
                 @forelse($copies as $copy)
-                <flux:table.row>
-                    <flux:table.cell>{{ $copy->book?->title ?? '—' }}</flux:table.cell>
-                    <flux:table.cell>{{ $copy->copy_id }}</flux:table.cell>
-                    <flux:table.cell>
-                        <flux:badge
-                            color="{{ $copy->status === 'Available' ? 'green' : 'yellow' }}"
-                            size="sm">
-                            {{ $copy->status }}
-                        </flux:badge>
-                    </flux:table.cell>
-                    <flux:table.cell>
-                        {{ $copy->course?->name ?? $copy->course_id ?? '—' }}
-                    </flux:table.cell>
-                    <flux:table.cell>{{ $copy->condition ?? '—' }}</flux:table.cell>
-                    <flux:table.cell>
-                        @php
+                                        <flux:table.row>
+                                            <flux:table.cell>{{ $copy->book?->title ?? '—' }}</flux:table.cell>
+                                            <flux:table.cell>{{ $copy->copy_id . '  ||  ' . ($copy->accession?->accession_number ?? 'No Accession Number') . '   ||   ' . ($copy->accession?->call_number ?? 'No Call Number') }}</flux:table.cell>
+                                            <flux:table.cell>
+                                                <flux:badge
+                                                    color="{{ $copy->status === 'Available' ? 'green' : 'yellow' }}"
+                                                    size="sm">
+                                                    {{ $copy->status }}
+                                                </flux:badge>
+                                            </flux:table.cell>
+                                            <flux:table.cell>
+                                                {{ $copy->course?->name ?? $copy->course_id ?? '—' }}
+                                            </flux:table.cell>
+                                            <flux:table.cell>{{ $copy->condition ?? '—' }}</flux:table.cell>
+                                            <flux:table.cell>
+                                                @php
                         $studentBorrow = $copy->studentBorrows->first();
                         $facultyBorrow = $copy->facultyBorrows->first();
-                        @endphp
+                                                @endphp
 
-                        @if($studentBorrow?->student)
-                        {{ $studentBorrow->student->full_name }} &mdash; Student
-                        @elseif($facultyBorrow?->faculty)
-                        {{ $facultyBorrow->faculty->full_name }} &mdash; Faculty
-                        @else
-                        &mdash;
-                        @endif
-                    </flux:table.cell>
-                    <flux:table.cell align="end">
-                        <flux:button
-                            icon="eye"
-                            wire:click="openEditModal('{{ $copy->copy_id }}')" />
-                    </flux:table.cell>
-                </flux:table.row>
+                                                @if($studentBorrow?->student)
+                                                {{ $studentBorrow->student->full_name }} &mdash; Student
+                                                @elseif($facultyBorrow?->faculty)
+                                                {{ $facultyBorrow->faculty->full_name }} &mdash; Faculty
+                                                @else
+                                                &mdash;
+                                                @endif
+                                            </flux:table.cell>
+                                            <flux:table.cell align="end">
+                                                <flux:button
+                                                    icon="eye"
+                                                    wire:click="openEditModal('{{ $copy->copy_id }}')" />
+                                            </flux:table.cell>
+                                        </flux:table.row>
                 @empty
                 <flux:table.row>
                     <flux:table.cell colspan="7">No copies found.</flux:table.cell>

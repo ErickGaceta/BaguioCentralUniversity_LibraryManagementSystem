@@ -69,7 +69,7 @@
                     <flux:table.cell>{{ $book->title }}</flux:table.cell>
                     <flux:table.cell>{{ $book->author }}</flux:table.cell>
                     <flux:table.cell>{{ $book->isbn }}</flux:table.cell>
-                    <flux:table.cell>{{ $book->publication_date->format('M d, Y') }}</flux:table.cell>
+                    <flux:table.cell>{{ $book->publication_date }}</flux:table.cell>
                     <flux:table.cell>{{ $book->copies }}</flux:table.cell>
                     <flux:table.cell align="end">
                         <div class="flex gap-2 justify-end">

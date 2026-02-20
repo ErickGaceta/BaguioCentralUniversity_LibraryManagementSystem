@@ -8,20 +8,25 @@ use App\Models\CopyAccession;
 
 class BookCatalog extends Component
 {
-    public bool   $show      = false;
-    public int    $copies    = 0;
-    public string $bookTitle = '';
+    public bool   $show           = false;
+    public string $bookTitle      = '';
+    public array  $existingCopies = []; // [{copy_id, label}] — existing copies missing accession records
+    public int    $newCopiesCount = 0;  // brand-new copies being added
 
     /**
-     * Fired by BookCreate after its form passes validation.
-     * Opens this modal and sets how many copy rows to render.
+     * Fired by BookCreate or BookEdit after their forms pass validation.
+     *
+     * $existingCopies : existing Copy rows that have no CopyAccession yet
+     * $newCopiesCount : how many new copies are being added this save
      */
     #[On('open-book-catalog')]
-    public function open(int $copies, string $title): void
+    public function open(string $title, array $existingCopies = [], int $newCopiesCount = 0): void
     {
-        $this->copies    = $copies;
-        $this->bookTitle = $title;
-        $this->show      = true;
+        $this->bookTitle      = $title;
+        $this->existingCopies = $existingCopies;
+        $this->newCopiesCount = $newCopiesCount;
+        $this->show           = true;
+        $this->resetErrorBag();
     }
 
     public function close(): void
@@ -30,41 +35,66 @@ class BookCatalog extends Component
     }
 
     /**
-     * Called by Alpine, receives the array of accession/call number pairs.
-     * Validates them, then fires catalog-ready so BookCreate can persist everything.
+     * Called by Alpine with two separate arrays:
+     *
+     * $existingCatalogData : [{copy_id, label, accession_number, call_number}]
+     * $newCopyData         : [{accession_number, call_number}]
      */
-    public function save(array $copyData): void
+    public function save(array $existingCatalogData = [], array $newCopyData = []): void
     {
-        // All fields filled
-        foreach ($copyData as $i => $row) {
-            $num = $i + 1;
+        $allAccessions = array_merge(
+            array_column($existingCatalogData, 'accession_number'),
+            array_column($newCopyData, 'accession_number'),
+        );
+
+        // All fields filled — existing uncataloged rows
+        foreach ($existingCatalogData as $row) {
+            $label = $row['label'] ?? $row['copy_id'];
             if (empty(trim($row['accession_number'] ?? ''))) {
-                $this->addError('catalog', "Copy #{$num}: Accession number is required.");
+                $this->addError('catalog', "{$label}: Accession number is required.");
                 return;
             }
             if (empty(trim($row['call_number'] ?? ''))) {
-                $this->addError('catalog', "Copy #{$num}: Call number is required.");
+                $this->addError('catalog', "{$label}: Call number is required.");
+                return;
+            }
+        }
+
+        // All fields filled — new copy rows
+        $offset = count($existingCatalogData);
+        foreach ($newCopyData as $i => $row) {
+            $num = $offset + $i + 1;
+            if (empty(trim($row['accession_number'] ?? ''))) {
+                $this->addError('catalog', "New Copy #{$num}: Accession number is required.");
+                return;
+            }
+            if (empty(trim($row['call_number'] ?? ''))) {
+                $this->addError('catalog', "New Copy #{$num}: Call number is required.");
                 return;
             }
         }
 
         // No duplicates within batch
-        $accessionNumbers = array_column($copyData, 'accession_number');
-        if (count($accessionNumbers) !== count(array_unique($accessionNumbers))) {
+        if (count($allAccessions) !== count(array_unique($allAccessions))) {
             $this->addError('catalog', 'Duplicate accession numbers found. Each copy must be unique.');
             return;
         }
 
-        $existing = CopyAccession::whereIn('accession_number', $accessionNumbers)
+        // No conflicts with DB
+        $conflict = CopyAccession::whereIn('accession_number', $allAccessions)
             ->pluck('accession_number')
             ->toArray();
 
-        if (!empty($existing)) {
-            $this->addError('catalog', 'These accession numbers already exist: ' . implode(', ', $existing));
+        if (!empty($conflict)) {
+            $this->addError('catalog', 'These accession numbers already exist: ' . implode(', ', $conflict));
             return;
         }
 
-        $this->dispatch('catalog-ready', copyData: $copyData);
+        $this->dispatch(
+            'catalog-ready',
+            existingCatalogData: $existingCatalogData,
+            newCopyData: $newCopyData,
+        );
 
         $this->show = false;
     }

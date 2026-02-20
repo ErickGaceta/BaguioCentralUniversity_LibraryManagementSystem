@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages\Copies;
 
 use App\Models\Copy;
+use App\Models\CopyAccession;
 use App\Models\Course;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -64,6 +65,7 @@ class CopyIndex extends Component
         $copies = Copy::with([
             'book',
             'course',
+            'accession',
             'studentBorrows' => function ($query) {
                 $query->whereNull('date_returned')->with('student')->latest('date_borrowed');
             },
@@ -79,6 +81,7 @@ class CopyIndex extends Component
             })
             ->orderBy('copy_id')
             ->paginate($this->perPage);
+
 
         return view('livewire.pages.copies.copy-index', [
             'copies'  => $copies,

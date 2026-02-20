@@ -18,7 +18,7 @@
             <flux:input wire:model="author"           label="Author"           placeholder="Enter author name"    required />
             <flux:input wire:model="publisher"        label="Publisher"        placeholder="Enter publisher name" />
             <flux:input wire:model="isbn"             label="ISBN"             placeholder="Enter ISBN" />
-            <flux:input wire:model="publication_date" label="Publication Date" type="date" />
+            <flux:input wire:model="publication_date" label="Publication Year" type="text" />
         </div>
 
         {{-- Right column --}}
