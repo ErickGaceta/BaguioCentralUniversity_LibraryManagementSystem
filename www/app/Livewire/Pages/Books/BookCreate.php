@@ -49,7 +49,13 @@ class BookCreate extends Component
         $this->course_id       = null;
         $this->filteredCourses = $value
             ? Course::where('department_id', $value)->get()
-            : [];
+            : collect();
+
+        // Auto-select first course after reset
+        $first = collect($this->filteredCourses)->first();
+        if ($first) {
+            $this->course_id = $first->course_code;
+        }
     }
 
     /**

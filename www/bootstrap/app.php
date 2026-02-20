@@ -21,27 +21,39 @@ $app = Application::configure(basePath: dirname(__DIR__))
     })
     ->create();
 
-// Initialize database for PHP Desktop (only in web context)
 if (php_sapi_name() !== 'cli') {
     $app->booted(function () {
-        $storageDir = storage_path('app');
+
+        $dbPath = database_path('database.sqlite');
+        config(['database.connections.sqlite.database' => $dbPath]);
+
+        $storageDir  = storage_path('app');
         $initFlagFile = $storageDir . DIRECTORY_SEPARATOR . '.db_initialized';
 
-        try {
-            $dbPath = config('database.connections.sqlite.database');
-            if (is_callable($dbPath)) {
-                $dbPath = $dbPath();
-            }
+        $dirs = [
+            $storageDir,
+            storage_path('framework/sessions'),
+            storage_path('framework/cache/data'),
+            storage_path('framework/views'),
+            storage_path('logs'),
+            base_path('bootstrap/cache'),
+            dirname($dbPath),
+        ];
 
-            $dbExists = file_exists($dbPath);
+        foreach ($dirs as $dir) {
+            if (!file_exists($dir)) {
+                mkdir($dir, 0755, true);
+            }
+        }
+
+        try {
+            $dbExists       = file_exists($dbPath);
             $initFlagExists = file_exists($initFlagFile);
 
-            // Skip if already initialized
             if ($initFlagExists && $dbExists) {
                 return;
             }
 
-            // Check existing database
             if ($dbExists && !$initFlagExists) {
                 try {
                     DB::connection()->getPdo();
@@ -50,19 +62,19 @@ if (php_sapi_name() !== 'cli') {
                         return;
                     }
                 } catch (\Exception $e) {
-                    // Continue
                 }
+            }
+
+            if (!$dbExists) {
+                file_put_contents($dbPath, '');
             }
 
             Artisan::call('migrate', ['--force' => true]);
             Artisan::call('db:seed', ['--force' => true]);
 
-            if (!file_exists($storageDir)) {
-                mkdir($storageDir, 0755, true);
-            }
             file_put_contents($initFlagFile, date('Y-m-d H:i:s'));
         } catch (\Exception $e) {
-            error_log("Error initializing database: " . $e->getMessage());
+            error_log('[BCU Library] DB init failed: ' . $e->getMessage());
         }
     });
 }

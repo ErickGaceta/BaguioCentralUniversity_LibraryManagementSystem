@@ -13,4 +13,4 @@
     @livewireStyles
 </head>
 
-<body class="flex min-h-screen bg-white dark:bg-zinc-800 text-black dark:text-white">
+<body class="flex min-h-screen bg-zinc-200 dark:bg-zinc-800">
