@@ -10,7 +10,9 @@ use App\Services\ArchiveTransactionService;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
-class BookIndex extends Component
+use Livewire\Attributes\Lazy;
+
+#[Lazy] class BookIndex extends Component
 {
     use WithPagination;
 
@@ -32,6 +34,15 @@ class BookIndex extends Component
         session()->flash('message', 'Book has been added to the library.');
     }
 
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="w-full h-full flex justify-center items-center align-center">
+                <span class="loader"></span>
+            </div>
+        HTML;
+    }
+    
     #[On('closeCreate')]
     public function closeCreateModal()
     {

@@ -13,7 +13,9 @@ use App\Models\CopyAccession;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
-class BookEdit extends Component
+use Livewire\Attributes\Lazy;
+
+#[Lazy] class BookEdit extends Component
 {
     public $bookId;
     public $book;

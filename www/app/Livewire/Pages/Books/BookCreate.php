@@ -12,7 +12,9 @@ use App\Models\Copy;
 use App\Models\CopyAccession;
 use Illuminate\Support\Str;
 
-class BookCreate extends Component
+use Livewire\Attributes\Lazy;
+
+#[Lazy] class BookCreate extends Component
 {
     public $title;
     public $author;

@@ -7,8 +7,9 @@ use App\Models\Faculty;
 use App\Models\Department;
 use App\Models\LibraryTransaction;
 use Illuminate\Support\Str;
+use Livewire\Attributes\Lazy;
 
-class FacultyEdit extends Component
+#[Lazy] class FacultyEdit extends Component
 {
     public $facultyId;
     public $faculty;

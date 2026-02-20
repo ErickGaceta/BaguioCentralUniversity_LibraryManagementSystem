@@ -9,7 +9,9 @@ use App\Models\Course;
 use App\Models\LibraryTransaction;
 use Illuminate\Support\Str;
 
-class StudentCreate extends Component
+use Livewire\Attributes\Lazy;
+
+#[Lazy] class StudentCreate extends Component
 {
     public $student_id;
     public $first_name;

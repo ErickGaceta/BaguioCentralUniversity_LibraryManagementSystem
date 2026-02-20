@@ -6,7 +6,9 @@ use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Models\CopyAccession;
 
-class BookCatalog extends Component
+use Livewire\Attributes\Lazy;
+
+#[Lazy] class BookCatalog extends Component
 {
     public bool   $show           = false;
     public string $bookTitle      = '';

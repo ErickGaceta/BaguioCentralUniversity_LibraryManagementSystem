@@ -11,7 +11,9 @@ use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class Issuance extends Component
+use Livewire\Attributes\Lazy;
+
+#[Lazy] class Issuance extends Component
 {
     use WithPagination;
 
@@ -40,6 +42,15 @@ class Issuance extends Component
                 session()->flash('message', 'Faculty issuance transaction has been archived.');
             }
         }
+    }
+
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="w-full h-full flex justify-center items-center align-center">
+                <span class="loader"></span>
+            </div>
+        HTML;
     }
 
     public function render()

@@ -13,8 +13,9 @@ use App\Models\FacultyFine;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Livewire\Attributes\Lazy;
 
-class Dashboard extends Component
+#[Lazy] class Dashboard extends Component
 {
     public $stats = [];
     public $recentTransactions = [];
@@ -23,6 +24,14 @@ class Dashboard extends Component
     {
         $this->loadStats();
         $this->loadRecentTransactions();
+    }
+
+    public function placeholder(){
+        return <<<'HTML'
+            <div class="w-full h-full flex justify-center items-center align-center">
+                <span class="loader"></span>
+            </div>
+        HTML;
     }
 
     protected function loadStats(): void

@@ -7,7 +7,9 @@ use App\Models\FacultyArchive;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Users extends Component
+use Livewire\Attributes\Lazy;
+
+#[Lazy] class Users extends Component
 {
     use WithPagination;
 
@@ -19,6 +21,16 @@ class Users extends Component
     public function updatedUserType()
     {
         $this->resetPage();
+    }
+
+
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="w-full h-full flex justify-center items-center align-center">
+                <span class="loader"></span>
+            </div>
+        HTML;
     }
 
     public function openRestoreModal($userId, $type)

@@ -8,8 +8,9 @@ use App\Services\ArchiveTransactionService;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Lazy;
 
-class FacultyIndex extends Component
+#[Lazy] class FacultyIndex extends Component
 {
     use WithPagination;
 
@@ -26,6 +27,15 @@ class FacultyIndex extends Component
     {
         $this->closeCreateModal();
         session()->flash('message', 'Faculty has been added to the system.');
+    }
+
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="w-full h-full flex justify-center items-center align-center">
+                <span class="loader"></span>
+            </div>
+        HTML;
     }
 
     #[On('closeCreate')]

@@ -8,7 +8,9 @@ use App\Models\TransactionArchive;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Transaction extends Component
+use Livewire\Attributes\Lazy;
+
+#[Lazy] class Transaction extends Component
 {
     use WithPagination;
 
@@ -17,6 +19,15 @@ class Transaction extends Component
     public function updatedTransactionType()
     {
         $this->resetPage();
+    }
+
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="w-full h-full flex justify-center items-center align-center">
+                <span class="loader"></span>
+            </div>
+        HTML;
     }
 
     public function render()

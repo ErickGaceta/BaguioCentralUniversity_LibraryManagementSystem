@@ -6,7 +6,9 @@ use App\Models\Report;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Index extends Component
+use Livewire\Attributes\Lazy;
+
+#[Lazy] class Index extends Component
 {
     use WithPagination;
 
@@ -33,6 +35,15 @@ class Index extends Component
     public function updatingSearch(): void
     {
         $this->resetPage();
+    }
+
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="w-full h-full flex justify-center items-center align-center">
+                <span class="loader"></span>
+            </div>
+        HTML;
     }
 
     public function updatingTypeFilter(): void

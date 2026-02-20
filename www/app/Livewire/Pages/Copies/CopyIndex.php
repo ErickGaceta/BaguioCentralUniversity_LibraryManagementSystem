@@ -9,7 +9,9 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
 
-class CopyIndex extends Component
+use Livewire\Attributes\Lazy;
+
+#[Lazy] class CopyIndex extends Component
 {
     use WithPagination;
 
@@ -27,6 +29,15 @@ class CopyIndex extends Component
     {
         $this->closeEditModal();
         session()->flash('message', 'Copy has been updated.');
+    }
+
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="w-full h-full flex justify-center items-center align-center">
+                <span class="loader"></span>
+            </div>
+        HTML;
     }
 
     #[On('closeEdit')]

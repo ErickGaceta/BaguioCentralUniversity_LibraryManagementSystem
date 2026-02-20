@@ -9,8 +9,9 @@ use App\Models\Course;
 use App\Models\LibraryTransaction;
 use Illuminate\Support\Str;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Lazy;
 
-class StudentEdit extends Component
+#[Lazy] class StudentEdit extends Component
 {
     public $studentId;
     public $student;

@@ -9,7 +9,9 @@ use App\Models\Faculty;
 use App\Models\LibraryTransaction;
 use Illuminate\Support\Str;
 
-class CopyShow extends Component
+use Livewire\Attributes\Lazy;
+
+#[Lazy] class CopyShow extends Component
 {
     public $copyId;
     public $copy;

@@ -9,7 +9,9 @@ use App\Models\StudentFineArchive;
 use App\Services\ArchiveTransactionService;
 use App\Services\AutomaticPenaltyService;
 
-class Student extends Component
+use Livewire\Attributes\Lazy;
+
+#[Lazy] class Student extends Component
 {
     use WithPagination;
 
@@ -42,6 +44,15 @@ class Student extends Component
                 }
             }
         }
+    }
+
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="w-full h-full flex justify-center items-center align-center">
+                <span class="loader"></span>
+            </div>
+        HTML;
     }
 
     public function reprocessPenalties()

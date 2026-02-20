@@ -9,8 +9,9 @@ use App\Services\ArchiveTransactionService;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Lazy;
 
-class StudentIndex extends Component
+#[Lazy] class StudentIndex extends Component
 {
     use WithPagination;
 
@@ -29,6 +30,15 @@ class StudentIndex extends Component
     {
         $this->closeCreateModal();
         session()->flash('message', 'Student has been added to the system.');
+    }
+
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="w-full h-full flex justify-center items-center align-center">
+                <span class="loader"></span>
+            </div>
+        HTML;
     }
 
     #[On('closeCreate')]

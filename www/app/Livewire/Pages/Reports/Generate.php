@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Carbon\Carbon;
 
-class Generate extends Component
+use Livewire\Attributes\Lazy;
+
+#[Lazy] class Generate extends Component
 {
     // ── Form state ────────────────────────────────────────────────────────────
 
