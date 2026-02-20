@@ -29,8 +29,9 @@ flowchart TD
 ```mermaid
 flowchart TD
     A([📚 Books Module]) --> B{Action}
-    B -->|Add| C[Fill in Title, Author,\nISBN, Dept, Category]
-    B -->|Search/Edit| D[Filter by Title,\nDept or Category]
+    B -->|Add| C[Fill in Title, Author, ISBN, Dept, Category, Copies]
+    B -->|Add| C[Fill a table for Call Number and Accession Number]
+    B -->|Search/Edit| D[Filter by Title, Dept or Category]
     C --> E[Save Book to Database]
     D --> E
 
