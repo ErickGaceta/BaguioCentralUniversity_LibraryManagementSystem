@@ -16,6 +16,7 @@ class CourseSeeder extends Seeder
             ['course_code' => 'BSCS', 'name' => 'Bachelor of Science in Computer Science', 'department_id' => 'CBA'],
             ['course_code' => 'BSOA', 'name' => 'Bachelor of Science in Office Administration', 'department_id' => 'CBA'],
             ['course_code' => 'BSPA', 'name' => 'Bachelor of Science in Public Administration', 'department_id' => 'CBA'],
+            ['course_code' => 'GNRL-CBA', 'name' => 'General', 'department_id' => 'CBA'],
             // CTELA
             ['course_code' => 'BEED', 'name' => 'Bachelor of Elementary Education', 'department_id' => 'CTELA'],
             ['course_code' => 'BSED-ENG', 'name' => 'Bachelor of Secondary Education Major in English', 'department_id' => 'CTELA'],
@@ -28,18 +29,23 @@ class CourseSeeder extends Seeder
             ['course_code' => 'BECE', 'name' => 'Bachelor of Early Childhood Education', 'department_id' => 'CTELA'],
             ['course_code' => 'ABE', 'name' => 'Bachelor of Arts in English', 'department_id' => 'CTELA'],
             ['course_code' => 'ABPS', 'name' => 'Bachelor of Arts in Political Science', 'department_id' => 'CTELA'],
+            ['course_code' => 'GNRL-CTELA', 'name' => 'General', 'department_id' => 'CTELA'],
             // CHTM
             ['course_code' => 'AHM', 'name' => 'Associate in Hospitality Management', 'department_id' => 'CHTM'],
             ['course_code' => 'BSHM', 'name' => 'Bachelor of Science in Hospitality Management', 'department_id' => 'CHTM'],
             ['course_code' => 'BSTM', 'name' => 'Bachelor of Science in Tourism Management', 'department_id' => 'CHTM'],
+            ['course_code' => 'GNRL-CHTM', 'name' => 'General', 'department_id' => 'CHTM'],
             // CoE
             ['course_code' => 'BSCE', 'name' => 'Bachelor of Science in Civil Engineering', 'department_id' => 'CoE'],
             ['course_code' => 'BSGE', 'name' => 'Bachelor of Science in Geodetic Engineering', 'department_id' => 'CoE'],
+            ['course_code' => 'GNRL-CoE', 'name' => 'General', 'department_id' => 'CoE'],
             // CCJE
             ['course_code' => 'BSCRIM', 'name' => 'Bachelor of Science in Criminology', 'department_id' => 'CCJE'],
+            ['course_code' => 'GNRL-CCJE', 'name' => 'General', 'department_id' => 'CCJE'],
             // CNSM
             ['course_code' => 'BSN', 'name' => 'Bachelor of Science in Nursing', 'department_id' => 'CNSM'],
             ['course_code' => 'DIPMID', 'name' => 'Diploma in Midwifery', 'department_id' => 'CNSM'],
+            ['course_code' => 'GNRL-CNSM', 'name' => 'General', 'department_id' => 'CNSM'],
             // GS
             ['course_code' => 'PhDAS', 'name' => 'Doctor of Philosophy in Administration and Supervision', 'department_id' => 'GS'],
             ['course_code' => 'Ed.D Educ Mgt', 'name' => 'Doctor of Education in Educational Management', 'department_id' => 'GS'],
@@ -53,6 +59,7 @@ class CourseSeeder extends Seeder
             ['course_code' => 'MAHE', 'name' => 'Master of Arts in Home Economics', 'department_id' => 'GS'],
             ['course_code' => 'MBA', 'name' => 'Master in Business Administration', 'department_id' => 'GS'],
             ['course_code' => 'MPA', 'name' => 'Master in Public Administration', 'department_id' => 'GS'],
+            ['course_code' => 'GNRL-GS', 'name' => 'General', 'department_id' => 'GS'],
             // Levels
             ['course_code' => 'ELEMENTARY', 'name' => 'Elementary Level', 'department_id' => 'ES'],
             ['course_code' => 'JUNIOR HIGH', 'name' => 'Junior High School Level', 'department_id' => 'JHS'],

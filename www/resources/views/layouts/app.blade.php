@@ -2,7 +2,7 @@
 
 @include('partial.header')
 
-@include('partial.sidebar')
+<livewire:layouts.sidebar />
 
 <main class="w-full">
     {{ $slot }}

@@ -3,6 +3,12 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 
+if (!defined('APP_WARMED')) {
+    define('APP_WARMED', true);
+    // Fire a background warmup request without waiting
+    @fsockopen('127.0.0.1', 9000, $errno, $errstr, 0.1);
+}
+
 define('LARAVEL_START', microtime(true));
 
 // Determine if the application is in maintenance mode...
