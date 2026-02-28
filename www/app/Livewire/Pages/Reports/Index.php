@@ -20,16 +20,22 @@ use Livewire\Attributes\Lazy;
         'typeFilter' => ['except' => ''],
     ];
 
-    // ── Listeners ─────────────────────────────────────────────────────────────
-
-    protected $listeners = ['report-generated' => '$refresh'];
-
     // ── Actions ───────────────────────────────────────────────────────────────
 
     public function delete(int $id): void
     {
         Report::findOrFail($id)->delete();
         session()->flash('success', 'Report deleted.');
+    }
+
+    public bool $showGenerateModal = false;
+
+    protected $listeners = ['report-generated' => 'onReportGenerated'];
+
+    public function onReportGenerated(string $message): void
+    {
+        session()->flash('success', $message);
+        $this->resetPage();
     }
 
     public function updatingSearch(): void
@@ -44,6 +50,14 @@ use Livewire\Attributes\Lazy;
                 <span class="loader"></span>
             </div>
         HTML;
+    }
+
+    public ?int $deletingId = null;
+
+    public function deleteConfirmed(): void
+    {
+        $this->delete($this->deletingId);
+        $this->deletingId = null;
     }
 
     public function updatingTypeFilter(): void

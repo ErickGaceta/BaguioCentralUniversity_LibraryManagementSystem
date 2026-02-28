@@ -1,6 +1,6 @@
 <div>
     {{-- Trigger button - intended to be called from the index page --}}
-    <flux:modal name="generate-report" class="w-full max-w-xl">
+    <flux:modal name="generate-report" class="w-full max-w-xl" x-on:report-generated.window="$flux.modal('generate-report').close()">
         <div class="flex flex-col gap-3">
             <div class="space-y-1 mb-6">
                 <flux:heading size="lg">Generate Report</flux:heading>
@@ -37,8 +37,8 @@
                         <label
                             class="flex items-center justify-center gap-2 rounded-lg border px-3 py-2 text-sm cursor-pointer transition
                                        {{ $preset === $value
-                                            ? 'border-[#860805] bg-[#860805]/10 text-[#860805] font-semibold dark:border-[#c0403c] dark:bg-[#c0403c]/15 dark:text-[#eae0d2]'
-                                            : 'border-zinc-200 hover:border-zinc-300 dark:border-zinc-600 dark:hover:border-zinc-500' }}">
+        ? 'border-[#860805] bg-[#860805]/10 text-[#860805] font-semibold dark:border-[#c0403c] dark:bg-[#c0403c]/15 dark:text-[#eae0d2]'
+        : 'border-zinc-200 hover:border-zinc-300 dark:border-zinc-600 dark:hover:border-zinc-500' }}">
                             <input
                                 type="radio"
                                 wire:model.live="preset"

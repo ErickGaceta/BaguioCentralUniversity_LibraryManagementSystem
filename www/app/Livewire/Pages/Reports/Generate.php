@@ -119,7 +119,7 @@ use Livewire\Attributes\Lazy;
         ]);
 
         $this->close();
-        $this->dispatch('report-generated');
+        $this->dispatch('report-generated', message: "Report \"{$title}\" generated successfully.");
         session()->flash('success', "Report \"{$title}\" generated successfully.");
     }
 
