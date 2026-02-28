@@ -1,4 +1,6 @@
     @fluxScripts
+    @livewireScripts
+    @livewireScriptConfig
 
     </body>
 

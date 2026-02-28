@@ -1,4 +1,4 @@
-<style>
+{{-- <style>
     #bcu-sidebar,
     #bcu-sidebar * {
         --color-zinc-800: #eae0d2;
@@ -151,4 +151,4 @@
 
     <flux:sidebar.spacer />
 
-</flux:sidebar>
+</flux:sidebar> --}}

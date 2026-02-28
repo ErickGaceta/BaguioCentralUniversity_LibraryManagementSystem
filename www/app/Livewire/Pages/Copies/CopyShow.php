@@ -111,7 +111,7 @@ use Livewire\Attributes\Lazy;
         $this->validate([
             'borrowerType' => 'required|in:student,faculty',
             'borrowerId' => 'required|string',
-            'dueDate' => 'required|date|after:today',
+            'dueDate' => 'required|date|after_or_equal:today',
         ], [
             'dueDate.after' => 'Due date must be in the future.',
             'borrowerId.required' => 'Please select a ' . $this->borrowerType . ' from the search results.',
