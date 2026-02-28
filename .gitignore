@@ -87,3 +87,9 @@ webcache/ShaderCache/data_1
 debug.log
 
 webcache/
+
+webcache/
+/phpdesktop.exe
+/phpdesktop-chrome.exe
+*.log
+settings.json
