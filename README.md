@@ -3,6 +3,13 @@
 # Baguio Central University — Library Management System
 ### Full Application Documentation
 
+## Note to developers
+Install the dependencies first before proceeding with the development
+```bash
+npm install
+npm run build
+```
+
 ---
 
 ## Table of Contents
