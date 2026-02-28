@@ -7,13 +7,24 @@
 
         <flux:spacer />
 
-        <flux:button
-            wire:click="reprocessPenalties"
-            variant="ghost"
-            icon="arrow-path"
-            wire:confirm="This will reprocess penalties. Continue?">
+        <flux:button variant="ghost" icon="arrow-path" x-on:click="$flux.modal('reprocess-confirm').show()">
             Reprocess Penalties
         </flux:button>
+        <flux:modal name="reprocess-confirm" class="max-w-lg">
+            <flux:heading>Reprocess Penalties</flux:heading>
+            <flux:text>
+                This will reprocess penalties for all applicable records. This action cannot be undone. Continue?
+            </flux:text>
+            <div class="flex gap-2 mt-4">
+                <flux:button variant="primary" wire:click="reprocessPenalties"
+                    x-on:click="$flux.modal('reprocess-confirm').close()">
+                    Continue
+                </flux:button>
+                <flux:button variant="ghost" x-on:click="$flux.modal('reprocess-confirm').close()">
+                    Cancel
+                </flux:button>
+            </div>
+        </flux:modal>
     </flux:header>
 
     <flux:main container class="flex flex-col gap-3">

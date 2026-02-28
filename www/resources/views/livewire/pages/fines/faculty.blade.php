@@ -7,33 +7,41 @@
 
         <flux:spacer />
 
-        <flux:button
-            wire:click="reprocessPenalties"
-            variant="ghost"
-            icon="arrow-path"
-            wire:confirm="This will reprocess penalties. Continue?">
+        <flux:button variant="ghost" icon="arrow-path" x-on:click="$flux.modal('reprocess-confirm').show()">
             Reprocess Penalties
         </flux:button>
+        <flux:modal name="reprocess-confirm" class="max-w-lg">
+            <flux:heading>Reprocess Penalties</flux:heading>
+            <flux:text>
+                This will reprocess penalties for all applicable records. This action cannot be undone. Continue?
+            </flux:text>
+            <div class="flex gap-2 mt-4">
+                <flux:button variant="primary" wire:click="reprocessPenalties"
+                    x-on:click="$flux.modal('reprocess-confirm').close()">
+                    Continue
+                </flux:button>
+                <flux:button variant="ghost" x-on:click="$flux.modal('reprocess-confirm').close()">
+                    Cancel
+                </flux:button>
+            </div>
+        </flux:modal>
     </flux:header>
 
     <flux:main container class="flex flex-col gap-3">
         @if (session()->has('success'))
-        <flux:card class="mb-6 bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500">
-            <div class="flex gap-3 items-center">
-                <flux:icon.check-circle class="text-green-600 dark:text-green-400 w-6 h-6" />
-                <flux:text class="text-green-800 dark:text-green-200">
-                    {{ session('success') }}
-                </flux:text>
-            </div>
-        </flux:card>
+            <flux:card class="mb-6 bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500">
+                <div class="flex gap-3 items-center">
+                    <flux:icon.check-circle class="text-green-600 dark:text-green-400 w-6 h-6" />
+                    <flux:text class="text-green-800 dark:text-green-200">
+                        {{ session('success') }}
+                    </flux:text>
+                </div>
+            </flux:card>
         @endif
 
         {{-- Filters --}}
         <div class="flex gap-4 mb-6">
-            <flux:input
-                wire:model.live="search"
-                icon="magnifying-glass"
-                placeholder="Search by faculty name or ID..."
+            <flux:input wire:model.live="search" icon="magnifying-glass" placeholder="Search by faculty name or ID..."
                 class="flex-1" />
 
             <flux:select wire:model.live="statusFilter">
@@ -83,7 +91,8 @@
             <div class="flex gap-3 items-start">
                 <flux:icon.information-circle class="text-blue-600 dark:text-blue-400 w-6 h-6 shrink-0 mt-0.5" />
                 <div>
-                    <flux:heading size="sm" class="text-blue-900 dark:text-blue-100 mb-1">Automatic Penalties</flux:heading>
+                    <flux:heading size="sm" class="text-blue-900 dark:text-blue-100 mb-1">Automatic Penalties
+                    </flux:heading>
                     <flux:text class="text-blue-800 dark:text-blue-200">
                         ₱20 daily overdue penalty is added automatically at 10:00 AM for each day a book is overdue.
                         Damage fines are automatically added when a book is returned with damage.
@@ -107,60 +116,54 @@
 
             <flux:table.rows>
                 @forelse ($fines as $fine)
-                <flux:table.row :key="$fine->id">
-                    <flux:table.cell>{{ $fine->faculty->faculty_id }}</flux:table.cell>
-                    <flux:table.cell>
-                        {{ $fine->faculty->first_name }}
-                        {{ $fine->faculty->middle_name }}
-                        {{ $fine->faculty->last_name }}
-                    </flux:table.cell>
-                    <flux:table.cell>
-                        <div class="text-sm">
-                            <div class="font-medium">{{ $fine->copy->book->title ?? 'N/A' }}</div>
-                            <div class="text-gray-500">Copy: {{ $fine->copy_id }}</div>
-                        </div>
-                    </flux:table.cell>
-                    <flux:table.cell>
-                        <flux:badge variant="warning">₱{{ number_format($fine->amount, 2) }}</flux:badge>
-                    </flux:table.cell>
-                    <flux:table.cell>{{ $fine->reason }}</flux:table.cell>
-                    <flux:table.cell>
-                        @if ($fine->isPaid())
-                        <flux:badge icon="check-circle">Paid</flux:badge>
-                        @else
-                        <flux:badge icon="exclamation-circle">Unpaid</flux:badge>
-                        @endif
-                    </flux:table.cell>
-                    <flux:table.cell>{{ $fine->created_at->format('M d, Y') }}</flux:table.cell>
-                    <flux:table.cell>
-                        <div class="flex gap-2">
-                            @if (!$fine->isPaid())
-                            <flux:button
-                                wire:click="openPaymentModal({{ $fine->id }})"
-                                size="sm"
-                                variant="primary"
-                                icon="currency-dollar">
-                                Pay
-                            </flux:button>
+                    <flux:table.row :key="$fine->id">
+                        <flux:table.cell>{{ $fine->faculty->faculty_id }}</flux:table.cell>
+                        <flux:table.cell>
+                            {{ $fine->faculty->first_name }}
+                            {{ $fine->faculty->middle_name }}
+                            {{ $fine->faculty->last_name }}
+                        </flux:table.cell>
+                        <flux:table.cell>
+                            <div class="text-sm">
+                                <div class="font-medium">{{ $fine->copy->book->title ?? 'N/A' }}</div>
+                                <div class="text-gray-500">Copy: {{ $fine->copy_id }}</div>
+                            </div>
+                        </flux:table.cell>
+                        <flux:table.cell>
+                            <flux:badge variant="warning">₱{{ number_format($fine->amount, 2) }}</flux:badge>
+                        </flux:table.cell>
+                        <flux:table.cell>{{ $fine->reason }}</flux:table.cell>
+                        <flux:table.cell>
+                            @if ($fine->isPaid())
+                                <flux:badge icon="check-circle">Paid</flux:badge>
+                            @else
+                                <flux:badge icon="exclamation-circle">Unpaid</flux:badge>
                             @endif
+                        </flux:table.cell>
+                        <flux:table.cell>{{ $fine->created_at->format('M d, Y') }}</flux:table.cell>
+                        <flux:table.cell>
+                            <div class="flex gap-2">
+                                @if (!$fine->isPaid())
+                                    <flux:button wire:click="openPaymentModal({{ $fine->id }})" size="sm" variant="primary"
+                                        icon="currency-dollar">
+                                        Pay
+                                    </flux:button>
+                                @endif
 
-                            <flux:button
-                                wire:click="archiveFine({{ $fine->id }})"
-                                wire:confirm="Archive this fine for {{ $fine->faculty->first_name }} {{ $fine->faculty->last_name }}? It will be saved to the archive and removed from this list."
-                                size="sm"
-                                variant="danger"
-                                icon="archive-box-arrow-down">
-                                Archive
-                            </flux:button>
-                        </div>
-                    </flux:table.cell>
-                </flux:table.row>
+                                <flux:button wire:click="archiveFine({{ $fine->id }})"
+                                    wire:confirm="Archive this fine for {{ $fine->faculty->first_name }} {{ $fine->faculty->last_name }}? It will be saved to the archive and removed from this list."
+                                    size="sm" variant="danger" icon="archive-box-arrow-down">
+                                    Archive
+                                </flux:button>
+                            </div>
+                        </flux:table.cell>
+                    </flux:table.row>
                 @empty
-                <flux:table.row>
-                    <flux:table.cell colspan="8" class="text-center text-gray-500">
-                        No fines found.
-                    </flux:table.cell>
-                </flux:table.row>
+                    <flux:table.row>
+                        <flux:table.cell colspan="8" class="text-center text-gray-500">
+                            No fines found.
+                        </flux:table.cell>
+                    </flux:table.row>
                 @endforelse
             </flux:table.rows>
         </flux:table>
@@ -179,10 +182,11 @@
                 <flux:text>Are you sure you want to mark this fine as paid?</flux:text>
 
                 @if($paymentAmount)
-                <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-                    <flux:text size="sm" class="text-gray-500">Amount to pay:</flux:text>
-                    <flux:heading size="lg" class="text-green-600">₱{{ number_format($paymentAmount, 2) }}</flux:heading>
-                </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                        <flux:text size="sm" class="text-gray-500">Amount to pay:</flux:text>
+                        <flux:heading size="lg" class="text-green-600">₱{{ number_format($paymentAmount, 2) }}
+                        </flux:heading>
+                    </div>
                 @endif
             </div>
         </div>
