@@ -43,6 +43,24 @@ use Livewire\Attributes\Lazy;
             }
         }
     }
+    public ?int $archivingTransactionId = null;
+    public ?string $archivingTransactionType = null;
+
+    public function prepareArchiveTransaction(string $type, int $id): void
+    {
+        $this->archivingTransactionType = $type;
+        $this->archivingTransactionId = $id;
+        $this->dispatch('open-archive-transaction-modal');
+    }
+
+    public function archiveTransactionConfirmed(): void
+    {
+        if (!$this->archivingTransactionId) return;
+
+        $this->archiveTransaction($this->archivingTransactionType, $this->archivingTransactionId);
+        $this->archivingTransactionId = null;
+        $this->archivingTransactionType = null;
+    }
 
     public function placeholder()
     {

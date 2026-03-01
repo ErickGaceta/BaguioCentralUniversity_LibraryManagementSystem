@@ -5,6 +5,7 @@ namespace App\Livewire\Pages\Users;
 use App\Models\Student;
 use App\Models\Department;
 use App\Models\Course;
+use App\Models\StudentArchive;
 use App\Services\ArchiveTransactionService;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -30,6 +31,17 @@ use Livewire\Attributes\Lazy;
     {
         $this->closeCreateModal();
         session()->flash('message', 'Student has been added to the system.');
+    }
+
+    public ?string $archivingId = null;
+
+    public function archiveConfirmed(): void
+    {
+        if (!$this->archivingId) return;
+
+        $this->archiveStudent($this->archivingId);
+
+        $this->archivingId = null;
     }
 
     public function placeholder()
@@ -81,12 +93,22 @@ use Livewire\Attributes\Lazy;
             return;
         }
 
-        // Prevent archiving if there are active borrows
         $activeBorrows = $student->borrows()->whereNull('date_returned')->count();
         if ($activeBorrows > 0) {
             session()->flash('message', 'Cannot archive student with active book issuances. Please return all books first.');
             return;
         }
+
+        StudentArchive::create([
+            'student_id'    => $student->student_id,
+            'first_name'    => $student->first_name,
+            'middle_name'   => $student->middle_name,
+            'last_name'     => $student->last_name,
+            'department_id' => $student->department_id,
+            'course_id'     => $student->course_id,
+            'year_level'    => $student->year_level,
+            'archived_at'   => now(),
+        ]);
 
         ArchiveTransactionService::record('student', "{$student->full_name} ({$student->student_id})");
 

@@ -22,7 +22,7 @@ use Livewire\Attributes\Lazy;
     public $editingBookId = null;
     public $showNotification = false;
     public $notificationMessage = '';
-
+    public ?int $archivingId = null;
     public $search = '';
 
     public string $department = '';
@@ -34,6 +34,20 @@ use Livewire\Attributes\Lazy;
         session()->flash('message', 'Book has been added to the library.');
     }
 
+    public function prepareArchive(int $bookId): void
+    {
+        $this->archivingId = $bookId;
+        $this->dispatch('open-archive-modal');
+    }
+
+    public function archiveConfirmed(): void
+    {
+        if (!$this->archivingId) return;
+
+        $this->archiveBook($this->archivingId);
+        $this->archivingId = null;
+    }
+
     public function placeholder()
     {
         return <<<'HTML'
@@ -42,7 +56,7 @@ use Livewire\Attributes\Lazy;
             </div>
         HTML;
     }
-    
+
     #[On('closeCreate')]
     public function closeCreateModal()
     {

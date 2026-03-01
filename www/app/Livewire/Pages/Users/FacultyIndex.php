@@ -4,6 +4,7 @@ namespace App\Livewire\Pages\Users;
 
 use App\Models\Faculty;
 use App\Models\Department;
+use App\Models\FacultyArchive;
 use App\Services\ArchiveTransactionService;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -44,6 +45,17 @@ use Livewire\Attributes\Lazy;
         $this->showCreateModal = false;
     }
 
+    public ?string $archivingId = null;
+
+    public function archiveConfirmed(): void
+    {
+        if (!$this->archivingId) return;
+
+        $this->archiveFaculty($this->archivingId);
+
+        $this->archivingId = null;
+    }
+
     public function openCreateModal()
     {
         $this->showCreateModal = true;
@@ -78,12 +90,21 @@ use Livewire\Attributes\Lazy;
             return;
         }
 
-        // Prevent archiving if there are active borrows
         $activeBorrows = $faculty->borrows()->whereNull('date_returned')->count();
         if ($activeBorrows > 0) {
             session()->flash('message', 'Cannot archive faculty with active book issuances. Please return all books first.');
             return;
         }
+
+        FacultyArchive::create([
+            'faculty_id'    => $faculty->faculty_id,
+            'first_name'    => $faculty->first_name,
+            'middle_name'   => $faculty->middle_name,
+            'last_name'     => $faculty->last_name,
+            'department_id' => $faculty->department_id,
+            'occupation'    => $faculty->occupation,
+            'archived_at'   => now(),
+        ]);
 
         ArchiveTransactionService::record('faculty', "{$faculty->full_name} ({$faculty->faculty_id})");
 

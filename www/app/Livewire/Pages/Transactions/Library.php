@@ -43,6 +43,22 @@ use Livewire\Attributes\Lazy;
         HTML;
     }
 
+    public ?int $archivingLibraryTransactionId = null;
+
+    public function prepareArchiveLibraryTransaction(int $id): void
+    {
+        $this->archivingLibraryTransactionId = $id;
+        $this->dispatch('open-archive-library-transaction-modal');
+    }
+
+    public function archiveLibraryTransactionConfirmed(): void
+    {
+        if (!$this->archivingLibraryTransactionId) return;
+
+        $this->archiveLibraryTransaction($this->archivingLibraryTransactionId);
+        $this->archivingLibraryTransactionId = null;
+    }
+
     public function render()
     {
         $libTransactions = LibraryTransaction::orderBy('created_at', 'desc')->paginate($this->perPage);

@@ -1,26 +1,5 @@
 <div class="w-full flex flex-col gap-4 p-3">
-    <div style="position: absolute; bottom: 5px; right: 10px;">
-        @if(session()->has('message'))
-        <div x-data="{ show: true }"
-            x-show="show"
-            x-init="setTimeout(() => show = false, 5000)"
-            x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="opacity-0 transform translate-y-2"
-            x-transition:enter-end="opacity-100 transform translate-y-0"
-            x-transition:leave="transition ease-in duration-300"
-            x-transition:leave-start="opacity-100"
-            x-transition:leave-end="opacity-0">
-            <flux:card class="flex gap-2 align-center items-center justify-center">
-                <flux:icon.check-circle class="text-green-500" />
-                <flux:separator vertical />
-                <div class="flex flex-col">
-                    <flux:heading>Success!</flux:heading>
-                    <flux:text>{{ session('message') }}</flux:text>
-                </div>
-            </flux:card>
-        </div>
-        @endif
-    </div>
+    <x-flash />
     <div>
         <flux:heading size="xl">Book Browser</flux:heading>
         <flux:text>List of all books</flux:text>
@@ -65,23 +44,20 @@
 
             <flux:table.rows>
                 @forelse($books as $book)
-                <flux:table.row>
-                    <flux:table.cell>{{ $book->title }}</flux:table.cell>
-                    <flux:table.cell>{{ $book->author }}</flux:table.cell>
-                    <flux:table.cell>{{ $book->isbn }}</flux:table.cell>
-                    <flux:table.cell>{{ $book->publication_date }}</flux:table.cell>
-                    <flux:table.cell>{{ $book->copies }}</flux:table.cell>
-                    <flux:table.cell align="end">
-                        <div class="flex gap-2 justify-end">
-                            <flux:button icon="eye" wire:click="openEditModal({{ $book->id }})" />
-                            <flux:button
-                                icon="archive-box-arrow-down"
-                                variant="danger"
-                                wire:click="archiveBook({{ $book->id }})"
-                                wire:confirm="Archive '{{ $book->title }}'? It will be moved to the book archives." />
-                        </div>
-                    </flux:table.cell>
-                </flux:table.row>
+                    <flux:table.row>
+                        <flux:table.cell>{{ $book->title }}</flux:table.cell>
+                        <flux:table.cell>{{ $book->author }}</flux:table.cell>
+                        <flux:table.cell>{{ $book->isbn }}</flux:table.cell>
+                        <flux:table.cell>{{ $book->publication_date }}</flux:table.cell>
+                        <flux:table.cell>{{ $book->copies }}</flux:table.cell>
+                        <flux:table.cell align="end">
+                            <div class="flex gap-2 justify-end">
+                                <flux:button icon="eye" wire:click="openEditModal({{ $book->id }})" />
+                                <flux:button icon="archive-box-arrow-down" variant="danger"
+                                    x-on:click="$flux.modal('archive-book').show(); $wire.set('archivingId', {{ $book->id }})" />
+                            </div>
+                        </flux:table.cell>
+                    </flux:table.row>
                 @empty
                 <flux:table.row>
                     <flux:table.cell colspan="6" class="text-center">
@@ -93,6 +69,9 @@
         </flux:table>
         <x-pagination :paginator="$books" />
     </div>
+    <x-confirm-modal name="archive-book" title="Archive Book"
+        description="This will move the book to the archives. Continue?" confirm-label="Archive" confirm-variant="danger"
+        confirm-action="archiveConfirmed" />
 
     @if($showCreateModal)
     <div class="flex gap-4" style="width: 25vw; z-index: 1000; position: absolute; top: 20%; left: 40%;">

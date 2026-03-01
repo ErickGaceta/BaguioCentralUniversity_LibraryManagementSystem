@@ -3,50 +3,41 @@
 namespace App\Livewire\Pages\Archives;
 
 use App\Models\ArchivesLibrary;
+use App\Models\Book;
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use Livewire\Attributes\Lazy;
 
 #[Lazy] class Libraries extends Component
 {
     use WithPagination;
 
-    public $showRestoreModal = false;
-    public $restoringBookId = null;
+    public ?int $restoringId = null;
 
-    public function openRestoreModal($bookId)
+    public function restoreConfirmed(): void
     {
-        $this->restoringBookId = $bookId;
-        $this->showRestoreModal = true;
+        if (!$this->restoringId) return;
+        $this->restoreBook($this->restoringId);
+        $this->restoringId = null;
     }
 
-    public function closeRestoreModal()
+    public function restoreBook(int $bookId): void
     {
-        $this->showRestoreModal = false;
-        $this->restoringBookId = null;
-    }
+        $archivedBook = ArchivesLibrary::findOrFail($bookId);
 
-    public function restoreBook()
-    {
-        $archivedBook = ArchivesLibrary::findOrFail($this->restoringBookId);
-
-        // Restore to books table
-        \App\Models\Book::create([
-            'title' => $archivedBook->title,
-            'author' => $archivedBook->author,
+        Book::create([
+            'title'            => $archivedBook->title,
+            'author'           => $archivedBook->author,
             'publication_date' => $archivedBook->publication_date,
-            'publisher' => $archivedBook->publisher,
-            'isbn' => $archivedBook->isbn,
-            'department_id' => $archivedBook->department_id,
-            'category' => $archivedBook->category ?? 'General',
-            'copies' => $archivedBook->copies,
+            'publisher'        => $archivedBook->publisher,
+            'isbn'             => $archivedBook->isbn,
+            'department_id'    => $archivedBook->department_id,
+            'category'         => $archivedBook->category ?? 'General',
+            'copies'           => $archivedBook->copies,
         ]);
 
-        // Delete from archive
         $archivedBook->delete();
 
-        $this->closeRestoreModal();
         session()->flash('message', 'Book restored successfully!');
     }
 

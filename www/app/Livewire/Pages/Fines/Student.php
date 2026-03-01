@@ -17,13 +17,13 @@ use Livewire\Attributes\Lazy;
 
     public $search = '';
     public $statusFilter = 'all';
-    public $showPaymentModal = false;
 
-    public $fineToPayId;
-    public $paymentAmount;
+    public $fineToPayId = null;
+    public $paymentAmount = null;
 
     public $penaltiesProcessed = false;
     public $penaltyCount = 0;
+    public ?int $archivingFineId = null;
 
     public function mount()
     {
@@ -77,6 +77,13 @@ use Livewire\Attributes\Lazy;
         }
     }
 
+    public function archiveConfirmed(): void
+    {
+        if (!$this->archivingFineId) return;
+        $this->archiveFine($this->archivingFineId);
+        $this->archivingFineId = null;
+    }
+
     public function updatedSearch()
     {
         $this->resetPage();
@@ -94,15 +101,14 @@ use Livewire\Attributes\Lazy;
         if ($fine) {
             $this->fineToPayId = $fineId;
             $this->paymentAmount = $fine->amount;
-            $this->showPaymentModal = true;
         }
     }
 
     public function closePaymentModal()
     {
-        $this->showPaymentModal = false;
         $this->fineToPayId = null;
         $this->paymentAmount = null;
+        $this->dispatch('close-payment-modal');
     }
 
     public function markAsPaid()

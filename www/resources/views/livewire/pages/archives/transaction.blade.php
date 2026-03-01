@@ -1,4 +1,5 @@
 <div class="w-full flex flex-col gap-4 p-3">
+    <x-flash />
     <div>
         <flux:heading size="xl">Transaction Archive</flux:heading>
         <flux:text>Archived transactions from the library system</flux:text>
