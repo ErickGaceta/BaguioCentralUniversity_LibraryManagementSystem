@@ -22,6 +22,16 @@ use Livewire\Attributes\Lazy;
 
     public $originalData = [];
     public $departments;
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="loadModal">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        HTML;
+    }
 
     protected $rules = [
         'first_name'    => 'required|string|max:255',

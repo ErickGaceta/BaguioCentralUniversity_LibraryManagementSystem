@@ -1,17 +1,11 @@
 <div style="width: 100%; max-width: 800px;">
-
     <div class="flex justify-between items-center">
         <flux:heading size="lg">Copy Details — {{ $copy->copy_id }}</flux:heading>
     </div>
 
     <flux:separator />
 
-    @if(session()->has('error'))
-    <flux:callout variant="danger" icon="exclamation-circle">
-        <flux:callout.heading>Error</flux:callout.heading>
-        <flux:callout.text>{{ session('error') }}</flux:callout.text>
-    </flux:callout>
-    @endif
+    <x-flash />
 
     <div class="grid grid-cols-2 gap-4">
         <div class="flex flex-col gap-2">

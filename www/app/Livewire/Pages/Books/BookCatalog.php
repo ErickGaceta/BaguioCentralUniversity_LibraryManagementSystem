@@ -10,6 +10,16 @@ use Livewire\Attributes\Lazy;
 
 #[Lazy] class BookCatalog extends Component
 {
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="loadModal">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        HTML;
+    }
     public bool   $show           = false;
     public string $bookTitle      = '';
     public array  $existingCopies = []; // [{copy_id, label}] — existing copies missing accession records

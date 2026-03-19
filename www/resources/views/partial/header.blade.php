@@ -73,6 +73,7 @@
         .loadModal {
             display: flex;
             align-items: center;
+            width: 100%;
         }
 
         .bar {
@@ -96,7 +97,7 @@
 
         @keyframes scale-up4 {
             20% {
-                background-color: #ffff;
+                background-color: #870a06;
                 transform: scaleY(1.5);
             }
 

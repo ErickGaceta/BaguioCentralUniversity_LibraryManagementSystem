@@ -144,6 +144,17 @@ use Livewire\Attributes\Lazy;
         $this->resolvedTo   = $dates['date_to'];
     }
 
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="loadModal">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        HTML;
+    }
+
     private function buildTitle(): string
     {
         $typeLabel = Report::TYPES[$this->reportType];

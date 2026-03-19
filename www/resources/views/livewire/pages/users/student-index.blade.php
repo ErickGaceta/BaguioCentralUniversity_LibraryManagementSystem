@@ -13,21 +13,18 @@
             <flux:input icon="magnifying-glass" type="search" wire:model.live="search"
                 placeholder="Search students..." />
 
-            <flux:button wire:click="$toggle('showCreateModal')" icon="user-plus" align="end" variant="primary"
-                color="amber">Add Student</flux:button>
+            <flux:modal.trigger name="create-student">
+                <flux:button icon="user-plus" variant="primary" color="amber"
+                    x-on:click="$flux.modal('create-student').show()">Add Student</flux:button>
+            </flux:modal.trigger>
 
             <flux:dropdown>
                 <flux:button icon:trailing="chevron-down">
                     {{ $department ? ($departments->firstWhere('department_code', $department)?->name ?? 'Department') : 'All Departments' }}
                 </flux:button>
-
                 <flux:menu>
-                    <flux:menu.item wire:click="$set('department', '')">
-                        All Departments
-                    </flux:menu.item>
-
+                    <flux:menu.item wire:click="$set('department', '')">All Departments</flux:menu.item>
                     <flux:menu.separator />
-
                     @foreach($departments as $dept)
                         <flux:menu.item wire:click="$set('department', '{{ $dept->department_code }}')">
                             {{ $dept->name }}
@@ -40,14 +37,9 @@
                 <flux:button icon:trailing="chevron-down">
                     {{ $course ? ($courses->firstWhere('course_code', $course)?->name ?? 'Course') : 'All Courses' }}
                 </flux:button>
-
                 <flux:menu>
-                    <flux:menu.item wire:click="$set('course', '')">
-                        All Courses
-                    </flux:menu.item>
-
+                    <flux:menu.item wire:click="$set('course', '')">All Courses</flux:menu.item>
                     <flux:menu.separator />
-
                     @foreach($courses as $crs)
                         <flux:menu.item wire:click="$set('course', '{{ $crs->course_code }}')">
                             {{ $crs->name }}
@@ -97,37 +89,38 @@
                         </flux:table.cell>
                         <flux:table.cell align="end">
                             <div class="flex gap-2 justify-end">
-                                <flux:button icon="eye" wire:click="openEditModal('{{ $st->student_id }}')" />
+                                <flux:modal.trigger name="edit-student-{{ $st->student_id }}">
+                                    <flux:button icon="eye"
+                                        x-on:click="$flux.modal('edit-student-{{ $st->student_id }}').show()" />
+                                </flux:modal.trigger>
                                 <flux:button icon="archive-box-arrow-down" variant="danger"
                                     x-on:click="$flux.modal('archive-student').show(); $wire.set('archivingId', '{{ $st->student_id }}')" />
                             </div>
                         </flux:table.cell>
                     </flux:table.row>
+
+                    <flux:modal name="edit-student-{{ $st->student_id }}"
+                        class="flex flex-col gap-4 p-4 rounded-lg bg-white dark:bg-zinc-800 border border-solid border-zinc-600">
+                        <livewire:pages.users.student-edit :student-id="$st->student_id"
+                            wire:key="student-edit-{{ $st->student_id }}" />
+                    </flux:modal>
+
                 @empty
                     <flux:table.row>
-                        <flux:table.cell colspan="7" align="center">
-                            No Students Found
-                        </flux:table.cell>
+                        <flux:table.cell colspan="7" align="center">No Students Found</flux:table.cell>
                     </flux:table.row>
                 @endforelse
             </flux:table.rows>
         </flux:table>
         <x-pagination :paginator="$students" />
     </div>
+
     <x-confirm-modal name="archive-student" title="Archive Student"
         description="This will remove them from the active student list. Continue?" confirm-label="Archive"
         confirm-variant="danger" confirm-action="archiveConfirmed" />
 
-    @if($showCreateModal)
-        <div class="flex gap-4" style="width: 25vw; z-index: 1000; position: absolute; top: 20%; left: 40%;">
-            <livewire:pages.users.student-create />
-        </div>
-    @endif
-
-    @if($showEditModal && $editingStudentId)
-        <div class="flex gap-4" style="width: 25vw; z-index: 1000; position: absolute; top: 20%; left: 40%;">
-            <livewire:pages.users.student-edit :student-id="$editingStudentId"
-                wire:key="student-edit-{{ $editingStudentId }}" />
-        </div>
-    @endif
+    <flux:modal name="create-student"
+        class="flex flex-col gap-4 p-4 rounded-lg bg-white dark:bg-zinc-800 border border-solid border-zinc-600">
+        <livewire:pages.users.student-create />
+    </flux:modal>
 </div>

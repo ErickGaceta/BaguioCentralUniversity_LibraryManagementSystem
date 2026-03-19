@@ -4,12 +4,13 @@ namespace App\Livewire\Pages\Books;
 
 use Livewire\WithPagination;
 use App\Models\Book;
+use App\Models\Copy;
 use App\Models\Department;
+use App\Models\ArchivesCopy;
 use App\Models\ArchivesLibrary;
 use App\Services\ArchiveTransactionService;
 use Livewire\Attributes\On;
 use Livewire\Component;
-
 use Livewire\Attributes\Lazy;
 
 #[Lazy] class BookIndex extends Component
@@ -97,7 +98,8 @@ use Livewire\Attributes\Lazy;
             return;
         }
 
-        ArchivesLibrary::create([
+        // Snapshot the book into archives_library
+        $archivedBook = ArchivesLibrary::create([
             'book_id'          => $book->id,
             'title'            => $book->title,
             'author'           => $book->author,
@@ -108,8 +110,22 @@ use Livewire\Attributes\Lazy;
             'copies'           => $book->copies,
         ]);
 
+        // Query Copy directly — $book->copies would resolve to the integer
+        // column attribute, not a relationship, causing a fatal error
+        Copy::where('book_id', $book->id)->each(function ($copy) use ($archivedBook, $book) {
+            ArchivesCopy::create([
+                'archived_book_id' => $archivedBook->id,
+                'original_book_id' => $book->id,
+                'copy_id'          => $copy->copy_id,
+                'course_id'        => $copy->course_id,
+                'status'           => $copy->status,
+                'condition'        => $copy->condition,
+            ]);
+        });
+
         ArchiveTransactionService::record('book', "\"{$book->title}\" by {$book->author}");
 
+        // Cascade delete removes the book's rows from the live copies table
         $book->delete();
 
         session()->flash('message', 'Book has been archived.');

@@ -1,7 +1,4 @@
-<div
-    style="width: 100%; max-width: 800px;"
-    x-data="{ copyCount: $wire.entangle('copies') }"
->
+<div style="width: 100%; max-width: 800px;" x-data="{ copyCount: $wire.entangle('copies') }">
     <div class="flex justify-between items-center">
         <flux:heading size="lg">Edit Book</flux:heading>
     </div>

@@ -23,6 +23,16 @@ use Livewire\Attributes\Lazy;
 
     public $departments;
     public $filteredCourses = [];
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="loadModal">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        HTML;
+    }
 
     protected $rules = [
         'student_id' => 'required|string|max:50|unique:students,student_id',

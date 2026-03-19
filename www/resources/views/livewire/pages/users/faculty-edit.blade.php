@@ -1,11 +1,6 @@
-<div class="flex flex-col gap-4 p-4 rounded-lg bg-white dark:bg-zinc-800 border border-solid border-zinc-600" style="width: 100%; max-width: 600px;">
+<div style="width: 100%; max-width: 600px;">
     <div class="flex justify-between items-center">
         <flux:heading size="lg">Edit Faculty</flux:heading>
-        <flux:button
-            variant="ghost"
-            size="sm"
-            icon="x-mark"
-            wire:click="closeModal" />
     </div>
 
     <flux:separator />

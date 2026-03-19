@@ -13,21 +13,18 @@
             <flux:input icon="magnifying-glass" type="search" wire:model.live="search"
                 placeholder="Search faculty..." />
 
-            <flux:button wire:click="$toggle('showCreateModal')" icon="user-plus" align="end" variant="primary"
-                color="amber">Add Faculty</flux:button>
+            <flux:modal.trigger name="create-faculty">
+                <flux:button icon="user-plus" variant="primary" color="amber"
+                    x-on:click="$flux.modal('create-faculty').show()">Add Faculty</flux:button>
+            </flux:modal.trigger>
 
             <flux:dropdown>
                 <flux:button icon:trailing="chevron-down">
                     {{ $department ? ($departments->firstWhere('department_code', $department)?->name ?? 'Department') : 'All Departments' }}
                 </flux:button>
-
                 <flux:menu>
-                    <flux:menu.item wire:click="$set('department', '')">
-                        All Departments
-                    </flux:menu.item>
-
+                    <flux:menu.item wire:click="$set('department', '')">All Departments</flux:menu.item>
                     <flux:menu.separator />
-
                     @foreach($departments as $dept)
                         <flux:menu.item wire:click="$set('department', '{{ $dept->department_code }}')">
                             {{ $dept->name }}
@@ -75,37 +72,38 @@
                         </flux:table.cell>
                         <flux:table.cell align="end">
                             <div class="flex gap-2 justify-end">
-                                <flux:button icon="eye" wire:click="openEditModal('{{ $fc->faculty_id }}')" />
+                                <flux:modal.trigger name="edit-faculty-{{ $fc->faculty_id }}">
+                                    <flux:button icon="eye"
+                                        x-on:click="$flux.modal('edit-faculty-{{ $fc->faculty_id }}').show()" />
+                                </flux:modal.trigger>
                                 <flux:button icon="archive-box-arrow-down" variant="danger"
                                     x-on:click="$flux.modal('archive-faculty').show(); $wire.set('archivingId', '{{ $fc->faculty_id }}')" />
                             </div>
                         </flux:table.cell>
                     </flux:table.row>
+
+                    <flux:modal name="edit-faculty-{{ $fc->faculty_id }}"
+                        class="flex flex-col gap-4 p-4 rounded-lg bg-white dark:bg-zinc-800 border border-solid border-zinc-600">
+                        <livewire:pages.users.faculty-edit :faculty-id="$fc->faculty_id"
+                            wire:key="faculty-edit-{{ $fc->faculty_id }}" />
+                    </flux:modal>
+
                 @empty
                     <flux:table.row>
-                        <flux:table.cell colspan="6" align="center">
-                            No Faculty Found
-                        </flux:table.cell>
+                        <flux:table.cell colspan="6" align="center">No Faculty Found</flux:table.cell>
                     </flux:table.row>
                 @endforelse
             </flux:table.rows>
         </flux:table>
         <x-pagination :paginator="$faculties" />
     </div>
+
     <x-confirm-modal name="archive-faculty" title="Archive Faculty"
         description="This will remove them from the active faculty list. Continue?" confirm-label="Archive"
         confirm-variant="danger" confirm-action="archiveConfirmed" />
 
-    @if($showCreateModal)
-        <div class="flex gap-4" style="width: 25vw; z-index: 1000; position: absolute; top: 20%; left: 40%;">
-            <livewire:pages.users.faculty-create />
-        </div>
-    @endif
-
-    @if($showEditModal && $editingFacultyId)
-        <div class="flex gap-4" style="width: 25vw; z-index: 1000; position: absolute; top: 20%; left: 40%;">
-            <livewire:pages.users.faculty-edit :faculty-id="$editingFacultyId"
-                wire:key="faculty-edit-{{ $editingFacultyId }}" />
-        </div>
-    @endif
+    <flux:modal name="create-faculty"
+        class="flex flex-col gap-4 p-4 rounded-lg bg-white dark:bg-zinc-800 border border-solid border-zinc-600">
+        <livewire:pages.users.faculty-create />
+    </flux:modal>
 </div>

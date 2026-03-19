@@ -20,6 +20,16 @@ use Livewire\Attributes\Lazy;
     public $occupation;
 
     public $departments;
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="loadModal">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        HTML;
+    }
 
     protected $rules = [
         'faculty_id'    => 'required|string|max:50|unique:faculties,faculty_id',
