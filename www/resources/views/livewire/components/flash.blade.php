@@ -1,4 +1,4 @@
-<div style="background:transparent; position: absolute; bottom: 5px; right: 10px;">
+<div style="background:transparent; position: absolute; bottom: 5px; right: 10px; min-width: 100px; max-width: 500px;">
     @if(session()->has('success') || session()->has('error') || session()->has('message'))
         <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 5000)"
             x-transition:enter="transition ease-out duration-300"
@@ -8,7 +8,7 @@
             x-transition:leave-end="opacity-0">
 
             @if(session()->has('success'))
-                <flux:card class="flex gap-3 items-center border-l-4 border-green-500">
+                <flux:card class="flex gap-3 items-center border-l-4 border-green-500 w-fit">
                     <flux:icon.check-circle class="text-green-500 shrink-0" />
                     <flux:separator vertical />
                     <div class="flex flex-col flex-1">
@@ -20,7 +20,7 @@
             @endif
 
             @if(session()->has('message'))
-                <flux:card class="flex gap-3 items-center border-l-4 border-sky-500">
+                <flux:card class="flex gap-3 items-center border-l-4 border-sky-500 w-fit">
                     <flux:icon.information-circle class="text-sky-500 shrink-0" />
                     <flux:separator vertical />
                     <div class="flex flex-col flex-1">
@@ -32,7 +32,7 @@
             @endif
 
             @if(session()->has('error'))
-                <flux:card class="flex gap-3 items-center border-l-4 border-red-600">
+                <flux:card class="flex gap-3 items-center border-l-4 border-red-600 w-fit">
                     <flux:icon.x-circle class="text-red-600 shrink-0" />
                     <flux:separator vertical />
                     <div class="flex flex-col flex-1">

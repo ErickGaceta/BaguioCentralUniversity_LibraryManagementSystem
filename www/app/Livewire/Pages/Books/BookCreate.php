@@ -126,6 +126,19 @@ use Livewire\Attributes\Lazy;
         }
     }
 
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="w-full h-full flex justify-center items-center align-center">
+                <div class="loadModal">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        HTML;
+    }
+
     private function generateUniqueRefNumber(): string
     {
         do {

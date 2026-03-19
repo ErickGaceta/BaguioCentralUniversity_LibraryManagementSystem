@@ -1,11 +1,9 @@
 <div
-    class="flex flex-col gap-4 p-4 rounded-lg bg-white dark:bg-zinc-800 border border-solid border-zinc-600"
     style="width: 100%; max-width: 800px;"
     x-data="{ copyCount: $wire.entangle('copies') }"
 >
     <div class="flex justify-between items-center">
         <flux:heading size="lg">Edit Book</flux:heading>
-        <flux:button variant="ghost" size="sm" icon="x-mark" wire:click="closeModal" />
     </div>
 
     <flux:separator />

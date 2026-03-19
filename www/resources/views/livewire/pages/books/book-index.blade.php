@@ -9,7 +9,12 @@
         <div class="flex gap-4">
             <flux:input icon="magnifying-glass" type="search" wire:model.live="search" placeholder="Search books..." />
 
-            <flux:button wire:click="$toggle('showCreateModal')" icon="folder-plus" align="end" variant="primary" color="amber">Add Book</flux:button>
+            <flux:modal.trigger name="create-book">
+                <flux:button variant="primary" icon="folder-plus" color="amber" class="hover:opacity-90 transition shrink-0"
+                    x-on:click="$flux.modal('create-book').show()">
+                    Add Book
+                </flux:button>
+            </flux:modal.trigger>
             <flux:dropdown>
                 <flux:button icon:trailing="chevron-down">
                     {{ $department ? ($departments->firstWhere('department_code', $department)?->name ?? 'Department') : 'All Departments' }}
@@ -52,7 +57,9 @@
                         <flux:table.cell>{{ $book->copies }}</flux:table.cell>
                         <flux:table.cell align="end">
                             <div class="flex gap-2 justify-end">
-                                <flux:button icon="eye" wire:click="openEditModal({{ $book->id }})" />
+                                <flux:modal.trigger name="edit-book-{{ $book->id }}">
+                                    <flux:button icon="eye" x-on:click="$flux.modal('edit-book-{{ $book->id }}').show()" />
+                                </flux:modal.trigger>
                                 <flux:button icon="archive-box-arrow-down" variant="danger"
                                     x-on:click="$flux.modal('archive-book').show(); $wire.set('archivingId', {{ $book->id }})" />
                             </div>
@@ -73,17 +80,12 @@
         description="This will move the book to the archives. Continue?" confirm-label="Archive" confirm-variant="danger"
         confirm-action="archiveConfirmed" />
 
-    @if($showCreateModal)
-    <div class="flex gap-4" style="width: 25vw; z-index: 1000; position: absolute; top: 20%; left: 40%;">
-        <livewire:pages.books.book-create />
-    </div>
-    @endif
+    <flux:modal name="create-book" class="flex flex-col gap-4 p-4 rounded-lg bg-white dark:bg-zinc-800 border border-solid border-zinc-600">
+            <livewire:pages.books.book-create />
+    </flux:modal>
 
-    @if($showEditModal && $editingBookId)
-    <div class="flex gap-4" style="width: 25vw; z-index: 1000; position: absolute; top: 20%; left: 40%;">
-        <livewire:pages.books.book-edit
-            :book-id="$editingBookId"
-            wire:key="book-edit-{{ $editingBookId }}" />
-    </div>
-    @endif
+    <flux:modal name="edit-book-{{ $book->id }}"
+        class="flex flex-col gap-4 p-4 rounded-lg bg-white dark:bg-zinc-800 border border-solid border-zinc-600">
+            <livewire:pages.books.book-edit :book-id="$book->id" wire:key="book-edit-{{ $book->id }}" />
+    </flux:modal>
 </div>

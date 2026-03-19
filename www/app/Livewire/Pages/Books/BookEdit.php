@@ -48,6 +48,19 @@ use Livewire\Attributes\Lazy;
         'copies'           => 'required|integer|min:1|max:100',
     ];
 
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="w-full h-full flex justify-center items-center align-center">
+                <div class="loadModal">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        HTML;
+    }
+
     public function mount($bookId): void
     {
         $this->bookId      = $bookId;
@@ -134,8 +147,9 @@ use Livewire\Attributes\Lazy;
             return;
         }
 
-        $this->dispatch('open-book-catalog',
-            title:          $this->title,
+        $this->dispatch(
+            'open-book-catalog',
+            title: $this->title,
             existingCopies: $uncataloged,
             newCopiesCount: $newCopiesCount,
         );
@@ -196,7 +210,6 @@ use Livewire\Attributes\Lazy;
 
             session()->flash('success', 'Book updated successfully!');
             $this->dispatch('bookUpdated');
-
         } catch (\Exception $e) {
             DB::rollBack();
             $this->addError('general', 'Failed to update book: ' . $e->getMessage());

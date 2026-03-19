@@ -31,6 +31,19 @@ use Livewire\Attributes\Lazy;
         $this->borrowerId = '';
     }
 
+    public function placeholder()
+    {
+        return <<<'HTML'
+            <div class="w-full h-full flex justify-center items-center align-center">
+                <div class="loadModal">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        HTML;
+    }
+
     public function updatedBorrowerSearch($value)
     {
         // Clear results if search is too short
