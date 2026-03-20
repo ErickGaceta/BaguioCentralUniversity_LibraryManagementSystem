@@ -16,9 +16,6 @@ use Livewire\Attributes\Lazy;
     use WithPagination;
 
     public $perPage = 20;
-    public $showCreateModal = false;
-    public $showEditModal = false;
-    public $editingFacultyId = null;
 
     public $search = '';
     public string $department = '';
@@ -26,7 +23,7 @@ use Livewire\Attributes\Lazy;
     #[On('facultyCreated')]
     public function handleFacultyCreated()
     {
-        $this->closeCreateModal();
+        $this->dispatch('close-modal', name: 'create-faculty');
         session()->flash('message', 'Faculty has been added to the system.');
     }
 
@@ -37,12 +34,6 @@ use Livewire\Attributes\Lazy;
                 <span class="loader"></span>
             </div>
         HTML;
-    }
-
-    #[On('closeCreate')]
-    public function closeCreateModal()
-    {
-        $this->showCreateModal = false;
     }
 
     public ?string $archivingId = null;
@@ -56,29 +47,11 @@ use Livewire\Attributes\Lazy;
         $this->archivingId = null;
     }
 
-    public function openCreateModal()
-    {
-        $this->showCreateModal = true;
-    }
-
     #[On('facultyUpdated')]
-    public function handleFacultyEdited()
+    public function handleFacultyEdited(string $facultyId)
     {
-        $this->closeEditModal();
+        $this->dispatch('close-modal', name: 'edit-faculty-' . $facultyId);
         session()->flash('message', 'Faculty information has been updated.');
-    }
-
-    #[On('closeEdit')]
-    public function closeEditModal()
-    {
-        $this->showEditModal = false;
-        $this->editingFacultyId = null;
-    }
-
-    public function openEditModal($facultyId)
-    {
-        $this->editingFacultyId = $facultyId;
-        $this->showEditModal = true;
     }
 
     public function archiveFaculty($facultyId)
@@ -102,7 +75,6 @@ use Livewire\Attributes\Lazy;
             'middle_name'   => $faculty->middle_name,
             'last_name'     => $faculty->last_name,
             'department_id' => $faculty->department_id,
-            'occupation'    => $faculty->occupation,
             'archived_at'   => now(),
         ]);
 

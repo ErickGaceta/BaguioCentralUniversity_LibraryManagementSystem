@@ -36,16 +36,9 @@
                 @endforeach
             </flux:select>
 
-            <flux:input
-                wire:model="occupation"
-                label="Occupation"
-                placeholder="Enter occupation (e.g., Professor, Instructor)"
-                required />
-
             @error('first_name') <flux:error>{{ $message }}</flux:error> @enderror
             @error('last_name') <flux:error>{{ $message }}</flux:error> @enderror
             @error('department_id') <flux:error>{{ $message }}</flux:error> @enderror
-            @error('occupation') <flux:error>{{ $message }}</flux:error> @enderror
 
             <div class="flex gap-2 mt-4">
                 <flux:button type="submit" variant="primary" class="flex-1">Update Faculty</flux:button>

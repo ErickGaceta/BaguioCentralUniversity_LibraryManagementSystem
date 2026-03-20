@@ -87,7 +87,7 @@ use Livewire\Attributes\Lazy;
 
         if (!$this->hasChanges()) {
             session()->flash('info', 'No changes detected.');
-            $this->dispatch('studentUpdated');
+            $this->dispatch('studentUpdated', studentId: $this->studentId);
             return;
         }
 
@@ -106,7 +106,7 @@ use Livewire\Attributes\Lazy;
                 'ref_number'       => $this->generateUniqueRefNumber(),
             ]);
 
-            $this->dispatch('studentUpdated');
+            $this->dispatch('studentUpdated', studentId: $this->studentId);
         } catch (\Exception $e) {
             session()->flash('error', 'Failed to update student: ' . $e->getMessage());
         }

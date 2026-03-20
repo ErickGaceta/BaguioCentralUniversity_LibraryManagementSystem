@@ -1,4 +1,4 @@
-<div class="w-full flex flex-col gap-4 p-3">
+<div class="w-full flex flex-col gap-4 p-3" x-on:close-modal.window="$flux.modal($event.detail.name).close()">
     <x-flash />
 
     <div>
@@ -70,10 +70,10 @@
                         <flux:table.cell>{{ $st->year_level }}</flux:table.cell>
                         <flux:table.cell>
                             @php
-                                $activeBorrows = $st->borrows()
-                                    ->whereNull('date_returned')
-                                    ->with('copy.book')
-                                    ->get();
+    $activeBorrows = $st->borrows()
+        ->whereNull('date_returned')
+        ->with('copy.book')
+        ->get();
                             @endphp
                             @if($activeBorrows->isNotEmpty())
                                 <div class="flex flex-col gap-1">

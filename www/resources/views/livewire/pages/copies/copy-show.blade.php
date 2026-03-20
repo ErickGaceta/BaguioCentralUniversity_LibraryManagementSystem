@@ -5,8 +5,6 @@
 
     <flux:separator />
 
-    <x-flash />
-
     <div class="grid grid-cols-2 gap-4">
         <div class="flex flex-col gap-2">
             <flux:text><span class="font-semibold">Title:</span> {{ $copy->book->title }}</flux:text>
@@ -31,99 +29,103 @@
 
     @if($copy->status === 'Available')
 
-    <div class="flex flex-col gap-3">
-        <flux:heading size="sm">Issue this copy</flux:heading>
+        <div class="flex flex-col gap-3">
+            <flux:heading size="sm">Issue this copy</flux:heading>
 
-        <div class="flex gap-2">
-            <flux:button
-                size="sm"
-                variant="{{ $borrowerType === 'student' ? 'primary' : 'ghost' }}"
-                wire:click="$set('borrowerType', 'student')">
-                Student
-            </flux:button>
-            <flux:button
-                size="sm"
-                variant="{{ $borrowerType === 'faculty' ? 'primary' : 'ghost' }}"
-                wire:click="$set('borrowerType', 'faculty')">
-                Faculty
-            </flux:button>
-        </div>
+            <div class="flex gap-2">
+                <flux:button
+                    size="sm"
+                    variant="{{ $borrowerType === 'student' ? 'primary' : 'ghost' }}"
+                    wire:click="$set('borrowerType', 'student')">
+                    Student
+                </flux:button>
+                <flux:button
+                    size="sm"
+                    variant="{{ $borrowerType === 'faculty' ? 'primary' : 'ghost' }}"
+                    wire:click="$set('borrowerType', 'faculty')">
+                    Faculty
+                </flux:button>
+            </div>
 
-        <div class="flex gap-2 items-start">
-            <div class="flex flex-col gap-1 flex-1 relative">
-                <flux:input
-                    wire:model.live.debounce.300ms="borrowerSearch"
-                    placeholder="{{ $borrowerType === 'student' ? 'Search student by name or ID...' : 'Search faculty by name or ID...' }}"
-                    size="sm" />
+            <div class="flex gap-2 items-start">
+                <div class="flex flex-col gap-1 flex-1 relative">
+                    <flux:input
+                        wire:model.live.debounce.300ms="borrowerSearch"
+                        placeholder="{{ $borrowerType === 'student' ? 'Search student by name or ID...' : 'Search faculty by name or ID...' }}"
+                        size="sm" />
 
-                @error('borrowerId')
-                <flux:text class="text-red-500 text-xs">{{ $message }}</flux:text>
-                @enderror
+                    @error('borrowerId')
+                    <flux:text class="text-red-500 text-xs">{{ $message }}</flux:text>
+                    @enderror
 
-                @if($borrowerId && empty($borrowerResults))
-                <flux:text class="text-xs text-green-600 dark:text-green-400">
-                    Selected: {{ $borrowerId }}
-                </flux:text>
-                @endif
+                    @if($borrowerId && empty($borrowerResults))
+                    <flux:text class="text-xs text-green-600 dark:text-green-400">
+                        Selected: {{ $borrowerId }}
+                    </flux:text>
+                    @endif
 
-                @if(!empty($borrowerResults))
-                <div class="absolute z-50 w-full top-full mt-1 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 shadow-lg max-h-60 overflow-y-auto">
-                    @foreach($borrowerResults as $b)
-                    <button
-                        type="button"
-                        wire:click="selectBorrower('{{ $b['id'] }}')"
-                        class="w-full px-3 py-2 text-left hover:bg-zinc-100 dark:hover:bg-zinc-700 border-b border-zinc-200 dark:border-zinc-700 last:border-b-0">
-                        <div class="flex justify-between items-center">
-                            <span class="font-medium">{{ $b['full_name'] }}</span>
-                            <span class="text-sm text-zinc-500">{{ $b['id'] }}</span>
+                    @if(!empty($borrowerResults))
+                    <div class="absolute z-50 w-full top-full mt-1 border border-zinc-300 dark:border-zinc-600 rounded-lg bg-white dark:bg-zinc-800 shadow-lg max-h-60 overflow-y-auto">
+                        @foreach($borrowerResults as $b)
+                        <button
+                            type="button"
+                            wire:click="selectBorrower('{{ $b['id'] }}')"
+                            class="w-full px-3 py-2 text-left hover:bg-zinc-100 dark:hover:bg-zinc-700 border-b border-zinc-200 dark:border-zinc-700 last:border-b-0">
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium">{{ $b['full_name'] }}</span>
+                                <span class="text-sm text-zinc-500">{{ $b['id'] }}</span>
+                            </div>
+                        </button>
+                        @endforeach
+                    </div>
+                    @elseif(strlen($borrowerSearch) > 1 && empty($borrowerResults) && !$borrowerId)
+                        <div
+                            class="absolute z-50 w-full top-full mt-1 rounded-lg bg-white dark:bg-zinc-700 shadow-lg">
+                            <div class="flex items-center gap-2 px-3 py-2">
+                                <flux:icon.exclamation-triangle class="size-4 text-yellow-600 dark:text-yellow-400 shrink-0 mt-0.5" />
+                                <flux:separator vertical />
+                                <p class="text-xs text-amber-400 dark:text-amber-600 flex flex-col gap-1 text-center items-center align-center justify-center">
+                                    No {{ $borrowerType }} found matching "{{ $borrowerSearch }}".
+                                    <a href="{{ $borrowerType === 'student' ? route('users.students-index') : route('users.faculties-index') }}"
+                                        class="underline font-semibold" target="_blank">
+                                        Add new {{ $borrowerType }}
+                                    </a>
+                                </p>
+                            </div>
                         </div>
-                    </button>
-                    @endforeach
+                    @endif
                 </div>
-                @elseif(strlen($borrowerSearch) > 1 && empty($borrowerResults) && !$borrowerId)
-                <flux:callout variant="warning" class="mt-1" size="sm">
-                    <flux:callout.text class="text-xs">
-                        No {{ $borrowerType }} found matching "{{ $borrowerSearch }}".
-                        <a href="{{ $borrowerType === 'student' ? route('users.students-index') : route('users.faculties-index') }}"
-                            class="underline font-semibold"
-                            target="_blank">
-                            Add new {{ $borrowerType }}
-                        </a>
-                    </flux:callout.text>
-                </flux:callout>
-                @endif
-            </div>
 
-            <div class="flex flex-col gap-1 flex-1">
-                <flux:input
-                    type="date"
-                    wire:model="dueDate"
-                    min="{{ date('Y-m-d', strtotime('+1 day')) }}"
-                    size="sm" />
-                @error('dueDate')
-                <flux:text class="text-red-500 text-xs">{{ $message }}</flux:text>
-                @enderror
-            </div>
+                <div class="flex flex-col gap-1 flex-1">
+                    <flux:input
+                        type="date"
+                        wire:model="dueDate"
+                        min="{{ date('Y-m-d', strtotime('+1 day')) }}"
+                        size="sm" />
+                    @error('dueDate')
+                    <flux:text class="text-red-500 text-xs">{{ $message }}</flux:text>
+                    @enderror
+                </div>
 
-            <flux:button
-                size="sm"
-                variant="primary"
-                color="amber"
-                wire:click="borrow"
-                wire:loading.attr="disabled"
-                wire:target="borrow">
-                <span wire:loading.remove wire:target="borrow">Issue</span>
-                <span wire:loading wire:target="borrow">Issuing…</span>
-            </flux:button>
+                <flux:button
+                    size="sm"
+                    variant="primary"
+                    color="amber"
+                    wire:click="borrow"
+                    wire:loading.attr="disabled"
+                    wire:target="borrow">
+                    <span wire:loading.remove wire:target="borrow">Issue</span>
+                    <span wire:loading wire:target="borrow">Issuing…</span>
+                </flux:button>
+            </div>
         </div>
-    </div>
     @elseif($copy->status === 'Borrowed')
 
     @php
     $activeBorrow = $copy->studentBorrows->first() ?? $copy->facultyBorrows->first();
     $borrowerName = $activeBorrow?->student?->full_name
-    ?? $activeBorrow?->faculty?->full_name
-    ?? 'Unknown';
+        ?? $activeBorrow?->faculty?->full_name
+        ?? 'Unknown';
     $dueDate = $activeBorrow?->due_date?->format('M d, Y') ?? '—';
     $isOverdue = $activeBorrow?->due_date && $activeBorrow->due_date->isPast();
     @endphp
@@ -171,33 +173,33 @@
     @endif
 
     @php
-    $allBorrows = collect();
+$allBorrows = collect();
 
-    foreach($copy->studentBorrows as $b) {
+foreach ($copy->studentBorrows as $b) {
     $allBorrows->push([
-    'name' => $b->student?->full_name ?? '—',
-    'type' => 'Student',
-    'borrow_ref' => $b->ref_number,
-    'return_ref' => $b->return_ref_number,
-    'date_borrowed' => $b->date_borrowed,
-    'due_date' => $b->due_date,
-    'date_returned' => $b->date_returned,
+        'name' => $b->student?->full_name ?? '—',
+        'type' => 'Student',
+        'borrow_ref' => $b->ref_number,
+        'return_ref' => $b->return_ref_number,
+        'date_borrowed' => $b->date_borrowed,
+        'due_date' => $b->due_date,
+        'date_returned' => $b->date_returned,
     ]);
-    }
+}
 
-    foreach($copy->facultyBorrows as $b) {
+foreach ($copy->facultyBorrows as $b) {
     $allBorrows->push([
-    'name' => $b->faculty?->full_name ?? '—',
-    'type' => 'Faculty',
-    'borrow_ref' => $b->ref_number,
-    'return_ref' => $b->return_ref_number,
-    'date_borrowed' => $b->date_borrowed,
-    'due_date' => $b->due_date,
-    'date_returned' => $b->date_returned,
+        'name' => $b->faculty?->full_name ?? '—',
+        'type' => 'Faculty',
+        'borrow_ref' => $b->ref_number,
+        'return_ref' => $b->return_ref_number,
+        'date_borrowed' => $b->date_borrowed,
+        'due_date' => $b->due_date,
+        'date_returned' => $b->date_returned,
     ]);
-    }
+}
 
-    $allBorrows = $allBorrows->sortByDesc('date_borrowed');
+$allBorrows = $allBorrows->sortByDesc('date_borrowed');
     @endphp
 
     @if($allBorrows->isNotEmpty())
@@ -239,9 +241,9 @@
                     <div class="flex flex-col">
                         <flux:text>{{ $row['date_returned']->format('M d, Y') }}</flux:text>
                         @php
-                        $dueDate = \Carbon\Carbon::parse($row['due_date']);
-                        $returnDate = \Carbon\Carbon::parse($row['date_returned']);
-                        $wasOverdue = $returnDate->isAfter($dueDate);
+            $dueDate = \Carbon\Carbon::parse($row['due_date']);
+            $returnDate = \Carbon\Carbon::parse($row['date_returned']);
+            $wasOverdue = $returnDate->isAfter($dueDate);
                         @endphp
                         @if($wasOverdue)
                         <flux:badge color="red" size="xs">Was Overdue</flux:badge>

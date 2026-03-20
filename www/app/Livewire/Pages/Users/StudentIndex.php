@@ -17,9 +17,6 @@ use Livewire\Attributes\Lazy;
     use WithPagination;
 
     public $perPage = 20;
-    public $showCreateModal = false;
-    public $showEditModal = false;
-    public $editingStudentId = null;
 
     public $search = '';
     public string $department = '';
@@ -29,7 +26,7 @@ use Livewire\Attributes\Lazy;
     #[On('studentCreated')]
     public function handleStudentCreated()
     {
-        $this->closeCreateModal();
+        $this->dispatch('close-modal', name: 'create-student');
         session()->flash('message', 'Student has been added to the system.');
     }
 
@@ -53,35 +50,11 @@ use Livewire\Attributes\Lazy;
         HTML;
     }
 
-    #[On('closeCreate')]
-    public function closeCreateModal()
-    {
-        $this->showCreateModal = false;
-    }
-
-    public function openCreateModal()
-    {
-        $this->showCreateModal = true;
-    }
-
     #[On('studentUpdated')]
-    public function handleStudentEdited()
+    public function handleStudentEdited(string $studentId)
     {
-        $this->closeEditModal();
+        $this->dispatch('close-modal', name: 'edit-student-' . $studentId);
         session()->flash('message', 'Student information has been updated.');
-    }
-
-    #[On('closeEdit')]
-    public function closeEditModal()
-    {
-        $this->showEditModal = false;
-        $this->editingStudentId = null;
-    }
-
-    public function openEditModal($studentId)
-    {
-        $this->editingStudentId = $studentId;
-        $this->showEditModal = true;
     }
 
     public function archiveStudent($studentId)

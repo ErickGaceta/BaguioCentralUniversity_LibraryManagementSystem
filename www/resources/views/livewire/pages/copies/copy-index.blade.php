@@ -1,4 +1,4 @@
-<div class="w-full flex flex-col gap-4 p-3">
+<div class="w-full flex flex-col gap-4 p-3" x-on:close-modal.window="$flux.modal($event.detail.name).close()">
     <div style="position: fixed; bottom: 5px; right: 10px;" class="bg-white dark:bg-zinc-700 z-1000 rounded-sm">
         @if(session()->has('message'))
         <div x-data="{ show: true }"
@@ -75,17 +75,19 @@
                         </flux:table.cell>
                         <flux:table.cell> {{ $copy->course?->name ?? $copy->course_id ?? '—' }} </flux:table.cell>
                         <flux:table.cell>{{ $copy->condition ?? '—' }}</flux:table.cell>
+                        @php $studentBorrow = $copy->studentBorrows->first(); $facultyBorrow = $copy->facultyBorrows->first(); @endphp
                         <flux:table.cell>
-                            @php $studentBorrow = $copy->studentBorrows->first(); $facultyBorrow = $copy->facultyBorrows->first();
-                            @endphp
-
-                            @if($studentBorrow?->student)
-                                {{ $studentBorrow->student->full_name }} &mdash; Student
-                            @elseif($facultyBorrow?->faculty)
-                                {{ $facultyBorrow->faculty->full_name }} &mdash; Faculty
-                            @else
-                                &mdash;
-                            @endif
+                            <div class="flex flex-col">
+                                @if($studentBorrow?->student)
+                                    <span class="text-sm">{{ $studentBorrow->student->full_name }}</span>
+                                    <span class="text-xs text-zinc-500">Student</span>
+                                @elseif($facultyBorrow?->faculty)
+                                    <span class="text-sm">{{ $facultyBorrow->faculty->full_name }}</span>
+                                    <span class="text-xs text-zinc-500">Faculty</span>
+                                @else
+                                    &mdash;
+                                @endif
+                            </div>
                         </flux:table.cell>
 
                         <flux:table.cell align="end">
@@ -96,7 +98,7 @@
 
                     </flux:table.row>
 
-                    <flux:modal name="show-copy-{{ $copy->copy_id }}" class="flex flex-col gap-4 p-4 rounded-lg bg-white dark:bg-zinc-800 border border-solid border-zinc-600">
+                    <flux:modal name="show-copy-{{ $copy->copy_id }}" class="flex flex-col gap-4 p-4 rounded-lg bg-white dark:bg-zinc-800 border border-solid border-zinc-600 overflow-visible">
                         <livewire:pages.copies.copy-show :copy-id="$copy->copy_id" wire:key="copy-show-{{ $copy->copy_id }}" />
                     </flux:modal>
                 @empty

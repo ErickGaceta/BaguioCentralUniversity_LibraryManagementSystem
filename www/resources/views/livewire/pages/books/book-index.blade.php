@@ -1,4 +1,4 @@
-<div class="w-full flex flex-col gap-4 p-3">
+<div class="w-full flex flex-col gap-4 p-3" x-on:close-modal.window="$flux.modal($event.detail.name).close()">
     <x-flash />
     <div>
         <flux:heading size="xl">Book Browser</flux:heading>

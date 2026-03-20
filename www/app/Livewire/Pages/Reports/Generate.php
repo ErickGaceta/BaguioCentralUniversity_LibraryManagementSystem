@@ -19,8 +19,6 @@ use Livewire\Attributes\Lazy;
 {
     // ── Form state ────────────────────────────────────────────────────────────
 
-    public bool $showModal = false;
-
     public string $reportType  = '';
     public string $preset      = 'monthly';
 
@@ -72,24 +70,6 @@ use Livewire\Attributes\Lazy;
         $this->resolveRange();
     }
 
-    // ── Actions ───────────────────────────────────────────────────────────────
-
-    public function open(): void
-    {
-        $this->reset(['reportType', 'customFrom', 'customTo', 'resolvedFrom', 'resolvedTo']);
-        $this->preset  = 'monthly';
-        $this->year    = now()->year;
-        $this->month   = now()->month;
-        $this->quarter = (int) ceil(now()->month / 3);
-        $this->resolveRange();
-        $this->showModal = true;
-    }
-
-    public function close(): void
-    {
-        $this->showModal = false;
-    }
-
     public function generate(): void
     {
         $this->validate([
@@ -118,7 +98,7 @@ use Livewire\Attributes\Lazy;
             'total_records' => $total,
         ]);
 
-        $this->close();
+        $this->dispatch('close-modal', name: 'generate-report');
         $this->dispatch('report-generated', message: "Report \"{$title}\" generated successfully.");
         session()->flash('success', "Report \"{$title}\" generated successfully.");
     }

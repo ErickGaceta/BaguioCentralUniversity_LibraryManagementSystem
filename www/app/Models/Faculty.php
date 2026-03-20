@@ -17,7 +17,6 @@ class Faculty extends Model
         'middle_name',
         'last_name',
         'department_id',
-        'occupation',
     ];
 
     public function department()

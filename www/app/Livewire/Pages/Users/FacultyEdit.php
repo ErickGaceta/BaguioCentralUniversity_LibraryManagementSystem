@@ -18,7 +18,6 @@ use Livewire\Attributes\Lazy;
     public $middle_name;
     public $last_name;
     public $department_id = null;
-    public $occupation;
 
     public $originalData = [];
     public $departments;
@@ -38,7 +37,6 @@ use Livewire\Attributes\Lazy;
         'middle_name'   => 'nullable|string|max:255',
         'last_name'     => 'required|string|max:255',
         'department_id' => 'required|exists:departments,department_code',
-        'occupation'    => 'required|string|max:255',
     ];
 
     public function mount($facultyId)
@@ -51,14 +49,12 @@ use Livewire\Attributes\Lazy;
         $this->middle_name   = $this->faculty->middle_name;
         $this->last_name     = $this->faculty->last_name;
         $this->department_id = $this->faculty->department_id;
-        $this->occupation    = $this->faculty->occupation;
 
         $this->originalData = [
             'first_name'    => $this->first_name,
             'middle_name'   => $this->middle_name,
             'last_name'     => $this->last_name,
             'department_id' => $this->department_id,
-            'occupation'    => $this->occupation,
         ];
     }
 
@@ -68,7 +64,7 @@ use Livewire\Attributes\Lazy;
 
         if (!$this->hasChanges()) {
             session()->flash('info', 'No changes detected.');
-            $this->dispatch('facultyUpdated');
+            $this->dispatch('facultyUpdated', facultyId: $this->facultyId);
             return;
         }
 
@@ -78,7 +74,6 @@ use Livewire\Attributes\Lazy;
                 'middle_name'   => $this->middle_name,
                 'last_name'     => $this->last_name,
                 'department_id' => $this->department_id,
-                'occupation'    => $this->occupation,
             ]);
 
             LibraryTransaction::create([
@@ -86,7 +81,7 @@ use Livewire\Attributes\Lazy;
                 'ref_number'       => $this->generateUniqueRefNumber(),
             ]);
 
-            $this->dispatch('facultyUpdated');
+            $this->dispatch('facultyUpdated', facultyId: $this->facultyId);
         } catch (\Exception $e) {
             session()->flash('error', 'Failed to update faculty: ' . $e->getMessage());
         }

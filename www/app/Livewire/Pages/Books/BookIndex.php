@@ -31,7 +31,7 @@ use Livewire\Attributes\Lazy;
     #[On('bookCreated')]
     public function handleBookCreated()
     {
-        $this->closeCreateModal();
+        $this->dispatch('close-modal', name: 'create-book');
         session()->flash('message', 'Book has been added to the library.');
     }
 
@@ -72,7 +72,7 @@ use Livewire\Attributes\Lazy;
     #[On('bookUpdated')]
     public function handleBookEdited()
     {
-        $this->closeEditModal();
+        $this->dispatch('close-modal', name: 'edit-book-' . $this->editingBookId);
         session()->flash('message', 'Book changes have been saved.');
     }
 

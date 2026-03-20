@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-4 p-4">
+<div class="flex flex-col gap-4 p-4" x-on:close-modal.window="$flux.modal($event.detail.name).close()">
 
     <div class="flex flex-col">
         <div>
@@ -53,15 +53,15 @@
 
                                 <flux:table.cell>
                                     @php
-                                    $badgeColor = match ($report->report_type) {
-                                        'issuance' => 'blue',
-                                        'book_added' => 'green',
-                                        'book_archived' => 'yellow',
-                                        'fines_student' => 'orange',
-                                        'fines_faculty' => 'purple',
-                                        'fines_both' => 'red',
-                                        default => 'zinc',
-                                    };
+    $badgeColor = match ($report->report_type) {
+        'issuance' => 'blue',
+        'book_added' => 'green',
+        'book_archived' => 'yellow',
+        'fines_student' => 'orange',
+        'fines_faculty' => 'purple',
+        'fines_both' => 'red',
+        default => 'zinc',
+    };
                                     @endphp
                                     <flux:badge color="{{ $badgeColor }}" size="sm">
                                         {{ $report->getTypeLabel() }}

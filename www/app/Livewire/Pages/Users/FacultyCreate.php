@@ -17,7 +17,6 @@ use Livewire\Attributes\Lazy;
     public $middle_name;
     public $last_name;
     public $department_id = null;
-    public $occupation;
 
     public $departments;
     public function placeholder()
@@ -37,7 +36,6 @@ use Livewire\Attributes\Lazy;
         'middle_name'   => 'nullable|string|max:255',
         'last_name'     => 'required|string|max:255',
         'department_id' => 'required|exists:departments,department_code',
-        'occupation'    => 'required|string|max:255',
     ];
 
     public function mount()
@@ -56,7 +54,6 @@ use Livewire\Attributes\Lazy;
                 'middle_name'   => $this->middle_name,
                 'last_name'     => $this->last_name,
                 'department_id' => $this->department_id,
-                'occupation'    => $this->occupation,
             ]);
 
             $refNumber = $this->generateUniqueRefNumber();
@@ -72,7 +69,6 @@ use Livewire\Attributes\Lazy;
                 'middle_name',
                 'last_name',
                 'department_id',
-                'occupation',
             ]);
 
             $this->dispatch('facultyCreated');

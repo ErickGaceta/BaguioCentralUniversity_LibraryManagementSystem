@@ -1,4 +1,4 @@
-<div class="w-full flex flex-col gap-4 p-3">
+<div class="w-full flex flex-col gap-4 p-3" x-on:close-modal.window="$flux.modal($event.detail.name).close()">
     <x-flash />
 
     <div>
@@ -39,7 +39,6 @@
                 <flux:table.column>Faculty ID</flux:table.column>
                 <flux:table.column>Full Name</flux:table.column>
                 <flux:table.column>Department</flux:table.column>
-                <flux:table.column>Occupation</flux:table.column>
                 <flux:table.column>Active Issuance</flux:table.column>
                 <flux:table.column></flux:table.column>
             </flux:table.columns>
@@ -50,13 +49,12 @@
                         <flux:table.cell>{{ $fc->faculty_id }}</flux:table.cell>
                         <flux:table.cell>{{ $fc->full_name }}</flux:table.cell>
                         <flux:table.cell>{{ $fc->department->name ?? 'N/A' }}</flux:table.cell>
-                        <flux:table.cell>{{ $fc->occupation }}</flux:table.cell>
                         <flux:table.cell>
                             @php
-                                $activeBorrows = $fc->borrows()
-                                    ->whereNull('date_returned')
-                                    ->with('copy.book')
-                                    ->get();
+    $activeBorrows = $fc->borrows()
+        ->whereNull('date_returned')
+        ->with('copy.book')
+        ->get();
                             @endphp
                             @if($activeBorrows->isNotEmpty())
                                 <div class="flex flex-col gap-1">

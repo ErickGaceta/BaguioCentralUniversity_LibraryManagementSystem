@@ -149,7 +149,7 @@ use Livewire\Attributes\Lazy;
 
             $this->reset(['borrowerId', 'dueDate', 'borrowerSearch', 'borrowerResults']);
             $this->activeTab = 'info';
-            $this->dispatch('copyUpdated');
+            $this->dispatch('copyUpdated', copyId: $this->copyId);
 
             session()->flash('message', 'Copy has been marked as borrowed.');
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException) {
@@ -185,7 +185,7 @@ use Livewire\Attributes\Lazy;
 
             $this->reset(['returnCondition']);
             $this->activeTab = 'info';
-            $this->dispatch('copyUpdated');
+            $this->dispatch('copyUpdated', copyId: $this->copyId);
 
             session()->flash('message', 'Copy has been returned and marked as available.');
         } catch (\LogicException $e) {

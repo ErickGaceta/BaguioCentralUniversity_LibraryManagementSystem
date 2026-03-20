@@ -1,4 +1,4 @@
-<div>
+<div x-on:close-modal.window="$flux.modal($event.detail.name).close()">
     <flux:header container>
         <flux:heading size="xl">Faculty Fines Management</flux:heading>
         <flux:subheading>

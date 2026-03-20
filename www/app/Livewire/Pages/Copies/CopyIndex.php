@@ -16,8 +16,6 @@ use Livewire\Attributes\Lazy;
     use WithPagination;
 
     public $perPage = 20;
-    public $showEditModal = false;
-    public $editingCopyId = null;
 
     public string $search = '';
     public string $courseFilter = '';
@@ -25,9 +23,9 @@ use Livewire\Attributes\Lazy;
     // ── Event listeners ───────────────────────────────────────────────────────
 
     #[On('copyUpdated')]
-    public function handleCopyUpdated(): void
+    public function handleCopyUpdated(string $copyId): void
     {
-        $this->closeEditModal();
+        $this->dispatch('close-modal', name: 'show-copy-' . $copyId);
         session()->flash('message', 'Copy has been updated.');
     }
 
@@ -38,21 +36,6 @@ use Livewire\Attributes\Lazy;
                 <span class="loader"></span>
             </div>
         HTML;
-    }
-
-    #[On('closeEdit')]
-    public function closeEditModal(): void
-    {
-        $this->showEditModal = false;
-        $this->editingCopyId = null;
-    }
-
-    // ── Modal actions ─────────────────────────────────────────────────────────
-
-    public function openEditModal(string $copyId): void
-    {
-        $this->editingCopyId = $copyId;
-        $this->showEditModal = true;
     }
 
     // ── Pagination reset ──────────────────────────────────────────────────────

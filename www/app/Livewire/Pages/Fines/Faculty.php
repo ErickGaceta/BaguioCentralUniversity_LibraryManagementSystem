@@ -107,7 +107,7 @@ use Livewire\Attributes\Lazy;
     {
         $this->fineToPayId = null;
         $this->paymentAmount = null;
-        $this->dispatch('close-payment-modal');
+        $this->dispatch('close-modal', name: 'payment');
     }
 
     public function markAsPaid()

@@ -28,8 +28,6 @@ use Livewire\Attributes\Lazy;
         session()->flash('success', 'Report deleted.');
     }
 
-    public bool $showGenerateModal = false;
-
     protected $listeners = ['report-generated' => 'onReportGenerated'];
 
     public function onReportGenerated(string $message): void

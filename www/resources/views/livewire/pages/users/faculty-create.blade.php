@@ -42,17 +42,10 @@
                 @endforeach
             </flux:select>
 
-            <flux:input
-                wire:model="occupation"
-                label="Occupation"
-                placeholder="Enter occupation (e.g., Professor, Instructor)"
-                required />
-
             @error('faculty_id') <flux:error>{{ $message }}</flux:error> @enderror
             @error('first_name') <flux:error>{{ $message }}</flux:error> @enderror
             @error('last_name') <flux:error>{{ $message }}</flux:error> @enderror
             @error('department_id') <flux:error>{{ $message }}</flux:error> @enderror
-            @error('occupation') <flux:error>{{ $message }}</flux:error> @enderror
 
             <flux:button type="submit" variant="primary" class="mt-4">Save Faculty</flux:button>
         </div>
