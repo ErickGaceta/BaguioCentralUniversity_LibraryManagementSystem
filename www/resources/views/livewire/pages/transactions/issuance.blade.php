@@ -1,7 +1,7 @@
 <div class="w-full flex flex-col gap-4 p-3">
     <x-flash />
     <div>
-        <flux:heading size="xl">Library Transactions</flux:heading>
+        <flux:heading size="xl">Issuance Transactions</flux:heading>
         <flux:text>A table for the transactions made by the librarian <flux:text size="xs">(Borrow and Return)
             </flux:text>
         </flux:text>
