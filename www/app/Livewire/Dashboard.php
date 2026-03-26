@@ -17,6 +17,9 @@ use Livewire\Attributes\Lazy;
 
 #[Lazy] class Dashboard extends Component
 {
+    public array $weeklyLabels   = [];
+    public array $weeklyIssued   = [];
+    public array $weeklyReturned = [];
     public $stats = [];
     public $recentTransactions = [];
 
@@ -24,9 +27,11 @@ use Livewire\Attributes\Lazy;
     {
         $this->loadStats();
         $this->loadRecentTransactions();
+        $this->loadWeeklyStats();
     }
 
-    public function placeholder(){
+    public function placeholder()
+    {
         return <<<'HTML'
             <div class="w-full h-full flex justify-center items-center align-center">
                 <span class="loader"></span>
@@ -34,19 +39,50 @@ use Livewire\Attributes\Lazy;
         HTML;
     }
 
+    protected function loadWeeklyStats(): void
+    {
+        for ($i = 6; $i >= 0; $i--) {
+            $day = Carbon::today()->subDays($i);
+            $dateStr = $day->toDateString();
+
+            $this->weeklyLabels[] = $day->format('D, M j');
+
+            $this->weeklyIssued[] =
+                StudentBorrow::whereDate('date_borrowed', $dateStr)->count() +
+                FacultyBorrow::whereDate('date_borrowed', $dateStr)->count();
+
+            $this->weeklyReturned[] =
+                StudentBorrow::whereNotNull('date_returned')
+                ->whereDate('date_returned', $dateStr)->count() +
+                FacultyBorrow::whereNotNull('date_returned')
+                ->whereDate('date_returned', $dateStr)->count();
+        }
+    }
+
     protected function loadStats(): void
     {
+        $now = now();
+        $studentBorrowStats = StudentBorrow::selectRaw("
+            COUNT(CASE WHEN date_returned IS NULL THEN 1 END) as issued,
+            COUNT(CASE WHEN date_returned IS NULL AND due_date < ? THEN 1 END) as overdue
+        ", [$now])->first();
+
+                $facultyBorrowStats = FacultyBorrow::selectRaw("
+            COUNT(CASE WHEN date_returned IS NULL THEN 1 END) as issued,
+            COUNT(CASE WHEN date_returned IS NULL AND due_date < ? THEN 1 END) as overdue
+        ", [$now])->first();
+
         $this->stats = [
             'total_books'     => Book::count(),
             'total_students'  => Student::count(),
             'total_faculties' => Faculty::count(),
-            'total_fines'     => StudentFine::sum('amount') + FacultyFine::sum('amount'),
-            'books_issued'    => StudentBorrow::whereNull('date_returned')->count()
-                + FacultyBorrow::whereNull('date_returned')->count(),
-            'overdue_books'   => StudentBorrow::where('due_date', '<', now()->toDateString())
-                ->whereNull('date_returned')->count()
-                + FacultyBorrow::where('due_date', '<', now()->toDateString())
-                ->whereNull('date_returned')->count(),
+
+            'total_fines' => StudentFine::sum('amount')
+                + FacultyFine::sum('amount'),
+
+            'books_issued' => $studentBorrowStats->issued + $facultyBorrowStats->issued,
+
+            'overdue_books' => $studentBorrowStats->overdue + $facultyBorrowStats->overdue,
         ];
     }
 
@@ -145,7 +181,6 @@ use Livewire\Attributes\Lazy;
                 ->where('transaction_name', 'Archive Student')
                 ->get(),
 
-            // ── Faculty ──────────────────────────────────────────────────────────────
             DB::table('library_transactions')
                 ->select(
                     DB::raw("'Add Faculty' as transaction_name"),
@@ -174,7 +209,6 @@ use Livewire\Attributes\Lazy;
                 ->get(),
         ];
 
-        // Merge all collections
         $this->recentTransactions = collect($collections)
             ->flatten(1)
             ->sortByDesc(fn($tx) => Carbon::parse($tx->date)->timestamp)
