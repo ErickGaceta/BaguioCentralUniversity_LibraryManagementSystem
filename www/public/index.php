@@ -3,6 +3,12 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 
+file_put_contents(
+    (getenv('APPDATA') ?: sys_get_temp_dir()) . '/BCULMS/raw.log',
+    'Reached point X' . PHP_EOL,
+    FILE_APPEND
+);
+
 if (!defined('APP_WARMED')) {
     define('APP_WARMED', true);
     // Fire a background warmup request without waiting

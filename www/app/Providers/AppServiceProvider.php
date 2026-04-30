@@ -5,6 +5,7 @@ namespace App\Providers;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 
@@ -23,9 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        DB::statement('PRAGMA journal_mode=WAL;');
-        DB::statement('PRAGMA synchronous=NORMAL;');
-        DB::statement('PRAGMA cache_size=10000;');
+        Log::info('AppServiceProvider boot');
+
         $this->configureDefaults();
     }
 

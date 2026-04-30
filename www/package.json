@@ -17,6 +17,19 @@
         "tailwindcss": "^4.1.18",
         "vite": "^7.0.4"
     },
+    "build": {
+        "win": {
+            "icon": "resources/icon.ico",
+            "target": [
+                {
+                    "target": "portable",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ]
+        }
+    },
     "optionalDependencies": {
         "@rollup/rollup-linux-x64-gnu": "4.9.5",
         "@tailwindcss/oxide-linux-x64-gnu": "^4.0.1",

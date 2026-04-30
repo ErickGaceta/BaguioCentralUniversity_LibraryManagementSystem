@@ -11,17 +11,7 @@ return [
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
-            'database' => env('DB_DATABASE', function () {
-                $home = $_SERVER['HOME'] ?? $_SERVER['USERPROFILE'] ?? getenv('HOME') ?: getenv('USERPROFILE');
-                $dbPath = $home . DIRECTORY_SEPARATOR . 'Documents' . DIRECTORY_SEPARATOR . 'BCULMS' . DIRECTORY_SEPARATOR . 'library.sqlite';
-
-                $dir = dirname($dbPath);
-                if (!file_exists($dir)) {
-                    mkdir($dir, 0755, true);
-                }
-
-                return $dbPath;
-            }),
+            'database' => env('DB_DATABASE', database_path('library.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
             'busy_timeout' => null,
@@ -111,7 +101,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug((string) env('APP_NAME', 'laravel')).'-database-'),
+            'prefix' => env('REDIS_PREFIX', Str::slug((string) env('APP_NAME', 'laravel')) . '-database-'),
             'persistent' => env('REDIS_PERSISTENT', false),
         ],
 
